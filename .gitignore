@@ -32,4 +32,4 @@ out/
 .vscode/
 
 #file cấu hình
-.env
+/dev.env
