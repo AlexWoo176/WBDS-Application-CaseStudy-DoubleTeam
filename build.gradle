@@ -19,23 +19,37 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
+//    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'mysql:mysql-connector-java'
+//    runtimeOnly 'mysql:mysql-connector-java'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'org.springframework.security:spring-security-test'
+
+//    //Twillio-SMS
+//    // https://mvnrepository.com/artifact/com.twilio.sdk/twilio
+//    compile group: 'com.twilio.sdk', name: 'twilio', version: '7.42.0'
+//    // https://mvnrepository.com/artifact/com.restfb/restfb
+//    compile group: 'com.restfb', name: 'restfb', version: '3.0.0-rc.1'
+//
+//    // https://mvnrepository.com/artifact/org.apache.httpcomponents/fluent-hc
+//    compile group: 'org.apache.httpcomponents', name: 'fluent-hc', version: '4.5.10'
+//    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore
+//    compile group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.12'
+//    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+//    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.10'
+//    implementation 'org.apache.commons:commons-lang3'
 }
 
 test {
