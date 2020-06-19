@@ -33,3 +33,4 @@ out/
 
 #file cấu hình
 .env
+/dev.env
