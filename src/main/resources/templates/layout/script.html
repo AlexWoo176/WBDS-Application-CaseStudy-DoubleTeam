@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <script th:fragment="script">
+            regexp = /"<\s*p[^>]*>/;
+            regexp1 = /<\s*\/\s*p>"/;
+            var toolbarOptions = [
+                ['bold', 'italic', 'underline', 'strike'],
+                ['blockquote', 'code-block'],
+                [{'header': 1}, {'header': 2}],
+                [{'list': 'ordered'}, {'list': 'bullet'}],
+                [{'script': 'sub'}, {'script': 'super'}],
+                [{'indent': '-1'}, {'indent': '+1'}],
+                [{'direction': 'rtl'}],
+                [{'size': ['small', false, 'large', 'huge']}],
+                ['link', 'image', 'video', 'formula'],
+                [{'color': []}, {'background': []}],
+                [{'font': []}],
+                [{'align': []}]
+            ];
+            var options = {
+                debug: 'info',
+                modules: {
+                    toolbar: toolbarOptions
+                },
+                placeholder: 'Type in here',
+                readOnly: false,
+                theme: 'snow'
+            };
+            var editor = new Quill('#editor', options);
+            var form = document.querySelector('form');
+            form.onsubmit = function () {
+                var contentDelta = document.querySelector('input[name=contentDelta]');
+                contentDelta.value = JSON.stringify(editor.getContents());
+                var contentHtml = document.querySelector('input[name=contentHtml]');
+                contentHtml.value = JSON.stringify(quillGetHTML(editor.getContents()));
+                contentHtml.value = contentHtml.value.replace(regexp, "");
+                contentHtml.value = contentHtml.value.replace(regexp1, "");
+
+                console.log("Submitted", $(form).serialize(), $(form).serializeArray());
+
+                alert('Open the console to see the submit data!');
+                return false;
+            };
+
+            function quillGetHTML(inputDelta) {
+                var tempCont = document.createElement("div");
+                (new Quill(tempCont)).setContents(inputDelta);
+                return tempCont.getElementsByClassName("ql-editor")[0].innerHTML;
+            }
+        </script>
+    </body>
+</html>

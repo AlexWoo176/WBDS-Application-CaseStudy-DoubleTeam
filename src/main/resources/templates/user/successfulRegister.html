@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/head::head">
+
+    <title>Registration Success</title>
+</head>
+<div class="start">
+    <form th:action="@{/sendOTP}" th:object="${participant}" method="post">
+        <div>
+            <span th:text="'A verification email has been sent to: ' + ${email}"></span>
+        </div>
+        <input type="submit" value="Send SMS">
+    </form>
+</div>
+<body>
+</body>
+</html>
