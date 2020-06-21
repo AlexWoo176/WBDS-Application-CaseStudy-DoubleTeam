@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Elearn</title>
 <meta charset="utf-8">
@@ -34,10 +33,10 @@
 								<ul class="top_bar_contact_list">
 									<li><div class="question">Have any questions?</div></li>
 									<li>
-										<div>(009) 35475 6688933 32</div>
+										<div>(+84) 946 211 765</div>
 									</li>
 									<li>
-										<div>info@elaerntemplate.com</div>
+										<div>doubleteamc0220h1@gmail.com</div>
 									</li>
 								</ul>
 								<div class="top_bar_login ml-auto">
@@ -60,21 +59,24 @@
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo_container">
-								<a href="#">
+								<a th:href="@{/}">
 									<div class="logo_content d-flex flex-row align-items-end justify-content-start">
-										<div class="logo_img"><img src="/assets/images/logo.png" alt=""></div>
-										<div class="logo_text">learn</div>
+<!--										sửa link logo-->
+										<div class="logo_img"><img width="150" height="auto" src="/assets/images/logoDBT2.png" alt=""></div>
+<!--										<div class="logo_text">learn</div>-->
 									</div>
 								</a>
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li class="active"><a href="#">home</a></li>
-									<li><a href="about.html">about us</a></li>
-									<li><a href="courses.html">courses</a></li>
+									<li class="active"><a th:href="@{/}">home</a></li>
+									<li><a th:href="@{/about}">about us</a></li>
+									<li><a th:href="@{/lesson}">lesson</a></li>
 									<li><a href="news.html">news</a></li>
 									<li><a href="contact.html">contact</a></li>
+									<li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> | <img width="25" src="/assets/images/VN.jpg" alt=""></li>
 								</ul>
+<!--								<div><img width="25" src="/assets/images/EN.jpg" alt=""> | <img width="25" src="/assets/images/VN.jpg" alt=""></div>-->
 								<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
 								<!-- Hamburger -->
@@ -124,7 +126,7 @@
 		<nav class="menu_nav">
 			<ul class="menu_mm">
 				<li class="menu_mm"><a href="index.html">Home</a></li>
-				<li class="menu_mm"><a href="courses.html">Courses</a></li>
+				<li class="menu_mm"><a href="lesson.html">Courses</a></li>
 				<li class="menu_mm"><a href="instructors.html">Instructors</a></li>
 				<li class="menu_mm"><a href="#">Events</a></li>
 				<li class="menu_mm"><a href="blog.html">Blog</a></li>
@@ -132,9 +134,9 @@
 			</ul>
 		</nav>
 		<div class="menu_extra">
-			<div class="menu_phone"><span class="menu_title">phone:</span>(009) 35475 6688933 32</div>
+			<div class="menu_phone"><span class="menu_title">phone:</span>(+84) 946 211 765</div>
 			<div class="menu_social">
-				<span class="menu_title">follow us</span>
+				<span class="menu_title">follow vn</span>
 				<ul>
 					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
 					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -156,21 +158,22 @@
 				<!-- Slider Item -->
 				<div class="owl-item">
 					<!-- Background image artist https://unsplash.com/@benwhitephotography -->
-					<div class="home_slider_background" style="background-image:url(/assets/images/index.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(/assets/images/testImg.jpg)"></div>
 					<div class="home_container">
 						<div class="container">
 							<div class="row">
 								<div class="col">
 									<div class="home_content text-center">
-										<div class="home_logo"><img src="/assets/images/home_logo.png" alt=""></div>
+<!--										sửa link logo-->
+										<div class="home_logo"><img src="/assets/images/logoDBT.png" alt=""></div>
 										<div class="home_text">
 											<div class="home_title">Complete Online Courses</div>
 											<div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue ut, fermentum ipsum.</div>
 										</div>
-										<div class="home_buttons">
-											<div class="button home_button"><a href="#">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
-											<div class="button home_button"><a href="#">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
-										</div>
+<!--										<div class="home_buttons">-->
+<!--											<div class="button home_button"><a href="#">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>-->
+<!--											<div class="button home_button"><a href="#">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>-->
+<!--										</div>-->
 									</div>
 								</div>
 							</div>
@@ -187,15 +190,16 @@
 							<div class="row">
 								<div class="col">
 									<div class="home_content text-center">
-										<div class="home_logo"><img src="/assets/images/home_logo.png" alt=""></div>
+<!--										 sửa link logo-->
+										<div class="home_logo"><img src="/assets/images/logoDBT.png" alt=""></div>
 										<div class="home_text">
 											<div class="home_title">Complete Online Courses</div>
 											<div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue ut, fermentum ipsum.</div>
 										</div>
-										<div class="home_buttons">
-											<div class="button home_button"><a href="#">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
-											<div class="button home_button"><a href="#">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
-										</div>
+<!--										<div class="home_buttons">-->
+<!--											<div class="button home_button"><a href="#">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>-->
+<!--											<div class="button home_button"><a href="#">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>-->
+<!--										</div>-->
 									</div>
 								</div>
 							</div>
@@ -212,15 +216,16 @@
 							<div class="row">
 								<div class="col">
 									<div class="home_content text-center">
-										<div class="home_logo"><img src="/assets/images/home_logo.png" alt=""></div>
+<!--										 sửa link logo-->
+										<div class="home_logo"><img src="/assets/images/logoDBT.png" alt=""></div>
 										<div class="home_text">
 											<div class="home_title">Complete Online Courses</div>
 											<div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue ut, fermentum ipsum.</div>
 										</div>
-										<div class="home_buttons">
-											<div class="button home_button"><a href="#">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
-											<div class="button home_button"><a href="#">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>
-										</div>
+<!--										<div class="home_buttons">-->
+<!--											<div class="button home_button"><a href="#">learn more<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>-->
+<!--											<div class="button home_button"><a href="#">see all courses<div class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></div></a></div>-->
+<!--										</div>-->
 									</div>
 								</div>
 							</div>
@@ -251,7 +256,7 @@
 										<div class="featured_tag"><a href="#">Featured</a></div>
 										<div class="featured_price ml-auto">Price: <span>$35</span></div>
 									</div>
-									<div class="featured_title"><h3><a href="courses.html">Online Literature Course</a></h3></div>
+									<div class="featured_title"><h3><a href="lesson.html">Online Literature Course</a></h3></div>
 									<div class="featured_text">Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Donec vehicula efficitur nibh, in pretium nulla interdum non.</div>
 									<div class="featured_footer d-flex align-items-center justify-content-start">
 										<div class="featured_author_image"><img src="/assets/images/featured_author.jpg" alt=""></div>
@@ -308,7 +313,7 @@
 											<div class="course_tag"><a href="#">Featured</a></div>
 											<div class="course_price ml-auto">Price: <span>$35</span></div>
 										</div>
-										<div class="course_title"><h3><a href="courses.html">Online Literature Course</a></h3></div>
+										<div class="course_title"><h3><a href="lesson.html">Online Literature Course</a></h3></div>
 										<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 										<div class="course_footer d-flex align-items-center justify-content-start">
 											<div class="course_author_image"><img src="/assets/images/featured_author.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -328,7 +333,7 @@
 											<div class="course_tag"><a href="#">New</a></div>
 											<div class="course_price ml-auto">Price: <span>$35</span></div>
 										</div>
-										<div class="course_title"><h3><a href="courses.html">Social Media Course</a></h3></div>
+										<div class="course_title"><h3><a href="lesson.html">Social Media Course</a></h3></div>
 										<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 										<div class="course_footer d-flex align-items-center justify-content-start">
 											<div class="course_author_image"><img src="/assets/images/course_author_2.jpg" alt=""></div>
@@ -348,7 +353,7 @@
 											<div class="course_tag"><a href="#">Featured</a></div>
 											<div class="course_price ml-auto">Price: <span>$35</span></div>
 										</div>
-										<div class="course_title"><h3><a href="courses.html">Marketing Course</a></h3></div>
+										<div class="course_title"><h3><a href="lesson.html">Marketing Course</a></h3></div>
 										<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 										<div class="course_footer d-flex align-items-center justify-content-start">
 											<div class="course_author_image"><img src="/assets/images/course_author_3.jpg" alt=""></div>
@@ -409,7 +414,7 @@
 				<!-- Milestone -->
 				<div class="col-lg-3 milestone_col">
 					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="/assets/images/milestone_4.svg" alt=""></div>
+						<div class="milestone_icon"><img  src="/assets/images/milestone_4.svg" alt=""></div>
 						<div class="milestone_counter" data-end-value="39">0</div>
 						<div class="milestone_text">Countries</div>
 					</div>
@@ -646,8 +651,9 @@
 						<div class="logo_container">
 							<a href="#">
 								<div class="logo_content d-flex flex-row align-items-end justify-content-start">
-									<div class="logo_img"><img src="/assets/images/logo.png" alt=""></div>
-									<div class="logo_text">learn</div>
+<!--									đổi logo-->
+									<div class="logo_img"><img width="150"  src="/assets/images/logoDBT2.png" alt=""></div>
+<!--									<div class="logo_text">learn</div>-->
 								</div>
 							</a>
 						</div>
@@ -686,7 +692,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_links">
 						<div class="footer_title">Useful Links</div>
 						<ul class="footer_list">
-							<li><a href="courses.html">Courses</a></li>
+							<li><a href="lesson.html">Courses</a></li>
 							<li><a href="#">Events</a></li>
 							<li><a href="news.html">News</a></li>
 							<li><a href="#">Teachers</a></li>

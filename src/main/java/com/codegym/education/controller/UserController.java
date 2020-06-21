@@ -127,12 +127,12 @@ public class UserController {
         return modelAndView;
     }
 
-    @GetMapping(value = {"/index", "/"})
-    public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("participant", userService.getCurrentUser());
-        return modelAndView;
-    }
+//    @GetMapping(value = {"/index", "/"})
+//    public ModelAndView home() {
+//        ModelAndView modelAndView = new ModelAndView("index");
+//        modelAndView.addObject("participant", userService.getCurrentUser());
+//        return modelAndView;
+//    }
 
     @GetMapping("/newPassword/{id}")
     public ModelAndView showEditForm(@PathVariable Long id, @RequestParam("token") String confirmationToken) {
@@ -225,7 +225,7 @@ public class UserController {
         return "redirect:/index";
     }
 
-    @PostMapping("/login-google")
+    @RequestMapping(value="/login-google", method=RequestMethod.GET)
     public String loginGoogle(HttpServletRequest request) throws IOException {
         String code = request.getParameter("code");
 

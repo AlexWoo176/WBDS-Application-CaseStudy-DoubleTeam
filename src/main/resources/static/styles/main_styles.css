@@ -117,7 +117,7 @@ p a:hover::after
 }
 ::selection
 {
-	background: #ff8a00;
+	background: #BA4046;
 	color: #FFFFFF;
 }
 p::selection
@@ -252,7 +252,7 @@ section
 	display: inline-block;
 	width: auto;
 	height: 47px;
-	background: #ff8a00;
+	background: #BA4046;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -279,7 +279,7 @@ section
 	right: 0;
 	width: 44px;
 	height: 100%;
-	background: #ff6600;
+	background: #d45157;
 	text-align: center;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
@@ -291,7 +291,7 @@ section
 {
 	font-size: 20px;
 	line-height: 47px;
-	color: #ffae00;
+	color: #e25b61;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -300,15 +300,15 @@ section
 }
 .button:hover
 {
-	background: #ffae00;
+	background: #d45157;
 }
 .button:hover .button_arrow
 {
-	background: #ff8a00;
+	background: #BA4046;
 }
 .button:hover .button_arrow i
 {
-	color: #ffae00;
+	color: #d45157;
 }
 .section_title h2
 {
@@ -424,7 +424,7 @@ section
 }
 .top_bar_login ul li a:hover
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .top_bar_login ul li:not(:last-child)::after
 {
@@ -537,15 +537,15 @@ section
 .main_nav li.active a
 {
 	color: #FFFFFF;
-	background: #ff8a00;
+	background: #BA4046;
 }
 .main_nav li a:hover
 {
-	background: #ff8a00;
+	background: #BA4046;
 }
 .search_button
 {
-	margin-left: 88px;
+	margin-left: 20px;
 	cursor: pointer;
 }
 .search_button i
@@ -560,7 +560,7 @@ section
 }
 .search_button:hover i
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .header_search_form
 {
@@ -601,7 +601,7 @@ section
 	outline: none;
 	padding-left: 20px;
 	background: transparent;
-	border-bottom: solid 2px #ff8a00;
+	border-bottom: solid 2px #BA4046;
 	color: #FFFFFF;
 }
 .header_search_button
@@ -641,7 +641,7 @@ section
 }
 .hamburger:hover i
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 
 /*********************************
@@ -738,7 +738,7 @@ section
 }
 .menu_nav ul li a:hover
 {
-	color: #ff6600;
+	color: #BA4046;
 }
 .menu .search
 {
@@ -810,7 +810,7 @@ section
 }
 .menu .search_input:focus
 {
-	border-bottom: solid 2px #ff6600;
+	border-bottom: solid 2px #98252b;
 }
 .header_search_button
 {
@@ -840,7 +840,7 @@ section
 }
 .header_search_button:hover i
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .menu_extra
 {
@@ -884,7 +884,7 @@ section
 }
 .menu_social ul li a i:hover
 {
-	color: #ff6600;
+	color: #98252b;
 }
 
 /*********************************
@@ -975,7 +975,7 @@ section
 	top: 0px;
 	width: 103px;
 	height: 51px;
-	background: #ff9f40;
+	background: #BA4046;
 	z-index: 3;
 }
 .home_slider_nav
@@ -984,7 +984,7 @@ section
 	height: 51px;
 	line-height: 51px;
 	text-align: center;
-	background: #ff8a00;
+	background: #BA4046;
 	cursor: pointer;
 }
 .home_slider_nav i
@@ -994,7 +994,7 @@ section
 }
 .home_slider_nav:hover
 {
-	background: #ff6600;
+	background: #98252b;
 }
 
 /*********************************
@@ -1036,13 +1036,13 @@ section
 	bottom: 0;
 	width: 100%;
 	height: 3px;
-	background: #ff6600;
+	background: #BA4046;
 	content: '';
 }
 .featured_tag
 {
 	height: 31px;
-	background: #ff6600;
+	background: #BA4046;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1068,7 +1068,7 @@ section
 	display: inline-block;
 	position: relative;
 	font-size: 18px;
-	color: #ff6600;
+	color: #BA4046;
 	-webkit-transform: translateY(2px);
 	-moz-transform: translateY(2px);
 	-ms-transform: translateY(2px);
@@ -1091,7 +1091,7 @@ section
 }
 .featured_title h3 a:hover
 {
-	color: #ff6600;
+	color: #BA4046;
 }
 .featured_text
 {
@@ -1131,7 +1131,7 @@ section
 }
 .featured_author_name a:hover
 {
-	color: #ff6600;
+	color: #98252b;
 }
 .featured_background
 {
@@ -1171,7 +1171,7 @@ section
 	border: none;
 	outline: none;
 	cursor: pointer;
-	background: #ff8a00;
+	background: #BA4046;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1181,7 +1181,7 @@ section
 .course_button .button_arrow
 {
 	width: 47px;
-	background: #ff6600;
+	background: #98252b;
 }
 .course_button span:first-child
 {
@@ -1196,11 +1196,11 @@ section
 }
 .course_button:hover
 {
-	background: #ffae00;
+	background: #d45157;
 }
 .course_button:hover .button_arrow
 {
-	background: #ff8a00;
+	background: #BA4046;
 }
 .course_search_form > div
 {
@@ -1224,7 +1224,7 @@ section
 	bottom: 0;
 	width: 100%;
 	height: 3px;
-	background: #ff6600;
+	background: #d45157;
 	content: '';
 	visibility: hidden;
 	opacity: 0;
@@ -1259,9 +1259,9 @@ section
 	font-weight: 400 !important;
 	font-style: italic;
 	color: #6c6a74 !important;
-} 
+}
 .course_input:-ms-input-placeholder
-{ 
+{
 	font-size: 12px !important;
 	font-weight: 400 !important;
 	font-style: italic;
@@ -1291,7 +1291,7 @@ section
 .course_tag
 {
 	height: 31px;
-	background: #ff6600;
+	background: #98252b;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1318,7 +1318,7 @@ section
 	display: inline-block;
 	position: relative;
 	font-size: 18px;
-	color: #ff6600;
+	color: #98252b;
 	-webkit-transform: translateY(2px);
 	-moz-transform: translateY(2px);
 	-ms-transform: translateY(2px);
@@ -1342,7 +1342,7 @@ section
 }
 .course_title h3 a:hover
 {
-	color: #ff6600;
+	color: #98252b;
 }
 .course_text
 {
@@ -1382,7 +1382,7 @@ section
 }
 .course_author_name a:hover
 {
-	color: #ff6600;
+	color: #98252b;
 }
 .courses_slider_nav
 {
@@ -1390,13 +1390,13 @@ section
 	top: 50%;
 	width: 51px;
 	height: 51px;
-	background: #ff8a00;
+	background: #BA4046;
 	text-align: center;
 	cursor: pointer;
 }
 .courses_slider_nav:hover
 {
-	background: #ff6600;
+	background: #98252b;
 }
 .courses_slider_nav i
 {
@@ -1529,7 +1529,7 @@ section
 	right: 12px;
 	width: 23px;
 	height: 23px;
-	background: #ff6600;
+	background: #98252b;
 	content: '+';
 	font-size: 16px;
 	color: #FFFFFF;
@@ -1595,7 +1595,7 @@ section
 {
 	width: 63px;
 	height: 63px;
-	background: #ff6600;
+	background: #98252b;
 }
 .event_day
 {
@@ -1634,7 +1634,7 @@ section
 }
 .event_title a:hover
 {
-	color: #ff6600;
+	color: #98252b;
 }
 .event_subtitle
 {
@@ -1678,7 +1678,7 @@ section
 {
 	font-size: 12px;
 	font-weight: 600;
-	color: #ff5c00;
+	color: #98252b;
 	line-height: 0.75;
 }
 .news_post_title
@@ -1698,7 +1698,7 @@ section
 }
 .news_post_title a:hover
 {
-	color: #ff6600;
+	color: #98252b;
 }
 .news_post_author
 {
@@ -1718,7 +1718,7 @@ section
 }
 .news_post_author a:hover
 {
-	color: #ff6600;
+	color: #98252b;
 }
 
 /*********************************
@@ -1855,7 +1855,7 @@ section
 .footer_social ul li a i
 {
 	font-size: 16px;
-	color: #ff6600;
+	color: #98252b;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1864,7 +1864,7 @@ section
 }
 .footer_social ul li a i:hover
 {
-	color: #ffae00;
+	color: #d45157;
 }
 .copyright
 {
@@ -1900,7 +1900,7 @@ section
 }
 .footer_list li a:hover
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .footer_contact_info
 {
@@ -1915,7 +1915,7 @@ section
 {
 	font-size: 14px;
 	font-weight: 500;
-	color: #ff6600;
+	color: #98252b;
 }
 .footer_contact_line
 {

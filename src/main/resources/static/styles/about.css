@@ -112,7 +112,7 @@ p a:hover::after
 }
 ::selection
 {
-	background: #ff8a00;
+	background: #BA4046;
 	color: #FFFFFF;
 }
 p::selection
@@ -247,7 +247,7 @@ section
 	display: inline-block;
 	width: auto;
 	height: 47px;
-	background: #ff8a00;
+	background: #BA4046;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -274,7 +274,7 @@ section
 	right: 0;
 	width: 44px;
 	height: 100%;
-	background: #ff6600;
+	background: #98252B;
 	text-align: center;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
@@ -286,7 +286,7 @@ section
 {
 	font-size: 20px;
 	line-height: 47px;
-	color: #ffae00;
+	color: #D45157;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -295,15 +295,15 @@ section
 }
 .button:hover
 {
-	background: #ffae00;
+	background: #D45157;
 }
 .button:hover .button_arrow
 {
-	background: #ff8a00;
+	background: #BA4046;
 }
 .button:hover .button_arrow i
 {
-	color: #ffae00;
+	color: #D45157;
 }
 .section_title h2
 {
@@ -419,7 +419,7 @@ section
 }
 .top_bar_login ul li a:hover
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .top_bar_login ul li:not(:last-child)::after
 {
@@ -532,15 +532,15 @@ section
 .main_nav li.active a
 {
 	color: #FFFFFF;
-	background: #ff8a00;
+	background: #BA4046;
 }
 .main_nav li a:hover
 {
-	background: #ff8a00;
+	background: #BA4046;
 }
 .search_button
 {
-	margin-left: 88px;
+	margin-left: 20px;
 	cursor: pointer;
 }
 .search_button i
@@ -555,7 +555,7 @@ section
 }
 .search_button:hover i
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .header_search_form
 {
@@ -596,7 +596,7 @@ section
 	outline: none;
 	padding-left: 20px;
 	background: transparent;
-	border-bottom: solid 2px #ff8a00;
+	border-bottom: solid 2px #BA4046;
 	color: #FFFFFF;
 }
 .header_search_button
@@ -636,7 +636,7 @@ section
 }
 .hamburger:hover i
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 
 /*********************************
@@ -733,7 +733,7 @@ section
 }
 .menu_nav ul li a:hover
 {
-	color: #ff6600;
+	color: #98252B;
 }
 .menu .search
 {
@@ -805,7 +805,7 @@ section
 }
 .menu .search_input:focus
 {
-	border-bottom: solid 2px #ff6600;
+	border-bottom: solid 2px #98252B;
 }
 .header_search_button
 {
@@ -835,7 +835,7 @@ section
 }
 .header_search_button:hover i
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .menu_extra
 {
@@ -879,7 +879,7 @@ section
 }
 .menu_social ul li a i:hover
 {
-	color: #ff6600;
+	color: #98252B;
 }
 
 /*********************************
@@ -917,7 +917,7 @@ section
 {
 	display: inline-block;
 	position: relative;
-	color: #ff8a00;
+	color: #BA4046;
 	font-size: 12px;
 	font-weight: 600;
 }
@@ -933,7 +933,7 @@ section
 }
 .breadcrumbs ul li a:hover
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .breadcrumbs ul li:not(:last-child)::after
 {
@@ -1031,7 +1031,7 @@ section
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(255,138,0,0.2);
+	background: rgba(186, 64, 70, 0.32);
 	content: '';
 	visibility: hidden;
 	opacity: 0;
@@ -1066,7 +1066,7 @@ section
 }
 .teacher_title a:hover
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .teacher_subtitle
 {
@@ -1090,7 +1090,7 @@ section
 .teacher_social ul li a i
 {
 	font-size: 17px;
-	color: #ff6600;
+	color: #98252B;
 }
 .teachers_button
 {
@@ -1178,7 +1178,7 @@ section
 .footer_social ul li a i
 {
 	font-size: 16px;
-	color: #ff6600;
+	color: #98252B;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1187,7 +1187,7 @@ section
 }
 .footer_social ul li a i:hover
 {
-	color: #ffae00;
+	color: #D45157;
 }
 .copyright
 {
@@ -1223,7 +1223,7 @@ section
 }
 .footer_list li a:hover
 {
-	color: #ff8a00;
+	color: #BA4046;
 }
 .footer_contact_info
 {
@@ -1238,7 +1238,7 @@ section
 {
 	font-size: 14px;
 	font-weight: 500;
-	color: #ff6600;
+	color: #98252B;
 }
 .footer_contact_line
 {
