@@ -24,7 +24,7 @@ public class GoogleUtils {
     @Autowired
     private Environment env;
 
-    public String getToken(final String code) throws ClientProtocolException, IOException {
+    public String getToken(final String code) throws IOException {
         String link = env.getProperty("google.link.get.token");
         String response = Request.Post(link)
                 .bodyForm(Form.form().add("client_id", env.getProperty("google.app.id"))
@@ -36,11 +36,12 @@ public class GoogleUtils {
         JsonNode node = mapper.readTree(response).get("access_token");
         return node.textValue();
     }
-    public GooglePojo getUserInfo(final String accessToken) throws ClientProtocolException, IOException {
+    public GooglePojo getUserInfo(final String accessToken) throws IOException {
         String link = env.getProperty("google.link.get.user_info") + accessToken;
         String response = Request.Get(link).execute().returnContent().asString();
         ObjectMapper mapper = new ObjectMapper();
         GooglePojo googlePojo = mapper.readValue(response, GooglePojo.class);
+        System.out.println(googlePojo);
         return googlePojo;
     }
     public UserDetails buildUser(GooglePojo googlePojo) {

@@ -31,7 +31,6 @@ import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 @Controller
 public class UserController {
     private static final String USER_REGISTER = "user/register";
-
     private static final String ERROR_404 = "error-404";
     private static final String MESSAGE = "message";
     private static final String DEFAULT_ROLE = "ROLE_USER";
@@ -180,7 +179,6 @@ public class UserController {
         if (!user.isPresent()) {
             return new ModelAndView(ERROR_404);
         }
-
         ModelAndView modelAndView = new ModelAndView("user/view");
         modelAndView.addObject("participant", user);
         return modelAndView;
@@ -224,7 +222,7 @@ public class UserController {
         participant.setPassword(randomAlphabetic(8));
         userService.save(participant);
         model.addAttribute("participant", participant);
-        return "redirect:index";
+        return "redirect:/index";
     }
 
     @PostMapping("/login-google")
@@ -242,7 +240,7 @@ public class UserController {
                 userDetail.getAuthorities());
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return "redirect:index";
+        return "redirect:/index";
     }
 }
 
