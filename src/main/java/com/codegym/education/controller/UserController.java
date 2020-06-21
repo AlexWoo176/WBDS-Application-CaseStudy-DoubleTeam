@@ -128,12 +128,12 @@ public class UserController {
         return modelAndView;
     }
 
-    @GetMapping(value = {"/index", "/"})
-    public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("participant", userService.getCurrentUser());
-        return modelAndView;
-    }
+//    @GetMapping(value = {"/index", "/"})
+//    public ModelAndView home() {
+//        ModelAndView modelAndView = new ModelAndView("index");
+//        modelAndView.addObject("participant", userService.getCurrentUser());
+//        return modelAndView;
+//    }
 
     @GetMapping("/newPassword/{id}")
     public ModelAndView showEditForm(@PathVariable Long id, @RequestParam("token") String confirmationToken) {
