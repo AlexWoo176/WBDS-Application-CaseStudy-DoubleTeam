@@ -1,27 +1,24 @@
 package com.codegym.education.model;
 
 import lombok.Data;
-import org.hibernate.annotations.Table;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-public class Lesson {
+public class AppDoc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private String nameLesson;
+    String nameDocument;
     @Column(nullable = false)
-    private String titleLess;
+    String titleDocument;
     @Column(nullable = false)
-    private String contentLesson;
+    String imgDocument;
     @Column(nullable = false)
-    private String imgLesson;
-    @Column(nullable = false)
-    private String videoLesson;
+    String contentDocument;
 
-    public Lesson() {
+    public AppDoc() {
     }
 }

@@ -1,29 +1,25 @@
 package com.codegym.education.controller;
 
-import com.codegym.education.model.Document;
+import com.codegym.education.model.AppDoc;
 import com.codegym.education.model.Lesson;
-import com.codegym.education.repository.DocumentRepository;
 import com.codegym.education.service.UserService;
 import com.codegym.education.service.document.DocumentService;
 import com.codegym.education.service.lesson.LessonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
 
 @Controller
-public class MainController {
+public class HomeController {
 
     @Autowired
     private DocumentService documentService;
@@ -36,13 +32,23 @@ public class MainController {
 
     @GetMapping("/")
     public ModelAndView home(@PageableDefault(size = 6) Pageable pageable) {
-        Page<Lesson> listLessons = (Page<Lesson>) lessonService.findAll(pageable);
-        Page<Document> listDocuments = (Page<Document>) documentService.findAll(pageable);
+        Page<Lesson> listLessons = lessonService.findAll(pageable);
+        Page<AppDoc> listDocuments = documentService.findAll(pageable);
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("participant", userService.getCurrentUser());
         modelAndView.addObject("listLessons", listLessons);
         modelAndView.addObject("listDocuments", listDocuments);
         return modelAndView;
+    }
+
+    @GetMapping("/lesson")
+    public ModelAndView lesson (){
+        return new ModelAndView("lesson");
+    }
+
+    @GetMapping("/about")
+    public ModelAndView about (){
+        return new ModelAndView("about");
     }
 
     //xem chi tiet 1 phan
@@ -57,7 +63,7 @@ public class MainController {
     @GetMapping("/showDocument/{id}")
     public ModelAndView showDocument(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("showDocument");
-        Optional<Document> document = documentService.findById(id);
+        Optional<AppDoc> document = documentService.findById(id);
         return modelAndView;
     }
     // vao trang tong bai viet + tim kiem
@@ -79,7 +85,7 @@ public class MainController {
     @GetMapping("/showAllDocument")
     public ModelAndView showAllDocument(@PageableDefault(size = 10) Pageable pageable,
                                         @RequestParam("keyword") Optional<String> keyword) {
-        Page <Document> listDocuments;
+        Page <AppDoc> listDocuments;
         if(keyword.isPresent()){
             listDocuments = documentService.findByNameDocument(pageable,keyword);
         }else {

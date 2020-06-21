@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Courses</title>
 <meta charset="utf-8">
@@ -9,8 +9,8 @@
 <link rel="stylesheet" type="text/css" href="/assets/styles/bootstrap4/bootstrap.min.css">
 <link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="/assets/plugins/video-js/video-js.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="/assets/styles/courses.css">
-<link rel="stylesheet" type="text/css" href="/assets/styles/courses_responsive.css">
+<link rel="stylesheet" type="text/css" href="/assets/styles/lesson.css">
+<link rel="stylesheet" type="text/css" href="/assets/styles/lesson_responsive.css">
 </head>
 <body>
 
@@ -30,10 +30,10 @@
 								<ul class="top_bar_contact_list">
 									<li><div class="question">Have any questions?</div></li>
 									<li>
-										<div>(009) 35475 6688933 32</div>
+										<div>(+84) 946 211 765</div>
 									</li>
 									<li>
-										<div>info@elaerntemplate.com</div>
+										<div>doubleteamc0220h1@gmail.com</div>
 									</li>
 								</ul>
 								<div class="top_bar_login ml-auto">
@@ -58,18 +58,21 @@
 							<div class="logo_container">
 								<a href="#">
 									<div class="logo_content d-flex flex-row align-items-end justify-content-start">
-										<div class="logo_img"><img src="/assets/images/logo.png" alt=""></div>
-										<div class="logo_text">learn</div>
+<!--										Sửa logo-->
+										<div class="logo_img"><img width="150" src="/assets/images/logoDBT2.png" alt=""></div>
+<!--										<div class="logo_text">learn</div>-->
 									</div>
 								</a>
 							</div>
 							<nav class="main_nav_contaner ml-auto">
 								<ul class="main_nav">
-									<li><a href="index.html">home</a></li>
-									<li><a href="about.html">about us</a></li>
-									<li class="active"><a href="courses.html">courses</a></li>
+									<li><a th:href="@{/}">home</a></li>
+									<li><a th:href="@{/about}">about us</a></li>
+									<li class="active"><a th:href="@{/lesson}">lesson</a></li>
 									<li><a href="news.html">news</a></li>
 									<li><a href="contact.html">contact</a></li>
+									<li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> | <img width="25" src="/assets/images/VN.jpg" alt=""></li>
+
 								</ul>
 								<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
@@ -120,7 +123,7 @@
 		<nav class="menu_nav">
 			<ul class="menu_mm">
 				<li class="menu_mm"><a href="index.html">Home</a></li>
-				<li class="menu_mm"><a href="courses.html">Courses</a></li>
+				<li class="menu_mm"><a href="lesson.html">Courses</a></li>
 				<li class="menu_mm"><a href="instructors.html">Instructors</a></li>
 				<li class="menu_mm"><a href="#">Events</a></li>
 				<li class="menu_mm"><a href="blog.html">Blog</a></li>
@@ -128,7 +131,7 @@
 			</ul>
 		</nav>
 		<div class="menu_extra">
-			<div class="menu_phone"><span class="menu_title">phone:</span>(009) 35475 6688933 32</div>
+			<div class="menu_phone"><span class="menu_title">phone:</span>(+84) 946 211 765</div>
 			<div class="menu_social">
 				<span class="menu_title">follow us</span>
 				<ul>
@@ -154,7 +157,7 @@
 							<div class="home_title">About us</div>
 							<div class="breadcrumbs">
 								<ul>
-									<li><a href="index.html">Home</a></li>
+									<li><a th:href="@{/}">Home</a></li>
 									<li>About us</li>
 								</ul>
 							</div>
@@ -197,7 +200,7 @@
 							<div class="featured_tag"><a href="#">Featured</a></div>
 							<div class="featured_price ml-auto">Price: <span>$35</span></div>
 						</div>
-						<div class="featured_title"><h3><a href="courses.html">Online Literature Course</a></h3></div>
+						<div class="featured_title"><h3><a href="lesson.html">Online Literature Course</a></h3></div>
 						<div class="featured_text">Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Donec vehicula efficitur nibh, in pretium nulla interdum lacus vehicula efficitur nibh, in pretiumvehicula efficitur nibh, in pretium tempus non.</div>
 						<div class="featured_footer d-flex align-items-center justify-content-start">
 							<div class="featured_author_image"><img src="/assets/images/featured_author.jpg" alt=""></div>
@@ -222,7 +225,7 @@
 								<div class="course_tag"><a href="#">Featured</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Online Literature Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Online Literature Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/featured_author.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -242,7 +245,7 @@
 								<div class="course_tag"><a href="#">New</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Social Media Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Social Media Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/course_author_2.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -262,7 +265,7 @@
 								<div class="course_tag"><a href="#">Featured</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Online Marketing Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Online Marketing Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/course_author_3.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -282,7 +285,7 @@
 								<div class="course_tag"><a href="#">Featured</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Online Literature Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Online Literature Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/featured_author.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -302,7 +305,7 @@
 								<div class="course_tag"><a href="#">New</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Social Media Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Social Media Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/course_author_2.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -322,7 +325,7 @@
 								<div class="course_tag"><a href="#">Featured</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Online Marketing Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Online Marketing Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/course_author_3.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -342,7 +345,7 @@
 								<div class="course_tag"><a href="#">Featured</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Online Literature Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Online Literature Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/featured_author.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -362,7 +365,7 @@
 								<div class="course_tag"><a href="#">New</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Social Media Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Social Media Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/course_author_2.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -382,7 +385,7 @@
 								<div class="course_tag"><a href="#">Featured</a></div>
 								<div class="course_price ml-auto">Price: <span>$35</span></div>
 							</div>
-							<div class="course_title"><h3><a href="courses.html">Online Marketing Course</a></h3></div>
+							<div class="course_title"><h3><a href="lesson.html">Online Marketing Course</a></h3></div>
 							<div class="course_text">Maecenas rutrum viverra sapien sed ferm entum. Morbi tempor odio eget lacus tempus pulvinar.</div>
 							<div class="course_footer d-flex align-items-center justify-content-start">
 								<div class="course_author_image"><img src="/assets/images/course_author_3.jpg" alt="https://unsplash.com/@anthonytran"></div>
@@ -424,8 +427,9 @@
 						<div class="logo_container">
 							<a href="#">
 								<div class="logo_content d-flex flex-row align-items-end justify-content-start">
-									<div class="logo_img"><img src="/assets/images/logo.png" alt=""></div>
-									<div class="logo_text">learn</div>
+<!--									Sửa logo-->
+									<div class="logo_img"><img width="150" src="/assets/images/logoDBT2.png" alt=""></div>
+<!--									<div class="logo_text">learn</div>-->
 								</div>
 							</a>
 						</div>
@@ -464,7 +468,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_links">
 						<div class="footer_title">Useful Links</div>
 						<ul class="footer_list">
-							<li><a href="courses.html">Courses</a></li>
+							<li><a href="lesson.html">Courses</a></li>
 							<li><a href="#">Events</a></li>
 							<li><a href="news.html">News</a></li>
 							<li><a href="#">Teachers</a></li>
