@@ -227,7 +227,7 @@ public class UserController {
         return "redirect:index";
     }
 
-    @PostMapping("/login-google")
+    @RequestMapping(value="/login-google", method=RequestMethod.GET)
     public String loginGoogle(HttpServletRequest request) throws IOException {
         String code = request.getParameter("code");
 
@@ -242,7 +242,7 @@ public class UserController {
                 userDetail.getAuthorities());
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return "redirect:index";
+        return "redirect:/index";
     }
 }
 
