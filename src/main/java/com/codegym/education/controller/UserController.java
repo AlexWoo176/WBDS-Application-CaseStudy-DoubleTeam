@@ -188,7 +188,7 @@ public class UserController {
 
     @GetMapping("/login")
     public ModelAndView loginForm() {
-        return new ModelAndView("login");
+        return new ModelAndView("user/login");
     }
 
     @PostMapping("/login")
@@ -199,7 +199,7 @@ public class UserController {
             modelAndView.addObject("participant", participant);
             return modelAndView;
         }
-        modelAndView = new ModelAndView("login");
+        modelAndView = new ModelAndView("user/login");
         modelAndView.addObject(MESSAGE, "username or password incorrect");
         return modelAndView;
     }

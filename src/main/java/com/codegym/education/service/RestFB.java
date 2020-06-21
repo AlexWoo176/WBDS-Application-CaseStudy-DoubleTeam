@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 public class RestFB {
     @Autowired
     private Environment env;

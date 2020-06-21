@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT).access("hasRole('ROLE_ADMIN')")
                 .antMatchers(HttpMethod.DELETE).access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").permitAll()
+                .and().formLogin().loginPage("/user/login").permitAll()
                 .and().csrf().disable();
     }
 }
