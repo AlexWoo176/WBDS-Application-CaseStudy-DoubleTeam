@@ -3,6 +3,7 @@ package com.codegym.education.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -11,13 +12,17 @@ public class AppDoc {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    String nameDocument;
+    private String nameDocument;
     @Column(nullable = false)
-    String titleDocument;
+    private String titleDocument;
     @Column(nullable = false)
-    String imgDocument;
+    private String imgDocument;
     @Column(nullable = false)
-    String contentDocument;
+    private String contentDocument;
+    @Column(nullable = false)
+    private String typeDocument;
+    @Column(nullable = false)
+    private Date date;
 
     public AppDoc() {
     }

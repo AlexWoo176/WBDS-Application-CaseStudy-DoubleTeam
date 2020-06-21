@@ -1,9 +1,11 @@
 package com.codegym.education.model;
 
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.Table;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -21,7 +23,12 @@ public class Lesson {
     private String imgLesson;
     @Column(nullable = false)
     private String videoLesson;
+    @Column(nullable = false)
+    private String typeLesson;
+    @Column(nullable = false)
+    private Date date;
 
     public Lesson() {
     }
+
 }
