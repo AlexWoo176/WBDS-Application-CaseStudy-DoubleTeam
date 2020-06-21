@@ -36,4 +36,7 @@ public class LessonService implements ILessonService{
     public Page<Lesson> findByNameLesson(Pageable pageable, Optional<String> name){
         return lessonRepository.findByNameLesson(pageable,name);
     }
+    public Page<Lesson> sortByDate(Pageable pageable){
+        return lessonRepository.findAllByOrderByDateDesc(pageable);
+    }
 }

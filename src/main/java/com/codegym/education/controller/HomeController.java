@@ -32,8 +32,9 @@ public class HomeController {
 
     @GetMapping("/")
     public ModelAndView home(@PageableDefault(size = 6) Pageable pageable) {
-        Page<Lesson> listLessons = lessonService.findAll(pageable);
-        Page<AppDoc> listDocuments = documentService.findAll(pageable);
+        Page<Lesson> listLessons = lessonService.sortByDate(pageable);
+        System.out.println(listLessons);
+        Page<AppDoc> listDocuments = documentService.sortByDate(pageable);
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("participant", userService.getCurrentUser());
         modelAndView.addObject("listLessons", listLessons);
@@ -75,7 +76,7 @@ public class HomeController {
         if (keyword.isPresent()) {
             listLesson = lessonService.findByNameLesson(pageable, keyword);
         } else {
-            listLesson = lessonService.findAll(pageable);
+            listLesson = lessonService.sortByDate(pageable);
         }
         ModelAndView modelAndView = new ModelAndView("alllesson");
         modelAndView.addObject("listLessons", listLesson);
@@ -89,7 +90,7 @@ public class HomeController {
         if(keyword.isPresent()){
             listDocuments = documentService.findByNameDocument(pageable,keyword);
         }else {
-            listDocuments = documentService.findAll(pageable);
+            listDocuments = documentService.sortByDate(pageable);
         }
         ModelAndView modelAndView = new ModelAndView("allDocument");
         modelAndView.addObject("listDocuments", listDocuments);
