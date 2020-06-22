@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -33,12 +35,30 @@ public class HomeController {
     @GetMapping("/")
     public ModelAndView home(@PageableDefault(size = 6) Pageable pageable) {
         Page<Lesson> listLessons = lessonService.sortByDate(pageable);
-        System.out.println(listLessons);
+        List<Lesson> lessions = listLessons.getContent();
+        Lesson firstLesson = lessions.get(0);
+        List<Lesson> topSixLession = new ArrayList<>();
+        topSixLession.add(lessions.get(0));
+        topSixLession.add(lessions.get(1));
+//        topSixLession.add(lessions.get(2));
+//        topSixLession.add(lessions.get(3));
+//        topSixLession.add(lessions.get(4));
+//        topSixLession.add(lessions.get(5));
         Page<AppDoc> listDocuments = documentService.sortByDate(pageable);
+        List<AppDoc> documents = listDocuments.getContent();
+        List<AppDoc> topSixDoc = new ArrayList<>();
+        topSixDoc.add(documents.get(0));
+        topSixDoc.add(documents.get(1));
+//        topSixDoc.add(documents.get(2));
+//        topSixDoc.add(documents.get(3));
+//        topSixDoc.add(documents.get(4));
+//        topSixDoc.add(documents.get(5));
+
         ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("firstLessons", firstLesson);
         modelAndView.addObject("participant", userService.getCurrentUser());
-        modelAndView.addObject("listLessons", listLessons);
-        modelAndView.addObject("listDocuments", listDocuments);
+        modelAndView.addObject("topSixLession", topSixLession);
+        modelAndView.addObject("topSixDocs", topSixDoc);
         return modelAndView;
     }
 
@@ -52,34 +72,13 @@ public class HomeController {
         return new ModelAndView("about");
     }
 
-    //xem chi tiet 1 phan
-    @GetMapping("/showlesson/{id}")
-    public ModelAndView showLesson(@PathVariable("id") Long id) {
-        ModelAndView modelAndView = new ModelAndView("showlesson");
-        Optional<Lesson> lesson = lessonService.findById(id);
-        modelAndView.addObject("lesson", lesson);
-        return modelAndView;
-    }
+
+
 
     @GetMapping("/showDocument/{id}")
     public ModelAndView showDocument(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("showDocument");
         Optional<AppDoc> document = documentService.findById(id);
-        return modelAndView;
-    }
-    // vao trang tong bai viet + tim kiem
-
-    @GetMapping("/showAllLesson")
-    public ModelAndView showAllLesson(@PageableDefault(size = 10) Pageable pageable,
-                                      @RequestParam("keyword") Optional<String> keyword) {
-        Page<Lesson> listLesson;
-        if (keyword.isPresent()) {
-            listLesson = lessonService.findByNameLesson(pageable, keyword);
-        } else {
-            listLesson = lessonService.sortByDate(pageable);
-        }
-        ModelAndView modelAndView = new ModelAndView("alllesson");
-        modelAndView.addObject("listLessons", listLesson);
         return modelAndView;
     }
 

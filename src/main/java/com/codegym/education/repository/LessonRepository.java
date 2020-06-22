@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface LessonRepository extends JpaRepository<Lesson,Long> {
-    Page <Lesson> findByNameLesson(Pageable pageable, Optional<String> name);
+    Page <Lesson> findByNameLessonContaining(Pageable pageable, Optional<String> name);
     Page <Lesson> findAllByOrderByDateDesc(Pageable pageable);
 }
