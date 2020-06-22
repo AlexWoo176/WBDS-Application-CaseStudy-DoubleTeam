@@ -43,9 +43,10 @@ public class LessonController {
     //xem chi tiet 1 phan
     @GetMapping("/showlesson/{id}")
     public ModelAndView showLesson(@PathVariable("id") Long id) {
-        ModelAndView modelAndView = new ModelAndView("showlesson");
-        Optional<Lesson> lesson = lessonService.findById(id);
-        modelAndView.addObject("lesson", lesson);
+        ModelAndView modelAndView = new ModelAndView("test");
+        Optional<Lesson> lessonOptional = lessonService.findById(id);
+        Lesson lesion = lessonOptional.get();
+        modelAndView.addObject("lesson", lesion);
         return modelAndView;
     }
 }

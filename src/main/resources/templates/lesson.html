@@ -220,9 +220,9 @@
 				<th:block th:each="lessons : ${listLessons}">
 				<div class="col-lg-4 col-md-6">
 					<div class="course">
-						<div class="course_image"><img th:src="${lessons.imgLesson}" alt=""></div>
+						<div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img th:src="${lessons.imgLesson}" alt=""></a></div>
 						<div class="course_body">
-							<div class="course_title"><h3><a href="lesson.html" th:text="${lessons.nameLesson}"></a></h3></div>
+							<div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
 							<div class="course_text">
 								<p th:text="${lessons.titleLess}"></p>
 							</div>
