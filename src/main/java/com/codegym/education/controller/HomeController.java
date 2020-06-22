@@ -43,12 +43,12 @@ public class HomeController {
     }
 
     @GetMapping("/lesson")
-    public ModelAndView lesson (){
+    public ModelAndView lesson() {
         return new ModelAndView("lesson");
     }
 
     @GetMapping("/about")
-    public ModelAndView about (){
+    public ModelAndView about() {
         return new ModelAndView("about");
     }
 
@@ -86,10 +86,10 @@ public class HomeController {
     @GetMapping("/showAllDocument")
     public ModelAndView showAllDocument(@PageableDefault(size = 10) Pageable pageable,
                                         @RequestParam("keyword") Optional<String> keyword) {
-        Page <AppDoc> listDocuments;
-        if(keyword.isPresent()){
-            listDocuments = documentService.findByNameDocument(pageable,keyword);
-        }else {
+        Page<AppDoc> listDocuments;
+        if (keyword.isPresent()) {
+            listDocuments = documentService.findByNameDocument(pageable, keyword);
+        } else {
             listDocuments = documentService.sortByDate(pageable);
         }
         ModelAndView modelAndView = new ModelAndView("allDocument");

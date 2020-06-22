@@ -115,4 +115,10 @@ public class UserServiceImpl implements UserService {
         participant = this.findByUsername(userName);
         return participant;
     }
+
+    /*Test*/
+//    @Override
+//    public Participant findByVerificationToken(String verificationToken) {
+//        return userRepository.findByVerificationToken(verificationToken);
+//    }
 }

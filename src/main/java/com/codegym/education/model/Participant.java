@@ -5,6 +5,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,15 +23,19 @@ public class Participant implements Serializable {
     private Long id;
 
     @Column(nullable = false, unique = true)
+    @NotEmpty(message = "Please provide your user name")
     private String username;
 
     @Column(nullable = false, unique = true)
+    @Email(message = "Please provide a valid e-mail")
+    @NotEmpty(message = "Please provide an e-mail")
     private String email;
 
     private String password;
 
     private String confirmPassword;
 
+    @NotEmpty(message = "Please provide your name")
     private String name;
 
     private String address;

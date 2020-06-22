@@ -23,4 +23,7 @@ public interface UserService extends UserDetailsService {
     Optional<Participant> findById(Long id);
 
     Participant getCurrentUser();
+
+    /*Test*/
+//    Participant findByVerificationToken(String verificationToken);
 }

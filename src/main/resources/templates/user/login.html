@@ -1,120 +1,118 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="/assets/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/assets/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-<!--===============================================================================================-->
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/assets/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <!--===============================================================================================-->
 </head>
 <body>
 
-	<div class="limiter">
-		<th:block th:if="${message}">
-			<p th:text="${message}"></p>
-		</th:block>
-		<div class="container-login100" style="background-image: url('/assets/images/bg-01.jpg');">
-			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-				<form class="login100-form validate-form flex-sb flex-w" th:action="@{/login}" method="POST">
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('/assets/images/bg-01.jpg');">
+        <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+            <form class="login100-form validate-form flex-sb flex-w" th:action="@{/login}" method="POST">
 					<span class="login100-form-title p-b-53">
 						Sign In With
 					</span>
 
-					<a href="https://www.facebook.com/dialog/oauth?client_id=685045062065915&
+                <a href="https://www.facebook.com/dialog/oauth?client_id=685045062065915&
         redirect_uri=https://localhost:8080/login-facebook" class="btn-face m-b-20">
-						<i class="fa fa-facebook-official"></i>
-						Facebook
-					</a>
+                    <i class="fa fa-facebook-official"></i>
+                    Facebook
+                </a>
 
-					<a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
-		&client_id=1001560005850-oa2glskbk5cs5af07apcad8lsfjjqtfn.apps.googleusercontent.com&approval_prompt=force" class="btn-google m-b-20">
-						<img src="/assets/images/icons/icon-google.png" alt="GOOGLE">
-						Google
-					</a>
+                <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
+		&client_id=1001560005850-oa2glskbk5cs5af07apcad8lsfjjqtfn.apps.googleusercontent.com&approval_prompt=force"
+                   class="btn-google m-b-20">
+                    <img src="/assets/images/icons/icon-google.png" alt="GOOGLE">
+                    Google
+                </a>
 
-					<div class="p-t-31 p-b-9">
+                <div class="p-t-31 p-b-9">
 						<span class="txt1">
 							Username
 						</span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" >
-						<span class="focus-input100"></span>
-					</div>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Username is required">
+                    <input class="input100" type="text" name="username">
+                    <span class="focus-input100"></span>
+                </div>
 
-					<div class="p-t-13 p-b-9">
+                <div class="p-t-13 p-b-9">
 						<span class="txt1">
 							Password
 						</span>
 
-						<a href="/forgotPassword" class="txt2 bo1 m-l-5">
-							Forgot?
-						</a>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" >
-						<span class="focus-input100"></span>
-					</div>
+                    <a href="/forgotPassword" class="txt2 bo1 m-l-5">
+                        Forgot?
+                    </a>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <input class="input100" type="password" name="pass">
+                    <span class="focus-input100"></span>
+                </div>
 
-					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn">
-							Sign In
-						</button>
-					</div>
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn">
+                        Sign In
+                    </button>
+                </div>
 
-					<div class="w-full text-center p-t-55">
+                <div class="w-full text-center p-t-55">
 						<span class="txt2">
 							Not a member?
 						</span>
 
-						<a href="/register" class="txt2 bo1">
-							Sign up now
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <a href="/register" class="txt2 bo1">
+                        Sign up now
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
-	<div id="dropDownSelect1"></div>
+<div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
-	<script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/assets/vendor/animsition/js/animsition.min.js"></script>
+<script src="/assets/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/assets/vendor/bootstrap/js/popper.js"></script>
-	<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/popper.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/assets/vendor/select2/select2.min.js"></script>
+<script src="/assets/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/assets/vendor/daterangepicker/moment.min.js"></script>
-	<script src="/assets/vendor/daterangepicker/daterangepicker.js"></script>
+<script src="/assets/vendor/daterangepicker/moment.min.js"></script>
+<script src="/assets/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="/assets/vendor/countdowntime/countdowntime.js"></script>
+<script src="/assets/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 
 </body>
 </html>
