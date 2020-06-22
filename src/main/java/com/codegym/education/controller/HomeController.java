@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -33,11 +35,20 @@ public class HomeController {
     @GetMapping("/")
     public ModelAndView home(@PageableDefault(size = 6) Pageable pageable) {
         Page<Lesson> listLessons = lessonService.sortByDate(pageable);
-        System.out.println(listLessons);
+        List<Lesson> lessions = listLessons.getContent();
+        Lesson firstLesson = lessions.get(0);
+        List<Lesson> topSixLession = new ArrayList<>();
+        topSixLession.add(lessions.get(0));
+        topSixLession.add(lessions.get(1));
+//        topSixLession.add(lessions.get(2));
+//        topSixLession.add(lessions.get(3));
+//        topSixLession.add(lessions.get(4));
+//        topSixLession.add(lessions.get(5));
         Page<AppDoc> listDocuments = documentService.sortByDate(pageable);
         ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("firstLessons", firstLesson);
         modelAndView.addObject("participant", userService.getCurrentUser());
-        modelAndView.addObject("listLessons", listLessons);
+        modelAndView.addObject("topSixLession", topSixLession);
         modelAndView.addObject("listDocuments", listDocuments);
         return modelAndView;
     }
