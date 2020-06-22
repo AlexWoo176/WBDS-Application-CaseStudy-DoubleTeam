@@ -35,7 +35,7 @@ public class DocumentService implements IDocumentService{
     }
 
     public Page<AppDoc> findByNameDocument(Pageable pageable, Optional<String> name){
-        return documentRepository.findByNameDocument(pageable,name);
+        return documentRepository.findByNameDocumentContaining(pageable,name);
     }
     public Page<AppDoc> sortByDate(Pageable pageable){
         return documentRepository.findAllByOrderByDateDesc(pageable);

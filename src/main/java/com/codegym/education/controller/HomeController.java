@@ -45,11 +45,20 @@ public class HomeController {
 //        topSixLession.add(lessions.get(4));
 //        topSixLession.add(lessions.get(5));
         Page<AppDoc> listDocuments = documentService.sortByDate(pageable);
+        List<AppDoc> documents = listDocuments.getContent();
+        List<AppDoc> topSixDoc = new ArrayList<>();
+        topSixDoc.add(documents.get(0));
+        topSixDoc.add(documents.get(1));
+//        topSixDoc.add(documents.get(2));
+//        topSixDoc.add(documents.get(3));
+//        topSixDoc.add(documents.get(4));
+//        topSixDoc.add(documents.get(5));
+
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("firstLessons", firstLesson);
         modelAndView.addObject("participant", userService.getCurrentUser());
         modelAndView.addObject("topSixLession", topSixLession);
-        modelAndView.addObject("listDocuments", listDocuments);
+        modelAndView.addObject("topSixDocs", topSixDoc);
         return modelAndView;
     }
 
@@ -63,34 +72,12 @@ public class HomeController {
         return new ModelAndView("about");
     }
 
-    //xem chi tiet 1 phan
-    @GetMapping("/showlesson/{id}")
-    public ModelAndView showLesson(@PathVariable("id") Long id) {
-        ModelAndView modelAndView = new ModelAndView("showlesson");
-        Optional<Lesson> lesson = lessonService.findById(id);
-        modelAndView.addObject("lesson", lesson);
-        return modelAndView;
-    }
+
 
     @GetMapping("/showDocument/{id}")
     public ModelAndView showDocument(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("showDocument");
         Optional<AppDoc> document = documentService.findById(id);
-        return modelAndView;
-    }
-    // vao trang tong bai viet + tim kiem
-
-    @GetMapping("/showAllLesson")
-    public ModelAndView showAllLesson(@PageableDefault(size = 10) Pageable pageable,
-                                      @RequestParam("keyword") Optional<String> keyword) {
-        Page<Lesson> listLesson;
-        if (keyword.isPresent()) {
-            listLesson = lessonService.findByNameLesson(pageable, keyword);
-        } else {
-            listLesson = lessonService.sortByDate(pageable);
-        }
-        ModelAndView modelAndView = new ModelAndView("alllesson");
-        modelAndView.addObject("listLessons", listLesson);
         return modelAndView;
     }
 

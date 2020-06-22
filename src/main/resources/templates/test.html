@@ -6,8 +6,8 @@
 </head>
 <body>
 <table>
-    <tr th:each="topsix : ${topSixLession}">
-        <td th:text="${topsix.nameLesson}"></td>
+    <tr th:each="lessons : ${listLessons}">
+        <td th:text="${lessons.nameLesson}"></td>
     </tr>
 </table>
 </body>

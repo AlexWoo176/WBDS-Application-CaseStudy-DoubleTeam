@@ -1007,7 +1007,7 @@ section
 }
 .course_search_form > div
 {
-	width: calc((100% - 284px) / 2);
+	width: calc((100% - 284px) / 1);
 }
 .course_input
 {

@@ -84,7 +84,7 @@
                                 <ul class="main_nav">
                                     <li class="active"><a th:href="@{/}">home</a></li>
                                     <li><a th:href="@{/about}">about us</a></li>
-                                    <li><a th:href="@{/lesson}">lesson</a></li>
+                                    <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
                                     <li><a href="news.html">news</a></li>
                                     <li><a href="contact.html">contact</a></li>
                                     <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
@@ -287,7 +287,7 @@
         </div>
     </div>
 
-    <!-- Courses -->
+    <!-- Lesson -->
 
     <div class="courses">
         <div class="container">
@@ -396,216 +396,255 @@
         </div>
     </div>
 
-    <!-- Sections -->
+    <!-- Lesson -->
 
-    <div class="grouped_sections">
+    <div class="courses">
         <div class="container">
             <div class="row">
-
-                <!-- Why Choose Us -->
-
-                <div class="col-lg-4 grouped_col">
-                    <div class="grouped_title">Why Choose Us?</div>
-                    <div class="accordions">
-
-                        <div class="accordion_container">
-                            <div class="accordion d-flex flex-row align-items-center active">
-                                <div>Mauris vehicula nisi congue?</div>
-                            </div>
-                            <div class="accordion_panel">
-                                <div>
-                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
-                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis
-                                        in. Aenean id varius quam.</p>
+                <div class="col">
+                    <!--                        lấy dữ liệu từ database-->
+                    <!-- Courses Slider -->
+                    <div class="courses_slider_container">
+                        <div class="owl-carousel owl-theme courses_slider">
+                            <th:block th:each="topsixDoc: ${topSixDocs}">
+                                <!-- Slider Item -->
+                                <div class="owl-item">
+                                    <div class="course">
+                                        <div class="course_image"> <img th:src="${topsixDoc.imgDocument}"></div>
+                                        <div class="course_body">
+                                            <div class="course_title"><h3><a href="lesson.html" th:text="${topsixDoc.nameDocument}"></a>
+                                            </h3></div>
+                                            <div class="course_text">
+                                                <p th:text="${topsixDoc.titleDocument}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </th:block>
                         </div>
 
-                        <div class="accordion_container">
-                            <div class="accordion d-flex flex-row align-items-center">
-                                <div>Vehicula nisi congue, blandit?</div>
-                            </div>
-                            <div class="accordion_panel">
-                                <div>
-                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
-                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis
-                                        in. Aenean id varius quam.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion_container">
-                            <div class="accordion d-flex flex-row align-items-center">
-                                <div>Mauris vehicula nisi congue?</div>
-                            </div>
-                            <div class="accordion_panel">
-                                <div>
-                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
-                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis
-                                        in. Aenean id varius quam.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion_container">
-                            <div class="accordion d-flex flex-row align-items-center">
-                                <div>Nisi congue, blandit purus sed?</div>
-                            </div>
-                            <div class="accordion_panel">
-                                <div>
-                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
-                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis
-                                        in. Aenean id varius quam.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Events -->
-
-                <div class="col-lg-4 grouped_col">
-                    <div class="grouped_title">Upcoming Events</div>
-                    <div class="events">
-
-                        <!-- Event -->
-                        <div class="event d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="event_date d-flex flex-column align-items-center justify-content-center">
-                                    <div class="event_day">20</div>
-                                    <div class="event_month">April</div>
-                                </div>
-                            </div>
-                            <div class="event_body">
-                                <div class="event_title"><a href="#">New Marketing Course Release</a></div>
-                                <div class="event_subtitle">Location: Online Platform</div>
-                            </div>
-                        </div>
-
-                        <!-- Event -->
-                        <div class="event d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="event_date d-flex flex-column align-items-center justify-content-center">
-                                    <div class="event_day">23</div>
-                                    <div class="event_month">April</div>
-                                </div>
-                            </div>
-                            <div class="event_body">
-                                <div class="event_title"><a href="#">Students Art Workshop</a></div>
-                                <div class="event_subtitle">Location: Online Platform</div>
-                            </div>
-                        </div>
-
-                        <!-- Event -->
-                        <div class="event d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="event_date d-flex flex-column align-items-center justify-content-center">
-                                    <div class="event_day">25</div>
-                                    <div class="event_month">April</div>
-                                </div>
-                            </div>
-                            <div class="event_body">
-                                <div class="event_title"><a href="#">Launch Party for a new Platform</a></div>
-                                <div class="event_subtitle">Location: Online Platform</div>
-                            </div>
-                        </div>
-
-                        <!-- Event -->
-                        <div class="event d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="event_date d-flex flex-column align-items-center justify-content-center">
-                                    <div class="event_day">27</div>
-                                    <div class="event_month">April</div>
-                                </div>
-                            </div>
-                            <div class="event_body">
-                                <div class="event_title"><a href="#">New Marketing Course</a></div>
-                                <div class="event_subtitle">Location: Online Platform</div>
-                            </div>
-                        </div>
-
-                        <!-- Event -->
-                        <div class="event d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="event_date d-flex flex-column align-items-center justify-content-center">
-                                    <div class="event_day">29</div>
-                                    <div class="event_month">April</div>
-                                </div>
-                            </div>
-                            <div class="event_body">
-                                <div class="event_title"><a href="#">New Marketing Course</a></div>
-                                <div class="event_subtitle">Location: Online Platform</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- News -->
-
-                <div class="col-lg-4 grouped_col">
-                    <div class="grouped_title">Latest News</div>
-                    <div class="news">
-
-                        <!-- News Post -->
-                        <div class="news_post d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="news_post_image"><img src="/assets/images/news_1.jpg"
-                                                                  alt="https://unsplash.com/@beccatapert"></div>
-                            </div>
-                            <div class="news_post_body">
-                                <div class="news_post_date">April 02, 2018</div>
-                                <div class="news_post_title"><a href="news.html">Why Choose online education?</a></div>
-                                <div class="news_post_author">By <a href="#">William Smith</a></div>
-                            </div>
-                        </div>
-
-                        <!-- News Post -->
-                        <div class="news_post d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="news_post_image"><img src="/assets/images/news_2.jpg"
-                                                                  alt="https://unsplash.com/@nbb_photos"></div>
-                            </div>
-                            <div class="news_post_body">
-                                <div class="news_post_date">April 02, 2018</div>
-                                <div class="news_post_title"><a href="news.html">Books, Kindle or tablet?</a></div>
-                                <div class="news_post_author">By <a href="#">William Smith</a></div>
-                            </div>
-                        </div>
-
-                        <!-- News Post -->
-                        <div class="news_post d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="news_post_image"><img src="/assets/images/news_3.jpg"
-                                                                  alt="https://unsplash.com/@rawpixel"></div>
-                            </div>
-                            <div class="news_post_body">
-                                <div class="news_post_date">April 02, 2018</div>
-                                <div class="news_post_title"><a href="news.html">Why Choose online education?</a></div>
-                                <div class="news_post_author">By <a href="#">William Smith</a></div>
-                            </div>
-                        </div>
-
-                        <!-- News Post -->
-                        <div class="news_post d-flex flex-row align-items-start justify-content-start">
-                            <div>
-                                <div class="news_post_image"><img src="/assets/images/news_4.jpg"
-                                                                  alt="https://unsplash.com/@jtylernix"></div>
-                            </div>
-                            <div class="news_post_body">
-                                <div class="news_post_date">April 02, 2018</div>
-                                <div class="news_post_title"><a href="news.html">Books, Kindle or tablet?</a></div>
-                                <div class="news_post_author">By <a href="#">William Smith</a></div>
-                            </div>
-                        </div>
+                        <!-- Courses Slider Nav -->
+                        <div class="courses_slider_nav courses_slider_prev trans_200"><i class="fa fa-angle-left"
+                                                                                         aria-hidden="true"></i></div>
+                        <div class="courses_slider_nav courses_slider_next trans_200"><i class="fa fa-angle-right"
+                                                                                         aria-hidden="true"></i></div>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Sections -->
+
+<!--    <div class="grouped_sections">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+
+<!--                &lt;!&ndash; Why Choose Us &ndash;&gt;-->
+
+<!--                <div class="col-lg-4 grouped_col">-->
+<!--                    <div class="grouped_title">Why Choose Us?</div>-->
+<!--                    <div class="accordions">-->
+
+<!--                        <div class="accordion_container">-->
+<!--                            <div class="accordion d-flex flex-row align-items-center active">-->
+<!--                                <div>Mauris vehicula nisi congue?</div>-->
+<!--                            </div>-->
+<!--                            <div class="accordion_panel">-->
+<!--                                <div>-->
+<!--                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod-->
+<!--                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis-->
+<!--                                        in. Aenean id varius quam.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="accordion_container">-->
+<!--                            <div class="accordion d-flex flex-row align-items-center">-->
+<!--                                <div>Vehicula nisi congue, blandit?</div>-->
+<!--                            </div>-->
+<!--                            <div class="accordion_panel">-->
+<!--                                <div>-->
+<!--                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod-->
+<!--                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis-->
+<!--                                        in. Aenean id varius quam.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="accordion_container">-->
+<!--                            <div class="accordion d-flex flex-row align-items-center">-->
+<!--                                <div>Mauris vehicula nisi congue?</div>-->
+<!--                            </div>-->
+<!--                            <div class="accordion_panel">-->
+<!--                                <div>-->
+<!--                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod-->
+<!--                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis-->
+<!--                                        in. Aenean id varius quam.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="accordion_container">-->
+<!--                            <div class="accordion d-flex flex-row align-items-center">-->
+<!--                                <div>Nisi congue, blandit purus sed?</div>-->
+<!--                            </div>-->
+<!--                            <div class="accordion_panel">-->
+<!--                                <div>-->
+<!--                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod-->
+<!--                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis-->
+<!--                                        in. Aenean id varius quam.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+
+<!--                </div>-->
+
+<!--                &lt;!&ndash; Events &ndash;&gt;-->
+
+<!--                <div class="col-lg-4 grouped_col">-->
+<!--                    <div class="grouped_title">Upcoming Events</div>-->
+<!--                    <div class="events">-->
+
+<!--                        &lt;!&ndash; Event &ndash;&gt;-->
+<!--                        <div class="event d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="event_date d-flex flex-column align-items-center justify-content-center">-->
+<!--                                    <div class="event_day">20</div>-->
+<!--                                    <div class="event_month">April</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="event_body">-->
+<!--                                <div class="event_title"><a href="#">New Marketing Course Release</a></div>-->
+<!--                                <div class="event_subtitle">Location: Online Platform</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; Event &ndash;&gt;-->
+<!--                        <div class="event d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="event_date d-flex flex-column align-items-center justify-content-center">-->
+<!--                                    <div class="event_day">23</div>-->
+<!--                                    <div class="event_month">April</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="event_body">-->
+<!--                                <div class="event_title"><a href="#">Students Art Workshop</a></div>-->
+<!--                                <div class="event_subtitle">Location: Online Platform</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; Event &ndash;&gt;-->
+<!--                        <div class="event d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="event_date d-flex flex-column align-items-center justify-content-center">-->
+<!--                                    <div class="event_day">25</div>-->
+<!--                                    <div class="event_month">April</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="event_body">-->
+<!--                                <div class="event_title"><a href="#">Launch Party for a new Platform</a></div>-->
+<!--                                <div class="event_subtitle">Location: Online Platform</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; Event &ndash;&gt;-->
+<!--                        <div class="event d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="event_date d-flex flex-column align-items-center justify-content-center">-->
+<!--                                    <div class="event_day">27</div>-->
+<!--                                    <div class="event_month">April</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="event_body">-->
+<!--                                <div class="event_title"><a href="#">New Marketing Course</a></div>-->
+<!--                                <div class="event_subtitle">Location: Online Platform</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; Event &ndash;&gt;-->
+<!--                        <div class="event d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="event_date d-flex flex-column align-items-center justify-content-center">-->
+<!--                                    <div class="event_day">29</div>-->
+<!--                                    <div class="event_month">April</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="event_body">-->
+<!--                                <div class="event_title"><a href="#">New Marketing Course</a></div>-->
+<!--                                <div class="event_subtitle">Location: Online Platform</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; News &ndash;&gt;-->
+
+<!--                <div class="col-lg-4 grouped_col">-->
+<!--                    <div class="grouped_title">Latest News</div>-->
+<!--                    <div class="news">-->
+
+<!--                        &lt;!&ndash; News Post &ndash;&gt;-->
+<!--                        <div class="news_post d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="news_post_image"><img src="/assets/images/news_1.jpg"-->
+<!--                                                                  alt="https://unsplash.com/@beccatapert"></div>-->
+<!--                            </div>-->
+<!--                            <div class="news_post_body">-->
+<!--                                <div class="news_post_date">April 02, 2018</div>-->
+<!--                                <div class="news_post_title"><a href="news.html">Why Choose online education?</a></div>-->
+<!--                                <div class="news_post_author">By <a href="#">William Smith</a></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; News Post &ndash;&gt;-->
+<!--                        <div class="news_post d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="news_post_image"><img src="/assets/images/news_2.jpg"-->
+<!--                                                                  alt="https://unsplash.com/@nbb_photos"></div>-->
+<!--                            </div>-->
+<!--                            <div class="news_post_body">-->
+<!--                                <div class="news_post_date">April 02, 2018</div>-->
+<!--                                <div class="news_post_title"><a href="news.html">Books, Kindle or tablet?</a></div>-->
+<!--                                <div class="news_post_author">By <a href="#">William Smith</a></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; News Post &ndash;&gt;-->
+<!--                        <div class="news_post d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="news_post_image"><img src="/assets/images/news_3.jpg"-->
+<!--                                                                  alt="https://unsplash.com/@rawpixel"></div>-->
+<!--                            </div>-->
+<!--                            <div class="news_post_body">-->
+<!--                                <div class="news_post_date">April 02, 2018</div>-->
+<!--                                <div class="news_post_title"><a href="news.html">Why Choose online education?</a></div>-->
+<!--                                <div class="news_post_author">By <a href="#">William Smith</a></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; News Post &ndash;&gt;-->
+<!--                        <div class="news_post d-flex flex-row align-items-start justify-content-start">-->
+<!--                            <div>-->
+<!--                                <div class="news_post_image"><img src="/assets/images/news_4.jpg"-->
+<!--                                                                  alt="https://unsplash.com/@jtylernix"></div>-->
+<!--                            </div>-->
+<!--                            <div class="news_post_body">-->
+<!--                                <div class="news_post_date">April 02, 2018</div>-->
+<!--                                <div class="news_post_title"><a href="news.html">Books, Kindle or tablet?</a></div>-->
+<!--                                <div class="news_post_author">By <a href="#">William Smith</a></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <!-- Video -->
 
