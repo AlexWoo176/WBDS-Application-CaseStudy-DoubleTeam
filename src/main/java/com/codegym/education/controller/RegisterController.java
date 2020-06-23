@@ -142,6 +142,8 @@ public class RegisterController {
         participant.setEnabled(true);
         userService.save(participant);
         modelAndView.addObject("successMessage", "Your password has been set!");
+//        return modelAndView;
+        modelAndView.setViewName("redirect:login");
         return modelAndView;
     }
 }
