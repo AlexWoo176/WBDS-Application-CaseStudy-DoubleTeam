@@ -52,7 +52,7 @@ dependencies {
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.10'
 
     implementation 'org.apache.commons:commons-lang3'
-//    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.2.RELEASE'
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.2.RELEASE'
 
     // https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml
     compile group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'

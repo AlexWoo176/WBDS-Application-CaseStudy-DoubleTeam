@@ -5,6 +5,10 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -30,7 +34,7 @@ public class Participant {
     private String email;
 
     @Column(name = "password")
-    @Transient
+//    @Transient
     private String password;
 
     @Column(name = "enabled")
@@ -43,6 +47,6 @@ public class Participant {
     private String resetToken;
 
     @ManyToOne
-    private Role roll;
+    private Role role;
 
 }
