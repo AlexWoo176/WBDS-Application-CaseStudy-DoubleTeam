@@ -30,7 +30,7 @@ public class AdminController {
 
     @GetMapping("/")
     public ModelAndView home() {
-        return new ModelAndView("admin");
+        return new ModelAndView("admin","participant", userService.getCurrentUser());
     }
 
     // vao trang tong bai viet + tim kiem

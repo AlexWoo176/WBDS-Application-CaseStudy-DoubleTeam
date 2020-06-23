@@ -39,4 +39,7 @@ public class LessonService implements ILessonService{
     public Page<Lesson> sortByDate(Pageable pageable){
         return lessonRepository.findAllByOrderByDateDesc(pageable);
     }
+    public Page<Lesson> findByTypeLesson(String type){
+        return lessonRepository.findByTypeLesson(type);
+    }
 }
