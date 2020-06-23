@@ -11,6 +11,7 @@
     <link href="/assets/plugins/video-js/video-js.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/assets/styles/lesson.css">
     <link rel="stylesheet" type="text/css" href="/assets/styles/lesson_responsive.css">
+	<script src="../static/js/menuTypeLesson.js"></script>
 </head>
 <body>
 
@@ -69,7 +70,7 @@
 									<li><a th:href="@{/}">home</a></li>
 									<li><a th:href="@{/about}">about us</a></li>
 									<li class="active"><a th:href="@{/lesson}">lesson</a></li>
-									<li><a href="news.html">news</a></li>
+									<li><a href="document.html">news</a></li>
 									<li><a href="contact.html">contact</a></li>
 									<li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> | <img width="25" src="/assets/images/VN.jpg" alt=""></li>
 
@@ -192,45 +193,42 @@
 				</div>
 			</div>
 
-<!--			&lt;!&ndash; Featured Course &ndash;&gt;-->
-<!--			<div class="row featured_row">-->
-<!--				<div class="col-lg-6 featured_col">-->
-<!--					<div class="featured_content">-->
-<!--						<div class="featured_header d-flex flex-row align-items-center justify-content-start">-->
-<!--							<div class="featured_tag"><a href="#">Featured</a></div>-->
-<!--							<div class="featured_price ml-auto">Price: <span>$35</span></div>-->
-<!--						</div>-->
-<!--						<div class="featured_title"><h3><a href="lesson.html">Online Literature Course</a></h3></div>-->
-<!--						<div class="featured_text">Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Donec vehicula efficitur nibh, in pretium nulla interdum lacus vehicula efficitur nibh, in pretiumvehicula efficitur nibh, in pretium tempus non.</div>-->
-<!--						<div class="featured_footer d-flex align-items-center justify-content-start">-->
-<!--							<div class="featured_author_image"><img src="/assets/images/featured_author.jpg" alt=""></div>-->
-<!--							<div class="featured_author_name">By <a href="#">James S. Morrison</a></div>-->
-<!--							<div class="featured_sales ml-auto"><span>352</span> Sales</div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--				<div class="col-lg-6 featured_col">-->
-<!--					&lt;!&ndash; Background image artist https://unsplash.com/@jtylernix &ndash;&gt;-->
-<!--					<div class="featured_background" style="background-image:url(/assets/images/featured.jpg)"></div>-->
-<!--				</div>-->
-<!--			</div>-->
-			<div class="row courses_row">
-				
+
+
 				<!-- Course -->
-				<th:block th:each="lessons : ${listLessons}">
-				<div class="col-lg-4 col-md-6">
-					<div class="course">
-						<div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img th:src="${lessons.imgLesson}" alt=""></a></div>
-						<div class="course_body">
-							<div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
-							<div class="course_text">
-								<p th:text="${lessons.titleLess}"></p>
+				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="pills-tabContent">
+					<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+						<div class="row courses_row">
+						<th:block th:each="lessons : ${listLessons}">
+							<div class="col-lg-4 col-md-6">
+								<div class="course">
+									<div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img th:src="${lessons.imgLesson}" alt=""></a></div>
+									<div class="course_body">
+										<div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
+										<div class="course_text">
+											<p th:text="${lessons.titleLess}"></p>
+										</div>
+									</div>
+								</div>
 							</div>
+						</th:block>
 						</div>
 					</div>
+					<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+					<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
 				</div>
-				</th:block>
-			</div>
+
 
 			<!-- Pagination -->
 
@@ -310,7 +308,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 						<ul class="footer_list">
 							<li><a href="lesson.html">Courses</a></li>
 							<li><a href="#">Events</a></li>
-							<li><a href="news.html">News</a></li>
+							<li><a href="document.html">News</a></li>
 							<li><a href="#">Teachers</a></li>
 							<li><a href="#">Links</a></li>
 							<li><a href="#">FAQ</a></li>
