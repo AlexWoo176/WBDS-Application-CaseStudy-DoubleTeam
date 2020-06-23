@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface DocumentRepository extends JpaRepository<AppDoc,Long> {
     Page <AppDoc> findByNameDocumentContaining(Pageable pageable, Optional<String> name);
     Page <AppDoc> findAllByOrderByDateDesc(Pageable pageable);
-    Page <AppDoc> findByTypeDocument(String type);
+    Page <AppDoc> findByTypeDocument(Pageable pageable,String type);
 }

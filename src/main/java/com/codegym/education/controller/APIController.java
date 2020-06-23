@@ -30,13 +30,13 @@ public class APIController {
 
 
     @GetMapping("/findDocument")
-    public ResponseEntity<Page<AppDoc>> findDocumentsByType(@PathVariable("find") String type){
-        Page<AppDoc> listDocuments = documentService.findByTypeDocument(type);
+    public ResponseEntity<Page<AppDoc>> findDocumentsByType(@PageableDefault(9) Pageable pageable,@PathVariable("find") String type){
+        Page<AppDoc> listDocuments = documentService.findByTypeDocument(pageable,type);
             return new ResponseEntity<Page<AppDoc>>(listDocuments,HttpStatus.OK);
     }
     @GetMapping("/findLesson")
-    public ResponseEntity<Page<Lesson>> findLessonsByType(@PathVariable("find") String type){
-        Page<Lesson> listLessons = lessonService.findByTypeLesson(type);
+    public ResponseEntity<Page<Lesson>> findLessonsByType(@PageableDefault(9) Pageable pageable,@PathVariable("find") String type){
+        Page<Lesson> listLessons = lessonService.findByTypeLesson(pageable,type);
         return new ResponseEntity<Page<Lesson>>(listLessons,HttpStatus.OK);
     }
 

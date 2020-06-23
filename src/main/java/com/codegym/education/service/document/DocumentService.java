@@ -40,8 +40,8 @@ public class DocumentService implements IDocumentService{
     public Page<AppDoc> sortByDate(Pageable pageable){
         return documentRepository.findAllByOrderByDateDesc(pageable);
     }
-    public Page<AppDoc> findByTypeDocument(String type){
-        return documentRepository.findByTypeDocument(type);
+    public Page<AppDoc> findByTypeDocument(Pageable pageable,String type){
+        return documentRepository.findByTypeDocument(pageable,type);
     }
 
 
