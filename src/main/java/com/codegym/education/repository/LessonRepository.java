@@ -12,4 +12,5 @@ import java.util.Optional;
 public interface LessonRepository extends JpaRepository<Lesson,Long> {
     Page <Lesson> findByNameLessonContaining(Pageable pageable, Optional<String> name);
     Page <Lesson> findAllByOrderByDateDesc(Pageable pageable);
+    Page <Lesson> findByTypeLesson(Pageable pageable,String type);
 }

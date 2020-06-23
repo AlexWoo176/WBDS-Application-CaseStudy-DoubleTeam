@@ -105,7 +105,7 @@ public class UserServiceImpl implements UserService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Participant user = userRepository.findByUserName(username);
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(user.getRoll());
+        authorities.add(user.getRole());
 
         UserDetails userDetails = new User(user.getUserName(), user.getPassword(), authorities);
         return userDetails;
