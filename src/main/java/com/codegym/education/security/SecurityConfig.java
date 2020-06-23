@@ -31,9 +31,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new UserServiceImpl();
     }
 
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder(10);
+//    }
+
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(10);
+    public BCryptPasswordEncoder passwordEncoder() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
     }
 
     @Bean
@@ -65,7 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/index",
                         "/",
                         "/register",
-                        "/confirm-account/**",
+                        "/confirm/**",
                         "/forgotPassword",
                         "/forgotPassword?success/**",
                         "/newPassword/**",

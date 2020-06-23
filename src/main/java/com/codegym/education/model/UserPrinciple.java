@@ -2,13 +2,10 @@ package com.codegym.education.model;
 
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class UserPrinciple implements UserDetails {
 
@@ -29,19 +26,6 @@ public class UserPrinciple implements UserDetails {
         this.username = username;
         this.password = password;
         this.roles = roles;
-    }
-
-    public static UserPrinciple build(Participant participant) {
-        List<GrantedAuthority> authorities = participant.getRoles().stream().map(role ->
-                new SimpleGrantedAuthority(role.getName())
-        ).collect(Collectors.toList());
-
-        return new UserPrinciple(
-                participant.getId(),
-                participant.getUsername(),
-                participant.getPassword(),
-                authorities
-        );
     }
 
     public Long getId() {

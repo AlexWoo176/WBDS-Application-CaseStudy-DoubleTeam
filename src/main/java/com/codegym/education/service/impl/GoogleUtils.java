@@ -1,4 +1,4 @@
-package com.codegym.education.service;
+package com.codegym.education.service.impl;
 
 import com.codegym.education.model.GooglePojo;
 import com.fasterxml.jackson.databind.JsonNode;

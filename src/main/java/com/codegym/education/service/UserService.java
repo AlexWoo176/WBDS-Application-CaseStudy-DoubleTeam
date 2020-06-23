@@ -6,24 +6,23 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import java.util.Optional;
 
 public interface UserService extends UserDetailsService {
-    void save(Participant participant);
+    void save(Participant user);
 
     Iterable<Participant> findAll();
 
     Participant findByUsername(String username);
 
-    boolean checkLogin(Participant participant);
+    boolean checkLogin(Participant user);
 
-    boolean isRegister(Participant participant);
+    boolean isRegister(Participant user);
 
-    Participant findByEmail(String email);
-
-    boolean isCorrectConfirmPassword(Participant participant);
+    Optional<Participant> findUserByEmail(String email);
 
     Optional<Participant> findById(Long id);
 
     Participant getCurrentUser();
 
-    /*Test*/
-//    Participant findByVerificationToken(String verificationToken);
+    Participant findByConfirmationToken(String confirmationToken);
+
+    Optional<Participant> findUserByResetToken(String resetToken);
 }
