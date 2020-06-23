@@ -1,6 +1,7 @@
 package com.codegym.education.controller;
 
 import com.codegym.education.model.AppDoc;
+import com.codegym.education.model.Lesson;
 import com.codegym.education.service.document.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,7 +28,7 @@ public class DocumentController {
     }
 
     @GetMapping("/showAllDocument")
-    public ModelAndView showAllDocument(@PageableDefault(size = 10) Pageable pageable,
+    public ModelAndView showAllDocument(@PageableDefault(size = 9) Pageable pageable,
                                         @RequestParam("keyword") Optional<String> keyword) {
         Page<AppDoc> listDocuments;
         if (keyword.isPresent()) {
@@ -35,7 +36,9 @@ public class DocumentController {
         } else {
             listDocuments = documentService.sortByDate(pageable);
         }
-        ModelAndView modelAndView = new ModelAndView("allDocument");
+        ModelAndView modelAndView = new ModelAndView("document");
+        modelAndView.addObject("listJavaDocument",documentService.findByTypeDocument(pageable,"java"));
+        modelAndView.addObject("listPhpDocument",documentService.findByTypeDocument(pageable,"php"));
         modelAndView.addObject("listDocuments", listDocuments);
         return modelAndView;
     }
