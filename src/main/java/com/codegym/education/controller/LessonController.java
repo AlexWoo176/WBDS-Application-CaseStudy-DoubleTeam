@@ -36,6 +36,8 @@ public class LessonController {
             listLesson = lessonService.sortByDate(pageable);
         }
         ModelAndView modelAndView = new ModelAndView("lesson");
+        modelAndView.addObject("listJavaLessons",lessonService.findByTypeLesson(pageable,"java"));
+        modelAndView.addObject("listPhpLessons",lessonService.findByTypeLesson(pageable,"php"));
         modelAndView.addObject("listLessons", listLesson);
         return modelAndView;
     }

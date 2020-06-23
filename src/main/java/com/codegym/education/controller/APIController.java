@@ -29,34 +29,5 @@ public class APIController {
     private UserService userService;
 
 
-    @GetMapping("/findDocument")
-    public ResponseEntity<Page<AppDoc>> findDocumentsByType(@PageableDefault(9) Pageable pageable, @PathVariable("find") String type) {
-        Page<AppDoc> listDocuments = documentService.findByTypeDocument(pageable, type);
-        return new ResponseEntity<Page<AppDoc>>(listDocuments, HttpStatus.OK);
-    }
-
-    @GetMapping("/findLesson/{number}")
-    public ResponseEntity<Page<Lesson>> findLessonsByType(@PageableDefault(9) Pageable pageable,
-                                                          @PathVariable("number") String number) {
-        int numbers = Integer.parseInt(number);
-        Page<Lesson> listLessons;
-        switch (numbers) {
-            case 1:
-                listLessons = lessonService.findByTypeLesson(pageable, "java");
-                break;
-            case 2:
-                listLessons= lessonService.findByTypeLesson(pageable, "php");
-                break;
-            case 3:
-                listLessons= lessonService.findByTypeLesson(pageable, "javascript");
-                break;
-
-            default:
-                return null;
-        }
-
-        return new ResponseEntity<Page<Lesson>>(listLessons, HttpStatus.OK);
-    }
-
 
 }
