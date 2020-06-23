@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <title>News</title>
+    <title>Document</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Elearn project">
@@ -9,8 +10,9 @@
     <link rel="stylesheet" type="text/css" href="/assets/styles/bootstrap4/bootstrap.min.css">
     <link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="/assets/plugins/video-js/video-js.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/assets/styles/news.css">
-    <link rel="stylesheet" type="text/css" href="/assets/styles/news_responsive.css">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/lesson.css">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/lesson_responsive.css">
+    <script src="../static/js/menuTypeLesson.js"></script>
 </head>
 <body>
 
@@ -32,17 +34,28 @@
                                         <div class="question">Have any questions?</div>
                                     </li>
                                     <li>
-                                        <div>(009) 35475 6688933 32</div>
+                                        <div>(+84) 904 366 030</div>
                                     </li>
                                     <li>
-                                        <div>info@elaerntemplate.com</div>
+                                        <div>doubleteamc0220h1@gmail.com</div>
                                     </li>
                                 </ul>
                                 <div class="top_bar_login ml-auto">
-                                    <ul>
-                                        <li><a href="#">Register</a></li>
-                                        <li><a href="#">Login</a></li>
-                                    </ul>
+                                    <div th:if="${participant}">
+                                        <div sec:authorize="isAuthenticated()">
+                                            <span><a th:href="@{/view/__${participant.id}__}"
+                                                     th:text="${participant.username}"></a></span>|<a
+                                                th:href="@{/logout}">Logout</a>
+                                        </div>
+                                    </div>
+                                    <div th:if="${participant==null}">
+                                        <div sec:authorize="isAnonymous()">
+                                            <ul>
+                                                <li><a href="/register">Register</a></li>
+                                                <li><a href="/login">Login</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -58,20 +71,23 @@
                     <div class="col">
                         <div class="header_content d-flex flex-row align-items-center justify-content-start">
                             <div class="logo_container">
-                                <a href="#">
+                                <a th:href="@{/}">
                                     <div class="logo_content d-flex flex-row align-items-end justify-content-start">
-                                        <div class="logo_img"><img src="/assets/images/logo.png" alt=""></div>
-                                        <div class="logo_text">learn</div>
+                                        <div class="logo_img"><img width="150" height="auto"
+                                                                   src="/assets/images/logoDBT2.png" alt=""></div>
                                     </div>
                                 </a>
                             </div>
                             <nav class="main_nav_contaner ml-auto">
                                 <ul class="main_nav">
-                                    <li><a href="index.html">home</a></li>
-                                    <li><a href="about.html">about us</a></li>
-                                    <li><a href="lesson.html">courses</a></li>
-                                    <li class="active"><a href="document.html">news</a></li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a th:href="@{/}">home</a></li>
+                                    <li><a th:href="@{/about}">about us</a></li>
+                                    <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+                                    <li class="active"><a th:href="@{/document/showAllDocument}">document</a></li>
+                                    <li><a th:href="@{/contact}">contact</a></li>
+                                    <li><a th:href="@{/quiz}">quiz</a></li>
+                                    <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
+                                        <img width="25" src="/assets/images/VN.jpg" alt=""></li>
                                 </ul>
                                 <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
@@ -126,18 +142,18 @@
         </div>
         <nav class="menu_nav">
             <ul class="menu_mm">
-                <li class="menu_mm"><a href="index.html">Home</a></li>
-                <li class="menu_mm"><a href="lesson.html">Courses</a></li>
-                <li class="menu_mm"><a href="instructors.html">Instructors</a></li>
-                <li class="menu_mm"><a href="#">Events</a></li>
-                <li class="menu_mm"><a href="blog.html">Blog</a></li>
-                <li class="menu_mm"><a href="contact.html">Contact</a></li>
+                <li class="menu_mm"><a th:href="@{/}">Home</a></li>
+                <li class="menu_mm"><a th:href="@{/about}">about</a></li>
+                <li class="menu_mm"><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+                <li class="menu_mm"><a th:href="@{/document/showAllDocument}">document</a></li>
+                <li class="menu_mm"><a th:href="@{/contact}">Contact</a></li>
+                <li class="menu_mm"><a th:href="@{/quiz}">quiz</a></li>
             </ul>
         </nav>
         <div class="menu_extra">
-            <div class="menu_phone"><span class="menu_title">phone:</span>(009) 35475 6688933 32</div>
+            <div class="menu_phone"><span class="menu_title">phone:</span>(+84) 904 366 030</div>
             <div class="menu_social">
-                <span class="menu_title">follow us</span>
+                <span class="menu_title">follow vn</span>
                 <ul>
                     <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -152,18 +168,17 @@
 
     <div class="home">
         <!-- Background image artist https://unsplash.com/@thepootphotographer -->
-        <div class="home_background parallax_background parallax-window" data-parallax="scroll"
-             data-image-src="images/news.jpg" data-speed="0.8"></div>
+        <div class="home_background parallax_background parallax-window" data-parallax="scroll" data-image-src="/assets/images/courses.jpg" data-speed="0.8"></div>
         <div class="home_container">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="home_content text-center">
-                            <div class="home_title">News</div>
+                            <div class="home_title">About us</div>
                             <div class="breadcrumbs">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li>News</li>
+                                    <li><a th:href="@{/}">Home</a></li>
+                                    <li>About us</li>
                                 </ul>
                             </div>
                         </div>
@@ -173,222 +188,110 @@
         </div>
     </div>
 
-    <!-- News -->
+    <!-- Courses -->
 
-    <div class="news">
+    <div class="courses">
         <div class="container">
             <div class="row">
-
-                <!-- News Posts -->
-                <div class="col-lg-8">
-                    <div class="news_posts">
-
-                        <!-- News Post -->
-                        <div class="news_post">
-                            <div class="news_post_image"><img src="/assets/images/news_5.jpg" alt=""></div>
-                            <div class="news_post_body">
-                                <div class="news_post_date"><a href="#">April 02, 2018</a></div>
-                                <div class="news_post_title"><a href="#">Books, Kindle or Tablet?</a></div>
-                                <div class="news_post_meta d-flex flex-row align-items-start justify-content-start">
-                                    <div class="news_post_author">By <a href="#">William Smith</a></div>
-                                    <div class="news_post_comments"><a href="#">3 Comments</a></div>
-                                    <div class="news_post_tags">
-                                        <span>in </span>
-                                        <ul>
-                                            <li><a href="#">Social Media</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="news_post_text">
-                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
-                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis
-                                        in. Aenean id varius quam. Nullam bibendum interdum dui, ac tempor lorem
-                                        convallis ut. Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio
-                                        eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue.</p>
-                                </div>
-                                <div class="news_post_link"><a href="#">Read More</a></div>
-                            </div>
-                        </div>
-
-                        <!-- News Post -->
-                        <div class="news_post">
-                            <div class="news_post_image"><img src="/assets/images/news_6.jpg" alt=""></div>
-                            <div class="news_post_body">
-                                <div class="news_post_date"><a href="#">April 02, 2018</a></div>
-                                <div class="news_post_title"><a href="#">Why choose an online course?</a></div>
-                                <div class="news_post_meta d-flex flex-row align-items-start justify-content-start">
-                                    <div class="news_post_author">By <a href="#">William Smith</a></div>
-                                    <div class="news_post_comments"><a href="#">3 Comments</a></div>
-                                    <div class="news_post_tags">
-                                        <span>in </span>
-                                        <ul>
-                                            <li><a href="#">Social Media</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="news_post_text">
-                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
-                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis
-                                        in. Aenean id varius quam. Nullam bibendum interdum dui, ac tempor lorem
-                                        convallis ut. Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio
-                                        eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue.</p>
-                                </div>
-                                <div class="news_post_link"><a href="#">Read More</a></div>
-                            </div>
-                        </div>
-
-                        <!-- News Post -->
-                        <div class="news_post">
-                            <div class="news_post_image"><img src="/assets/images/news_7.jpg" alt=""></div>
-                            <div class="news_post_body">
-                                <div class="news_post_date"><a href="#">April 02, 2018</a></div>
-                                <div class="news_post_title"><a href="#">10 ways to get more productive</a></div>
-                                <div class="news_post_meta d-flex flex-row align-items-start justify-content-start">
-                                    <div class="news_post_author">By <a href="#">William Smith</a></div>
-                                    <div class="news_post_comments"><a href="#">3 Comments</a></div>
-                                    <div class="news_post_tags">
-                                        <span>in </span>
-                                        <ul>
-                                            <li><a href="#">Social Media</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="news_post_text">
-                                    <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
-                                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis
-                                        in. Aenean id varius quam. Nullam bibendum interdum dui, ac tempor lorem
-                                        convallis ut. Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio
-                                        eget lacus tempus pulvinar. Praesent vel nisl fermentum, gravida augue.</p>
-                                </div>
-                                <div class="news_post_link"><a href="#">Read More</a></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="col-lg-4">
-                    <div class="sidebar">
-                        <div class="sidebar_search">
-                            <form action="#" id="sidebar_search_form" class="sidebar_search_form">
-                                <input type="text" class="sidebar_search_input" placeholder="Search"
-                                       required="required">
-                                <button class="sidebar_search_button"><i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </form>
-                        </div>
-                        <div class="sidebar_categories">
-                            <div class="sidebar_title">Categories</div>
-                            <div class="sidebar_links">
-                                <ul>
-                                    <li><a href="#">Education</a></li>
-                                    <li><a href="#">Social Media</a></li>
-                                    <li><a href="#">Lifestyle & Events</a></li>
-                                    <li><a href="#">Online Learning</a></li>
-                                    <li><a href="#">Uncategorized</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="sidebar_latest_posts">
-                            <div class="sidebar_title">Latest Posts</div>
-                            <div class="latest_posts">
-
-                                <!-- News Post -->
-                                <div class="latest_post d-flex flex-row align-items-start justify-content-start">
-                                    <div>
-                                        <div class="latest_post_image"><img src="/assets/images/news_1.jpg"
-                                                                            alt="https://unsplash.com/@beccatapert">
-                                        </div>
-                                    </div>
-                                    <div class="latest_post_body">
-                                        <div class="latest_post_date">April 02, 2018</div>
-                                        <div class="latest_post_title"><a href="document.html">Why Choose online
-                                            education?</a></div>
-                                        <div class="latest_post_author">By <a href="#">William Smith</a></div>
-                                    </div>
-                                </div>
-
-                                <!-- News Post -->
-                                <div class="latest_post d-flex flex-row align-items-start justify-content-start">
-                                    <div>
-                                        <div class="latest_post_image"><img src="/assets/images/news_2.jpg"
-                                                                            alt="https://unsplash.com/@nbb_photos">
-                                        </div>
-                                    </div>
-                                    <div class="latest_post_body">
-                                        <div class="latest_post_date">April 02, 2018</div>
-                                        <div class="latest_post_title"><a href="document.html">Books, Kindle or tablet?</a>
-                                        </div>
-                                        <div class="latest_post_author">By <a href="#">William Smith</a></div>
-                                    </div>
-                                </div>
-
-                                <!-- News Post -->
-                                <div class="latest_post d-flex flex-row align-items-start justify-content-start">
-                                    <div>
-                                        <div class="latest_post_image"><img src="/assets/images/news_3.jpg"
-                                                                            alt="https://unsplash.com/@rawpixel"></div>
-                                    </div>
-                                    <div class="latest_post_body">
-                                        <div class="latest_post_date">April 02, 2018</div>
-                                        <div class="latest_post_title"><a href="document.html">Why Choose online
-                                            education?</a></div>
-                                        <div class="latest_post_author">By <a href="#">William Smith</a></div>
-                                    </div>
-                                </div>
-
-                                <!-- News Post -->
-                                <div class="latest_post d-flex flex-row align-items-start justify-content-start">
-                                    <div>
-                                        <div class="latest_post_image"><img src="/assets/images/news_4.jpg"
-                                                                            alt="https://unsplash.com/@jtylernix"></div>
-                                    </div>
-                                    <div class="latest_post_body">
-                                        <div class="latest_post_date">April 02, 2018</div>
-                                        <div class="latest_post_title"><a href="document.html">Books, Kindle or tablet?</a>
-                                        </div>
-                                        <div class="latest_post_author">By <a href="#">William Smith</a></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="sidebar_elearn">
-                            <div class="elearn">
-                                <div class="elearn_background"
-                                     style="background-image:url(/assets/images/elearn.jpg)"></div>
-                                <div class="elearn_content d-flex flex-column align-items-center justify-content-end">
-                                    <div class="elearn_line">Get a 20% Discount</div>
-                                    <div class="elearn_link"><a href="#">Register now</a></div>
-                                    <div class="dcount">
-                                        <div class="dcount_content d-flex flex-column align-items-center justify-content-center">
-                                            <div class="dcount_value">20%</div>
-                                            <div class="dcount_text">off</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section_title text-center"><h2>Choose your course</h2></div>
+                    <div class="section_subtitle">Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id varius quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut</div>
                 </div>
             </div>
 
-            <!-- Pagination -->
+            <!-- Course Search -->
             <div class="row">
                 <div class="col">
-                    <div class="news_pagination">
-                        <ul>
-                            <li><a href="#">01</a></li>
-                            <li class="active"><a href="#">02</a></li>
-                            <li><a href="#">03</a></li>
-                            <li><a href="#">04</a></li>
-                            <li><a href="#">05</a></li>
-                        </ul>
+                    <div class="course_search">
+                        <form class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
+                            <div><input name="keyword" type="text" class="course_input" placeholder="Course" required="required"></div>
+                            <!--							<div><input type="text" class="course_input" placeholder="Level" required="required"></div>-->
+                            <button class="course_button"><span>search course</span><span class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+                        </form>
                     </div>
                 </div>
             </div>
 
+
+
+            <!-- Course -->
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Result Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Java</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">PHP</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="row courses_row">
+                        <th:block th:each="listDocuments : ${listDocuments}">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="course">
+                                    <div class="course_image"><a th:href="@{/document/showDocument__${documents.id}__}"><img th:src="${listDocuments.imgDocument}" alt=""></a></div>
+                                    <div class="course_body">
+                                        <div class="course_title"><h3><a th:href="@{/document/showDocument__${documents.id}__}" th:text="${listDocuments.nameDocument}"></a></h3></div>
+                                        <div class="course_text">
+                                            <p th:text="${listDocuments.typeDocument}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="row courses_row">
+                        <th:block th:each="lessons : ${listJavaLessons}">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="course">
+                                    <div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img th:src="${lessons.imgLesson}" alt=""></a></div>
+                                    <div class="course_body">
+                                        <div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
+                                        <div class="course_text">
+                                            <p th:text="${lessons.titleLess}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="row courses_row">
+                        <th:block th:each="lessons : ${listPhpLessons}">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="course">
+                                    <div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img th:src="${lessons.imgLesson}" alt=""></a></div>
+                                    <div class="course_body">
+                                        <div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
+                                        <div class="course_text">
+                                            <p th:text="${lessons.titleLess}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Pagination -->
+
+            <div class="row">
+                <div class="col">
+                    <div class="courses_paginations">
+                        <a th:href="@{'/lesson/showAllLesson'(page=${listLessons.number - 1})}" th:if="${listLessons.hasPrevious()}">previous</a>
+                        <span th:text="${listLessons.number + 1}"></span>/<span th:text="${listLessons.totalPages}"></span>
+                        <a th:href="@{'/lesson/showAllLesson'(page=${listLessons.number + 1})}" th:if="${listLessons.hasNext()}" >next</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -404,14 +307,14 @@
                         <div class="logo_container">
                             <a href="#">
                                 <div class="logo_content d-flex flex-row align-items-end justify-content-start">
-                                    <div class="logo_img"><img src="/assets/images/logo.png" alt=""></div>
-                                    <div class="logo_text">learn</div>
+                                    <!--									Sửa logo-->
+                                    <div class="logo_img"><img width="150" src="/assets/images/logoDBT2.png" alt=""></div>
+                                    <!--									<div class="logo_text">learn</div>-->
                                 </div>
                             </a>
                         </div>
                         <div class="footer_about_text">
-                            <p>Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus
-                                pulvinar.</p>
+                            <p>Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar.</p>
                         </div>
                         <div class="footer_social">
                             <ul>
@@ -421,13 +324,11 @@
                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
-                        <div class="copyright">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                                                                aria-hidden="true"></i> by <a
-                                href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+                        <div class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template is made with
+                            <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                            <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        </div>
                     </div>
                 </div>
 
@@ -451,7 +352,7 @@
                         <ul class="footer_list">
                             <li><a href="lesson.html">Courses</a></li>
                             <li><a href="#">Events</a></li>
-                            <li><a href="document.html">News</a></li>
+                            <li><a href="des_cu_document.html">News</a></li>
                             <li><a href="#">Teachers</a></li>
                             <li><a href="#">Links</a></li>
                             <li><a href="#">FAQ</a></li>
@@ -488,6 +389,6 @@
 <script src="/assets/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="/assets/plugins/easing/easing.js"></script>
 <script src="/assets/plugins/parallax-js-master/parallax.min.js"></script>
-<script src="/assets/js/news.js"></script>
+<script src="/assets/js/courses.js"></script>
 </body>
 </html>

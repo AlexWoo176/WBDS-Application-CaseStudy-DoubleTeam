@@ -9,11 +9,13 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
 @Controller
+@RequestMapping("/document")
 public class DocumentController {
 
     @Autowired
@@ -21,13 +23,13 @@ public class DocumentController {
 
     @GetMapping("/showDocument/{id}")
     public ModelAndView showDocument(@PathVariable("id") Long id) {
-        ModelAndView modelAndView = new ModelAndView("showDocument");
+        ModelAndView modelAndView = new ModelAndView("detailDocument");
         Optional<AppDoc> document = documentService.findById(id);
         return modelAndView;
     }
 
     @GetMapping("/showAllDocument")
-    public ModelAndView showAllDocument(@PageableDefault(size = 10) Pageable pageable,
+    public ModelAndView showAllDocument(@PageableDefault(size = 9) Pageable pageable,
                                         @RequestParam("keyword") Optional<String> keyword) {
         Page<AppDoc> listDocuments;
         if (keyword.isPresent()) {
@@ -35,7 +37,7 @@ public class DocumentController {
         } else {
             listDocuments = documentService.sortByDate(pageable);
         }
-        ModelAndView modelAndView = new ModelAndView("allDocument");
+        ModelAndView modelAndView = new ModelAndView("document");
         modelAndView.addObject("listDocuments", listDocuments);
         return modelAndView;
     }

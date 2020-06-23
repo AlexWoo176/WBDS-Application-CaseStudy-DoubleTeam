@@ -62,19 +62,15 @@ public class HomeController {
         return modelAndView;
     }
 
-    @GetMapping("/lesson")
-    public ModelAndView lesson() {
-        return new ModelAndView("lesson");
-    }
-
     @GetMapping("/about")
     public ModelAndView about() {
         return new ModelAndView("about");
     }
 
-    @GetMapping("/document")
-    public ModelAndView document() {
-        return new ModelAndView("document");
+    @GetMapping("/contact")
+    public ModelAndView contact() {
+        return new ModelAndView("contact");
     }
+
 }
 
