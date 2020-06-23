@@ -1,7 +1,9 @@
 package com.codegym.education.controller;
 
 import com.codegym.education.model.Participant;
+import com.codegym.education.model.Role;
 import com.codegym.education.service.EmailService;
+import com.codegym.education.service.RoleService;
 import com.codegym.education.service.UserService;
 import com.nulabinc.zxcvbn.Strength;
 import com.nulabinc.zxcvbn.Zxcvbn;
@@ -16,9 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 public class RegisterController {
@@ -30,6 +30,11 @@ public class RegisterController {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private RoleService roleService;
+
+    private static final String DEFAULT_ROLE = "ROLE_USER";
 
     @GetMapping(value = {"/index"})
     public ModelAndView home() {
@@ -82,6 +87,10 @@ public class RegisterController {
             participant.setEnabled(false);
             isRegistered = true;
             participant.setConfirmationToken(UUID.randomUUID().toString());
+
+            /*Set Role*/
+            Role role = roleService.findRoleByName(DEFAULT_ROLE);
+            participant.setRole(role);
 
             userService.save(participant);
 
@@ -142,6 +151,8 @@ public class RegisterController {
         participant.setEnabled(true);
         userService.save(participant);
         modelAndView.addObject("successMessage", "Your password has been set!");
+//        return modelAndView;
+        modelAndView.setViewName("redirect:login");
         return modelAndView;
     }
 }
