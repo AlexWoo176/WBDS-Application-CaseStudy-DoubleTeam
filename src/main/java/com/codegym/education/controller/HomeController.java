@@ -71,8 +71,6 @@ public class HomeController {
         return new ModelAndView("contact");
     }
 
-
-
     @GetMapping("/findAll")
     public ModelAndView findAll(@PageableDefault(size = 9) Pageable pageable,
                                 @RequestParam("keyword") Optional<String> keyword){
