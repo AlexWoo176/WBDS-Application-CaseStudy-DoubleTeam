@@ -39,7 +39,7 @@ public class RegisterController {
     @GetMapping(value = {"/index"})
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView("index");
-//        modelAndView.addObject("participant", userService.getCurrentUser());
+        modelAndView.addObject("participant", userService.getCurrentUser());
         return modelAndView;
     }
 

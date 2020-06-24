@@ -22,15 +22,6 @@ import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
 @Controller
 public class SocialController {
-    private static final String USER_REGISTER = "user/register";
-    private static final String ERROR_404 = "error-404";
-    private static final String MESSAGE = "message";
-    private static final String DEFAULT_ROLE = "ROLE_USER";
-    private static final String TEXT = "To confirm your account, please click here : "
-            + "http://localhost:8080/confirm-account?token=";
-
-    private static final String SUBJECT = "Complete Registration!";
-
     @Autowired
     private UserService userService;
 
@@ -39,8 +30,6 @@ public class SocialController {
 
     @Autowired
     private GoogleUtils googleUtils;
-
-
 
     @PostMapping("/login-facebook")
     public String loginFacebook(HttpServletRequest request, Model model) {
