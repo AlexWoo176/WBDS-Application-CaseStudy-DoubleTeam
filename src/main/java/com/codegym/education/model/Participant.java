@@ -40,6 +40,9 @@ public class Participant {
     @Column(name = "enabled")
     private boolean enabled;
 
+    public Participant() {
+    }
+
     @Column(name = "confirmation_token")
     private String confirmationToken;
 
