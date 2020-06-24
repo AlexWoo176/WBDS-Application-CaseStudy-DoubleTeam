@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Lesson</title>
     <meta charset="utf-8">
@@ -162,7 +163,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Home -->
 
 	<div class="home">
@@ -242,6 +243,18 @@
 							</div>
 						</th:block>
 						</div>
+
+                        <!-- Pagination -->
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="courses_paginations">
+                                    <a th:href="@{'/lesson/showAllLesson'(page=${listLessons.number - 1}, keyword= ${keyword})}" th:if="${listLessons.hasPrevious()}">previous</a>
+                                    <span th:text="${listLessons.number + 1}"></span>/<span th:text="${listLessons.totalPages}"></span>
+                                    <a th:href="@{'/lesson/showAllLesson'(page=${listLessons.number + 1}, keyword= ${keyword})}" th:if="${listLessons.hasNext()}" >next</a>
+                                </div>
+                            </div>
+                        </div>
 					</div>
 					<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 						<div class="row courses_row">
@@ -278,19 +291,6 @@
 						</div>
 					</div>
 				</div>
-
-
-			<!-- Pagination -->
-
-			<div class="row">
-				<div class="col">
-					<div class="courses_paginations">
-						<a th:href="@{'/lesson/showAllLesson'(page=${listLessons.number - 1})}" th:if="${listLessons.hasPrevious()}">previous</a>
-						<span th:text="${listLessons.number + 1}"></span>/<span th:text="${listLessons.totalPages}"></span>
-						<a th:href="@{'/lesson/showAllLesson'(page=${listLessons.number + 1})}" th:if="${listLessons.hasNext()}" >next</a>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 

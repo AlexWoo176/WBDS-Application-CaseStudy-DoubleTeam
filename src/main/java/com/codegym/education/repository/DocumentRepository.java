@@ -5,10 +5,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface DocumentRepository extends JpaRepository<AppDoc,Long> {
     Page <AppDoc> findByNameDocumentContaining(Pageable pageable, Optional<String> name);
     Page <AppDoc> findAllByOrderByDateDesc(Pageable pageable);
-    Page <AppDoc> findByTypeDocument(Pageable pageable,String type);
+    List <AppDoc> findByTypeDocument(String type);
 }
