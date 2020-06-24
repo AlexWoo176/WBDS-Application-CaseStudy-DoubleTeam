@@ -6,11 +6,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface LessonRepository extends JpaRepository<Lesson,Long> {
     Page <Lesson> findByNameLessonContaining(Pageable pageable, Optional<String> name);
     Page <Lesson> findAllByOrderByDateDesc(Pageable pageable);
-    Page <Lesson> findByTypeLesson(Pageable pageable,String type);
+    List <Lesson> findByTypeLesson(String type);
 }

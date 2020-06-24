@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class LessonService implements ILessonService{
@@ -39,7 +40,7 @@ public class LessonService implements ILessonService{
     public Page<Lesson> sortByDate(Pageable pageable){
         return lessonRepository.findAllByOrderByDateDesc(pageable);
     }
-    public Page<Lesson> findByTypeLesson(Pageable pageable,String type){
-        return lessonRepository.findByTypeLesson(pageable,type);
+    public List<Lesson> findByTypeLesson(String type){
+        return lessonRepository.findByTypeLesson(type);
     }
 }

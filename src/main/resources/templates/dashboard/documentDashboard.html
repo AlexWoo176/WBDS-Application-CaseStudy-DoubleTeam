@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/lesson.css">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/lesson_responsive.css">
+    <title>Dashboard</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row" style="margin-bottom: 30px">
+        <div class="col">
+            <div class="course_search">
+                <form class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
+                    <div><input name="keyword" type="text" class="course_input" placeholder="Course" required="required"></div>
+                    <!--							<div><input type="text" class="course_input" placeholder="Level" required="required"></div>-->
+                    <button class="course_button"><span>search course</span><span class="button_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-bottom: 60px">
+
+        <a style="margin-right: 30px"   th:href="@{/admin/showAllLesson}">Lesson</a>
+        <a class="active"  th:href="@{/admin/showAllDocument}">Document</a>
+
+    </div>
+    <div>
+        <a href="/admin/document/createdocument"> Create new document</a>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr style="text-align: center">
+            <th scope="col">#</th>
+            <th scope="col">Name Document</th>
+            <th scope="col">Title Document</th>
+            <th scope="col">Img Document</th>
+            <th scope="col">Type Document</th>
+            <th scope="col">Date</th>
+            <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="document,count : ${listDocuments}">
+            <th scope="row" th:text="${count.count}"></th>
+            <td th:text="*{document.nameDocument}"></td>
+            <td th:text="*{document.titleDocument}"></td>
+            <td th:text="*{document.imgDocument}"></td>
+            <td style="text-align: center" th:text="*{document.typeDocument}"></td>
+            <td style="text-align: center" th:text="*{document.date}"></td>
+            <td><a th:href="@{/admin/document/editdocument/__${document.id}__ }">Edit</a></td>
+            <td><a th:href="@{/admin/document/deletedocument/__${document.id}__ }">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col">
+            <div class="courses_paginations">
+                <a th:href="@{'/admin/showAllDocument'(page=${listDocuments.number - 1}, keyword= ${keyword})}" th:if="${listDocuments.hasPrevious()}">previous</a>
+                <span th:text="${listDocuments.number + 1}"></span>/<span th:text="${listDocuments.totalPages}"></span>
+                <a th:href="@{'/admin/showAllDocument'(page=${listDocuments.number + 1}, keyword= ${keyword})}" th:if="${listDocuments.hasNext()}" >next</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

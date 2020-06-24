@@ -30,17 +30,21 @@ public class DocumentController {
     }
 
     @GetMapping("/showAllDocument")
-    public ModelAndView showAllDocument(@PageableDefault(size = 9) Pageable pageable,
+    public ModelAndView showAllDocument(@PageableDefault(size = 1) Pageable pageable,
                                         @RequestParam("keyword") Optional<String> keyword) {
         Page<AppDoc> listDocuments;
+        ModelAndView modelAndView = new ModelAndView("document");
+
+        modelAndView.addObject("listJavaDocument",documentService.findByTypeDocument("java"));
+        modelAndView.addObject("listPhpDocument",documentService.findByTypeDocument("php"));
         if (keyword.isPresent()) {
             listDocuments = documentService.findByNameDocument(pageable, keyword);
+            modelAndView.addObject("keyword", keyword.map(Object::toString).orElse(null));
         } else {
             listDocuments = documentService.sortByDate(pageable);
+            modelAndView.addObject("keyword", "");
         }
-        ModelAndView modelAndView = new ModelAndView("document");
-        modelAndView.addObject("listJavaDocument",documentService.findByTypeDocument(pageable,"java"));
-        modelAndView.addObject("listPhpDocument",documentService.findByTypeDocument(pageable,"php"));
+
         modelAndView.addObject("listDocuments", listDocuments);
         return modelAndView;
     }
