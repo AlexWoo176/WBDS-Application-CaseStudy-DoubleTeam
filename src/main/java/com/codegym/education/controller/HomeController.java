@@ -70,13 +70,13 @@ public class HomeController {
     public ModelAndView contact() {
         return new ModelAndView("contact");
     }
-    
+
     @GetMapping("/findAll")
     public ModelAndView findAll(@PageableDefault(size = 9) Pageable pageable,
                                 @RequestParam("keyword") Optional<String> keyword){
         Page<Lesson> listLessons = lessonService.findByNameLesson(pageable,keyword);
         Page<AppDoc> listDocuments = documentService.findByNameDocument(pageable,keyword);
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView("searchLesson");
         modelAndView.addObject("listLessons",listLessons.getContent());
         modelAndView.addObject("listDocuments",listDocuments.getContent());
         return modelAndView;
