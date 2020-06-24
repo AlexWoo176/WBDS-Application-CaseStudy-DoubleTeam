@@ -71,10 +71,10 @@ public class HomeController {
         return new ModelAndView("contact");
     }
 
-    @GetMapping("/error")
-    public ModelAndView error() {
-        return new ModelAndView("erorr");
-    }
+//    @GetMapping("/error")
+//    public ModelAndView error() {
+//        return new ModelAndView("erorr");
+//    }
 
     @GetMapping("/findAll")
     public ModelAndView findAll(@PageableDefault(size = 9) Pageable pageable,
