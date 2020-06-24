@@ -26,6 +26,7 @@ public class DocumentController {
     public ModelAndView showDocument(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("detailDocument");
         Optional<AppDoc> document = documentService.findById(id);
+        modelAndView.addObject("documents", document.get());
         return modelAndView;
     }
 
