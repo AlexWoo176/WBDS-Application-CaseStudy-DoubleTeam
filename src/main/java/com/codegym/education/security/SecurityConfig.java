@@ -14,7 +14,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Properties;
 
@@ -83,7 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT).access("hasRole('ROLE_ADMIN')")
                 .antMatchers(HttpMethod.DELETE).access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("/user/login").permitAll()
+                .and().formLogin().loginPage("/login").permitAll()
                 .and().csrf().disable();
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -16,107 +17,112 @@
 
 
 <div class="super_container">
-<header class="header">
+    <!-- Header -->
 
-    <!-- Top Bar -->
-    <div class="top_bar">
-        <div class="top_bar_container">
+    <header class="header">
+
+        <!-- Top Bar -->
+        <div class="top_bar">
+            <div class="top_bar_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+                                <ul class="top_bar_contact_list">
+                                    <li>
+                                        <div class="question">Have any questions?</div>
+                                    </li>
+                                    <li>
+                                        <div>(+84) 904 366 030</div>
+                                    </li>
+                                    <li>
+                                        <div>doubleteamc0220h1@gmail.com</div>
+                                    </li>
+                                </ul>
+                                <div class="top_bar_login ml-auto">
+                                    <div th:if="${participant}">
+                                        <div sec:authorize="isAuthenticated()">
+                                            <span><a th:href="@{/view/__${participant.id}__}"
+                                                     th:text="${participant.username}"></a></span>|<a
+                                                th:href="@{/logout}">Logout</a>
+                                        </div>
+                                    </div>
+                                    <div th:if="${participant==null}">
+                                        <div sec:authorize="isAnonymous()">
+                                            <ul>
+                                                <li><a href="/register">Register</a></li>
+                                                <li><a href="/login">Login</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header Content -->
+        <div class="header_container">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
-                            <ul class="top_bar_contact_list">
-                                <li>
-                                    <div class="question">Have any questions?</div>
-                                </li>
-                                <li>
-                                    <div>(+84) 904 366 030</div>
-                                </li>
-                                <li>
-                                    <div>doubleteamc0220h1@gmail.com</div>
-                                </li>
-                            </ul>
-                            <div class="top_bar_login ml-auto">
-                                <div th:if="${participant}">
-                                    <div sec:authorize="isAuthenticated()">
-                                            <span><a th:href="@{/view/__${participant.id}__}"
-                                                     th:text="${participant.username}"></a></span>|<a
-                                            th:href="@{/logout}">Logout</a>
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo_container">
+                                <a th:href="@{/}">
+                                    <div class="logo_content d-flex flex-row align-items-end justify-content-start">
+                                        <div class="logo_img"><img width="150" height="auto"
+                                                                   src="/assets/images/logoDBT2.png" alt=""></div>
                                     </div>
-                                </div>
-                                <div th:if="${participant==null}">
-                                    <div sec:authorize="isAnonymous()">
-                                        <ul>
-                                            <li><a href="/register">Register</a></li>
-                                            <li><a href="/login">Login</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
+                            <nav class="main_nav_contaner ml-auto">
+                                <ul class="main_nav">
+                                    <li class="active"><a th:href="@{/}">home</a></li>
+                                    <li><a th:href="@{/about}">about us</a></li>
+                                    <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+                                    <li><a th:href="@{/document/showAllDocument}">document</a></li>
+                                    <li><a th:href="@{/contact}">contact</a></li>
+                                    <li><a th:href="@{/quiz}">quiz</a></li>
+                                    <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
+                                        <img width="25" src="/assets/images/VN.jpg" alt=""></li>
+                                </ul>
+                                <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
+
+                                <!-- Hamburger -->
+
+                                <div class="hamburger menu_mm">
+                                    <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+                                </div>
+                            </nav>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Header Content -->
-    <div class="header_container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                        <div class="logo_container">
-                            <a th:href="@{/}">
-                                <div class="logo_content d-flex flex-row align-items-end justify-content-start">
-                                    <div class="logo_img"><img width="150" height="auto"
-                                                               src="/assets/images/logoDBT2.png" alt=""></div>
-                                </div>
-                            </a>
+        <!-- Header Search Panel -->
+        <div class="header_search_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_search_content d-flex flex-row align-items-center justify-content-end">
+                            <form action="#" class="header_search_form">
+                                <input type="search" class="search_input" placeholder="Search" required="required">
+                                <button class="header_search_button d-flex flex-column align-items-center justify-content-center">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
                         </div>
-                        <nav class="main_nav_contaner ml-auto">
-                            <ul class="main_nav">
-                                <li class="active"><a th:href="@{/}">home</a></li>
-                                <li><a th:href="@{/about}">about us</a></li>
-                                <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
-                                <li><a href="document.html">news</a></li>
-                                <li><a href="contact.html">contact</a></li>
-                                <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
-                                    <img width="25" src="/assets/images/VN.jpg" alt=""></li>
-                            </ul>
-                            <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
-
-                            <!-- Hamburger -->
-
-                            <div class="hamburger menu_mm">
-                                <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
-                            </div>
-                        </nav>
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Header Search Panel -->
-    <div class="header_search_container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="header_search_content d-flex flex-row align-items-center justify-content-end">
-                        <form action="#" class="header_search_form">
-                            <input type="search" class="search_input" placeholder="Search" required="required">
-                            <button class="header_search_button d-flex flex-column align-items-center justify-content-center">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+    <!-- Menu -->
 
     <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
         <div class="menu_close_container">
@@ -135,12 +141,12 @@
         </div>
         <nav class="menu_nav">
             <ul class="menu_mm">
-                <li class="menu_mm"><a href="index.html">Home</a></li>
-                <li class="menu_mm"><a href="lesson.html">Courses</a></li>
-                <li class="menu_mm"><a href="instructors.html">Instructors</a></li>
-                <li class="menu_mm"><a href="#">Events</a></li>
-                <li class="menu_mm"><a href="blog.html">Blog</a></li>
-                <li class="menu_mm"><a href="contact.html">Contact</a></li>
+                <li class="menu_mm"><a th:href="@{/}">Home</a></li>
+                <li class="menu_mm"><a th:href="@{/about}">about</a></li>
+                <li class="menu_mm"><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+                <li class="menu_mm"><a th:href="@{/document/showAllDocument}">document</a></li>
+                <li class="menu_mm"><a th:href="@{/contact}">Contact</a></li>
+                <li class="menu_mm"><a th:href="@{/quiz}">quiz</a></li>
             </ul>
         </nav>
         <div class="menu_extra">
@@ -156,7 +162,6 @@
             </div>
         </div>
     </div>
-
 
 <div class="container">
     <div style=" margin-top: 200px" th:object="${lesson}">
@@ -241,7 +246,7 @@
                         <ul class="footer_list">
                             <li><a href="lesson.html">Courses</a></li>
                             <li><a href="#">Events</a></li>
-                            <li><a href="document.html">News</a></li>
+                            <li><a href="des_cu_document.html">News</a></li>
                             <li><a href="#">Teachers</a></li>
                             <li><a href="#">Links</a></li>
                             <li><a href="#">FAQ</a></li>

@@ -85,8 +85,9 @@
                                     <li class="active"><a th:href="@{/}">home</a></li>
                                     <li><a th:href="@{/about}">about us</a></li>
                                     <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
-                                    <li><a th:href="@{/document}">document</a></li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a th:href="@{/document/showAllDocument}">document</a></li>
+                                    <li><a th:href="@{/contact}">contact</a></li>
+                                    <li><a th:href="@{/quiz}">quiz</a></li>
                                     <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
                                         <img width="25" src="/assets/images/VN.jpg" alt=""></li>
                                 </ul>
@@ -143,12 +144,12 @@
         </div>
         <nav class="menu_nav">
             <ul class="menu_mm">
-                <li class="menu_mm"><a href="index.html">Home</a></li>
-                <li class="menu_mm"><a href="lesson.html">Courses</a></li>
-                <li class="menu_mm"><a href="instructors.html">Instructors</a></li>
-                <li class="menu_mm"><a href="#">Events</a></li>
-                <li class="menu_mm"><a href="blog.html">Blog</a></li>
-                <li class="menu_mm"><a href="contact.html">Contact</a></li>
+                <li class="menu_mm"><a th:href="@{/}">Home</a></li>
+                <li class="menu_mm"><a th:href="@{/about}">about</a></li>
+                <li class="menu_mm"><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+                <li class="menu_mm"><a th:href="@{/document/showAllDocument}">document</a></li>
+                <li class="menu_mm"><a th:href="@{/contact}">Contact</a></li>
+                <li class="menu_mm"><a th:href="@{/quiz}">quiz</a></li>
             </ul>
         </nav>
         <div class="menu_extra">
@@ -531,7 +532,7 @@
                         <ul class="footer_list">
                             <li><a href="lesson.html">Courses</a></li>
                             <li><a href="#">Events</a></li>
-                            <li><a href="document.html">News</a></li>
+                            <li><a href="des_cu_document.html">News</a></li>
                             <li><a href="#">Teachers</a></li>
                             <li><a href="#">Links</a></li>
                             <li><a href="#">FAQ</a></li>

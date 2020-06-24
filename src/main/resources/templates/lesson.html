@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Courses</title>
+    <title>Lesson</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Elearn project">
@@ -20,7 +20,7 @@
 	<!-- Header -->
 
 	<header class="header">
-			
+
 		<!-- Top Bar -->
 		<div class="top_bar">
 			<div class="top_bar_container">
@@ -29,25 +29,38 @@
 						<div class="col">
 							<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
 								<ul class="top_bar_contact_list">
-									<li><div class="question">Have any questions?</div></li>
 									<li>
-										<div>(+84) 946 211 765</div>
+										<div class="question">Have any questions?</div>
+									</li>
+									<li>
+										<div>(+84) 904 366 030</div>
 									</li>
 									<li>
 										<div>doubleteamc0220h1@gmail.com</div>
 									</li>
 								</ul>
 								<div class="top_bar_login ml-auto">
-									<ul>
-										<li><a href="#">Register</a></li>
-										<li><a href="#">Login</a></li>
-									</ul>
+									<div th:if="${participant}">
+										<div sec:authorize="isAuthenticated()">
+                                            <span><a th:href="@{/view/__${participant.id}__}"
+													 th:text="${participant.username}"></a></span>|<a
+												th:href="@{/logout}">Logout</a>
+										</div>
+									</div>
+									<div th:if="${participant==null}">
+										<div sec:authorize="isAnonymous()">
+											<ul>
+												<li><a href="/register">Register</a></li>
+												<li><a href="/login">Login</a></li>
+											</ul>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>				
+			</div>
 		</div>
 
 		<!-- Header Content -->
@@ -57,11 +70,10 @@
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo_container">
-								<a href="#">
+								<a th:href="@{/}">
 									<div class="logo_content d-flex flex-row align-items-end justify-content-start">
-<!--										Sửa logo-->
-										<div class="logo_img"><img width="150" src="/assets/images/logoDBT2.png" alt=""></div>
-<!--										<div class="logo_text">learn</div>-->
+										<div class="logo_img"><img width="150" height="auto"
+																   src="/assets/images/logoDBT2.png" alt=""></div>
 									</div>
 								</a>
 							</div>
@@ -69,11 +81,12 @@
 								<ul class="main_nav">
 									<li><a th:href="@{/}">home</a></li>
 									<li><a th:href="@{/about}">about us</a></li>
-									<li class="active"><a th:href="@{/lesson}">lesson</a></li>
-									<li><a href="document.html">news</a></li>
-									<li><a href="contact.html">contact</a></li>
-									<li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> | <img width="25" src="/assets/images/VN.jpg" alt=""></li>
-
+									<li  class="active"><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+									<li><a th:href="@{/document/showAllDocument}">document</a></li>
+									<li><a th:href="@{/contact}">contact</a></li>
+									<li><a th:href="@{/quiz}">quiz</a></li>
+									<li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
+										<img width="25" src="/assets/images/VN.jpg" alt=""></li>
 								</ul>
 								<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 
@@ -105,14 +118,19 @@
 						</div>
 					</div>
 				</div>
-			</div>			
-		</div>			
+			</div>
+		</div>
 	</header>
 
 	<!-- Menu -->
 
 	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="menu_close_container">
+			<div class="menu_close">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 		<div class="search">
 			<form action="#" class="header_search_form menu_mm">
 				<input type="search" class="search_input menu_mm" placeholder="Search" required="required">
@@ -123,18 +141,18 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index.html">Home</a></li>
-				<li class="menu_mm"><a href="lesson.html">Courses</a></li>
-				<li class="menu_mm"><a href="instructors.html">Instructors</a></li>
-				<li class="menu_mm"><a href="#">Events</a></li>
-				<li class="menu_mm"><a href="blog.html">Blog</a></li>
-				<li class="menu_mm"><a href="contact.html">Contact</a></li>
+				<li class="menu_mm"><a th:href="@{/}">Home</a></li>
+				<li class="menu_mm"><a th:href="@{/about}">about</a></li>
+				<li class="menu_mm"><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+				<li class="menu_mm"><a th:href="@{/document/showAllDocument}">document</a></li>
+				<li class="menu_mm"><a th:href="@{/contact}">Contact</a></li>
+				<li class="menu_mm"><a th:href="@{/quiz}">quiz</a></li>
 			</ul>
 		</nav>
 		<div class="menu_extra">
-			<div class="menu_phone"><span class="menu_title">phone:</span>(+84) 946 211 765</div>
+			<div class="menu_phone"><span class="menu_title">phone:</span>(+84) 904 366 030</div>
 			<div class="menu_social">
-				<span class="menu_title">follow us</span>
+				<span class="menu_title">follow vn</span>
 				<ul>
 					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
 					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -198,13 +216,13 @@
 				<!-- Course -->
 				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+						<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Result Search</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+						<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Java</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+						<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">PHP</a>
 					</li>
 				</ul>
 				<div class="tab-content" id="pills-tabContent">
@@ -225,8 +243,40 @@
 						</th:block>
 						</div>
 					</div>
-					<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-					<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+					<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+						<div class="row courses_row">
+							<th:block th:each="lessons : ${listJavaLessons}">
+								<div class="col-lg-4 col-md-6">
+									<div class="course">
+										<div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img th:src="${lessons.imgLesson}" alt=""></a></div>
+										<div class="course_body">
+											<div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
+											<div class="course_text">
+												<p th:text="${lessons.titleLess}"></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</th:block>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+						<div class="row courses_row">
+							<th:block th:each="lessons : ${listPhpLessons}">
+								<div class="col-lg-4 col-md-6">
+									<div class="course">
+										<div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img th:src="${lessons.imgLesson}" alt=""></a></div>
+										<div class="course_body">
+											<div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
+											<div class="course_text">
+												<p th:text="${lessons.titleLess}"></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</th:block>
+						</div>
+					</div>
 				</div>
 
 
@@ -239,15 +289,6 @@
 						<span th:text="${listLessons.number + 1}"></span>/<span th:text="${listLessons.totalPages}"></span>
 						<a th:href="@{'/lesson/showAllLesson'(page=${listLessons.number + 1})}" th:if="${listLessons.hasNext()}" >next</a>
 					</div>
-<!--						<div class="courses_paginations">-->
-<!--						<ul>-->
-<!--							<li class="active"><a href="#">01</a></li>-->
-<!--							<li><a href="#">02</a></li>-->
-<!--							<li><a href="#">03</a></li>-->
-<!--							<li><a href="#">04</a></li>-->
-<!--							<li><a href="#">05</a></li>-->
-<!--						</ul>-->
-<!--					</div>-->
 				</div>
 			</div>
 		</div>
@@ -282,9 +323,11 @@
 								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
-						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+						<div class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());
+						</script> All rights reserved | This template is made with
+							<i class="fa fa-heart-o" aria-hidden="true"></i> by
+							<a href="https://colorlib.com" target="_blank">Colorlib</a>
+						</div>
 					</div>
 				</div>
 
@@ -308,7 +351,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 						<ul class="footer_list">
 							<li><a href="lesson.html">Courses</a></li>
 							<li><a href="#">Events</a></li>
-							<li><a href="document.html">News</a></li>
+							<li><a href="des_cu_document.html">News</a></li>
 							<li><a href="#">Teachers</a></li>
 							<li><a href="#">Links</a></li>
 							<li><a href="#">FAQ</a></li>
