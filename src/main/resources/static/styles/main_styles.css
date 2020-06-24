@@ -34,6 +34,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,600,700,800,900');
 
+
+
+
 /*********************************
 2. Body and some general stuff
 *********************************/
@@ -156,6 +159,9 @@ section
 	position: relative;
 	box-sizing: border-box;
 }
+
+
+
 .clear
 {
 	clear: both;
@@ -644,7 +650,13 @@ section
 	color: #BA4046;
 }
 
+.center-block {
+	margin: 20px auto;
+	display:block;
+}
+
 /*********************************
+
 4. Menu
 *********************************/
 
@@ -886,6 +898,8 @@ section
 {
 	color: #98252b;
 }
+
+
 
 /*********************************
 5. Home
