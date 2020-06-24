@@ -39,10 +39,10 @@ public class HomeController {
         List<Lesson> topSixLession = new ArrayList<>();
         topSixLession.add(lessions.get(0));
         topSixLession.add(lessions.get(1));
-//        topSixLession.add(lessions.get(2));
-//        topSixLession.add(lessions.get(3));
-//        topSixLession.add(lessions.get(4));
-//        topSixLession.add(lessions.get(5));
+        topSixLession.add(lessions.get(2));
+        topSixLession.add(lessions.get(3));
+        topSixLession.add(lessions.get(4));
+        topSixLession.add(lessions.get(5));
         Page<AppDoc> listDocuments = documentService.sortByDate(pageable);
         List<AppDoc> documents = listDocuments.getContent();
         List<AppDoc> topSixDoc = new ArrayList<>();

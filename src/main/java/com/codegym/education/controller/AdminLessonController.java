@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Controller
@@ -25,6 +26,7 @@ public class AdminLessonController {
 
     @PostMapping("/savelesson")
     public ModelAndView saveLesson(@ModelAttribute("lesson") Lesson lesson) {
+        lesson.setDate(LocalDateTime.now());
         lessonService.save(lesson);
         return new ModelAndView("redirect:/admin/showAllLesson");
     }

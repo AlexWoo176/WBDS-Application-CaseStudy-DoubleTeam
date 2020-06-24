@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Controller
@@ -27,6 +28,7 @@ public class AdminDocumentController {
 
     @PostMapping("/savedocument")
     public ModelAndView saveDocument(@ModelAttribute("document") AppDoc appDoc) {
+        appDoc.setDate(LocalDateTime.now());
         documentService.save(appDoc);
         return new ModelAndView("redirect:/admin/showAllDocument");
     }
