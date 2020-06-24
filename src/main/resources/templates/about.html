@@ -17,8 +17,6 @@
 
 <div class="super_container">
 
-    <!-- Header -->
-
     <header class="header">
 
         <!-- Top Bar -->
@@ -70,10 +68,10 @@
                     <div class="col">
                         <div class="header_content d-flex flex-row align-items-center justify-content-start">
                             <div class="logo_container">
-                                <a href="#">
+                                <a th:href="@{/}">
                                     <div class="logo_content d-flex flex-row align-items-end justify-content-start">
-                                        <div class="logo_img"><img width="150" src="/assets/images/logoDBT2.png" alt="">
-                                        </div>
+                                        <div class="logo_img"><img width="150" height="auto"
+                                                                   src="/assets/images/logoDBT2.png" alt=""></div>
                                     </div>
                                 </a>
                             </div>
@@ -81,9 +79,10 @@
                                 <ul class="main_nav">
                                     <li><a th:href="@{/}">home</a></li>
                                     <li class="active"><a th:href="@{/about}">about us</a></li>
-                                    <li><a th:href="@{/lesson}">lesson</a></li>
-                                    <li><a href="news.html">news</a></li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+                                    <li><a th:href="@{/document/showAllDocument}">document</a></li>
+                                    <li><a th:href="@{/contact}">contact</a></li>
+                                    <li><a th:href="@{/quiz}">quiz</a></li>
                                     <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
                                         <img width="25" src="/assets/images/VN.jpg" alt=""></li>
                                 </ul>
@@ -140,18 +139,18 @@
         </div>
         <nav class="menu_nav">
             <ul class="menu_mm">
-                <li class="menu_mm"><a href="index.html">Home</a></li>
-                <li class="menu_mm"><a href="lesson.html">Lesson</a></li>
-                <li class="menu_mm"><a href="instructors.html">Instructors</a></li>
-                <li class="menu_mm"><a href="#">Events</a></li>
-                <li class="menu_mm"><a href="blog.html">Blog</a></li>
-                <li class="menu_mm"><a href="contact.html">Contact</a></li>
+                <li class="menu_mm"><a th:href="@{/}">Home</a></li>
+                <li class="menu_mm"><a th:href="@{/about}">about</a></li>
+                <li class="menu_mm"><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
+                <li class="menu_mm"><a th:href="@{/document/showAllDocument}">document</a></li>
+                <li class="menu_mm"><a th:href="@{/contact}">Contact</a></li>
+                <li class="menu_mm"><a th:href="@{/quiz}">quiz</a></li>
             </ul>
         </nav>
         <div class="menu_extra">
-            <div class="menu_phone"><span class="menu_title">phone:</span>(+84) 946 211 765</div>
+            <div class="menu_phone"><span class="menu_title">phone:</span>(+84) 904 366 030</div>
             <div class="menu_social">
-                <span class="menu_title">follow us</span>
+                <span class="menu_title">follow vn</span>
                 <ul>
                     <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -484,7 +483,7 @@
                         <ul class="footer_list">
                             <li><a href="lesson.html">Courses</a></li>
                             <li><a href="#">Events</a></li>
-                            <li><a href="news.html">News</a></li>
+                            <li><a href="des_cu_document.html">News</a></li>
                             <li><a href="#">Teachers</a></li>
                             <li><a href="#">Links</a></li>
                             <li><a href="#">FAQ</a></li>

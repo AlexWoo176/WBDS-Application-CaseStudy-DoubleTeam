@@ -29,19 +29,5 @@ public class APIController {
     private UserService userService;
 
 
-    @GetMapping("/findDocument")
-    public ResponseEntity<Page<AppDoc>> findDocumentsByType(@PageableDefault(9) Pageable pageable,@PathVariable("find") String type){
-        Page<AppDoc> listDocuments = documentService.findByTypeDocument(pageable,type);
-            return new ResponseEntity<Page<AppDoc>>(listDocuments,HttpStatus.OK);
-    }
-    @GetMapping("/findLesson")
-    public ResponseEntity<Page<Lesson>> findLessonsByType(@PageableDefault(9) Pageable pageable,@PathVariable("find") String type){
-        Page<Lesson> listLessons = lessonService.findByTypeLesson(pageable,type);
-        return new ResponseEntity<Page<Lesson>>(listLessons,HttpStatus.OK);
-    }
-
-
-
-
 
 }

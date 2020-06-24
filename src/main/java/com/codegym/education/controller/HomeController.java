@@ -62,38 +62,14 @@ public class HomeController {
         return modelAndView;
     }
 
-    @GetMapping("/lesson")
-    public ModelAndView lesson() {
-        return new ModelAndView("lesson");
-    }
-
     @GetMapping("/about")
     public ModelAndView about() {
         return new ModelAndView("about");
     }
 
-
-
-
-    @GetMapping("/showDocument/{id}")
-    public ModelAndView showDocument(@PathVariable("id") Long id) {
-        ModelAndView modelAndView = new ModelAndView("showDocument");
-        Optional<AppDoc> document = documentService.findById(id);
-        return modelAndView;
-    }
-
-    @GetMapping("/showAllDocument")
-    public ModelAndView showAllDocument(@PageableDefault(size = 10) Pageable pageable,
-                                        @RequestParam("keyword") Optional<String> keyword) {
-        Page<AppDoc> listDocuments;
-        if (keyword.isPresent()) {
-            listDocuments = documentService.findByNameDocument(pageable, keyword);
-        } else {
-            listDocuments = documentService.sortByDate(pageable);
-        }
-        ModelAndView modelAndView = new ModelAndView("allDocument");
-        modelAndView.addObject("listDocuments", listDocuments);
-        return modelAndView;
+    @GetMapping("/contact")
+    public ModelAndView contact() {
+        return new ModelAndView("contact");
     }
 
 }
