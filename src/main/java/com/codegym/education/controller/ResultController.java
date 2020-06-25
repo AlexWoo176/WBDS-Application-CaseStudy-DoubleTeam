@@ -17,7 +17,7 @@ import java.util.*;
 @Controller
 public class ResultController {
 
-    private static Map<Long, CollectAnswer> analizeMap = new LinkedHashMap<>();
+    private static final Map<Long, CollectAnswer> analizeMap = new LinkedHashMap<>();
 
     @Autowired
     private IQuestionService questionService;

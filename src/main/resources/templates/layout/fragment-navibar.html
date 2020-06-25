@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
-        <title>Elearn</title>
+        <title th:text="#{app.title}"></title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Elearn project">
@@ -29,13 +29,13 @@
                             <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
                                 <ul class="top_bar_contact_list">
                                     <li>
-                                        <div class="question">Have any questions?</div>
+                                        <div class="question" th:text="#{menu.question}">Have any questions?</div>
                                     </li>
                                     <li>
-                                        <div>(+84) 904 366 030</div>
+                                        <div th:text="#{menu.mobie}"></div>
                                     </li>
                                     <li>
-                                        <div>doubleteamc0220h1@gmail.com</div>
+                                        <div th:text="#{menu.email}"></div>
                                     </li>
                                 </ul>
                                 <div class="top_bar_login ml-auto">
@@ -43,14 +43,14 @@
                                         <div sec:authorize="isAuthenticated()">
                                             <span><a th:href="@{/view/__${participant.id}__}"
                                                      th:text="${participant.username}"></a></span>|<a
-                                                th:href="@{/logout}">Logout</a>
+                                                th:href="@{/logout}" th:text="#{menu.logout}"></a>
                                         </div>
                                     </div>
                                     <div th:if="${participant==null}">
                                         <div sec:authorize="isAnonymous()">
                                             <ul>
-                                                <li><a href="/register">Register</a></li>
-                                                <li><a href="/login">Login</a></li>
+                                                <li><a href="/register" th:text="#{menu.register}"></a></li>
+                                                <li><a href="/login" th:text="#{menu.login}"></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -78,14 +78,24 @@
                             </div>
                             <nav class="main_nav_contaner ml-auto">
                                 <ul class="main_nav">
-                                    <li class="active"><a th:href="@{/}">home</a></li>
-                                    <li><a th:href="@{/about}">about us</a></li>
-                                    <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
-                                    <li><a th:href="@{/document/showAllDocument}">document</a></li>
-                                    <li><a th:href="@{/contact}">contact</a></li>
-                                    <li><a th:href="@{/quiz}">quiz</a></li>
-                                    <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
-                                        <img width="25" src="/assets/images/VN.jpg" alt=""></li>
+                                    <li class="active"><a th:href="@{/}" th:text="#{menu.home}"></a></li>
+                                    <li><a th:href="@{/about}" th:text="#{menu.about-us}"></a></li>
+                                    <li><a th:href="@{/lesson/showAllLesson}" th:text="#{menu.lesson}"></a></li>
+                                    <li><a th:href="@{/document/showAllDocument}" th:text="#{menu.document}"></a></li>
+                                    <li><a th:href="@{/contact}" th:text="#{menu.contact}"></a></li>
+                                    <li><a th:href="@{/quiz}" th:text="#{menu.quiz}"></a></li>
+<!--                                    <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |-->
+<!--                                        <img width="25" src="/assets/images/VN.jpg" alt=""></li>-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="?lang=en">
+                                            <img src="/assets/images/EN.jpg" width="25" /> EN
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="?lang=vi">
+                                            <img src="/assets/images/VN.jpg" width="25" /> VN
+                                        </a>
+                                    </li>
                                 </ul>
                                 <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 

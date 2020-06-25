@@ -32,12 +32,12 @@ public class PasswordController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-    @RequestMapping(value = "/forgot", method = RequestMethod.GET)
+    @RequestMapping(value = "/forgotPassword", method = RequestMethod.GET)
     private ModelAndView displayForgotPasswordPage() {
         return new ModelAndView("forgotPassword");
     }
 
-    @RequestMapping(value = "/forgot", method = RequestMethod.POST)
+    @RequestMapping(value = "/forgotPassword", method = RequestMethod.POST)
     public ModelAndView processForgotPasswordForm(ModelAndView modelAndView, @RequestParam("email") String userEmail, HttpServletRequest request) {
         Optional<Participant> optional = userService.findUserByEmail(userEmail);
 
