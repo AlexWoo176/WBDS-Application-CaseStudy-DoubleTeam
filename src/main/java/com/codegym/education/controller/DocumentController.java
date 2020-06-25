@@ -35,8 +35,8 @@ public class DocumentController {
         Page<AppDoc> listDocuments;
         ModelAndView modelAndView = new ModelAndView("document");
 
-        modelAndView.addObject("listJavaDocument",documentService.findByTypeDocument("java"));
-        modelAndView.addObject("listPhpDocument",documentService.findByTypeDocument("php"));
+        modelAndView.addObject("listJavaDocument",documentService.findByTypeDocument("Java"));
+        modelAndView.addObject("listPhpDocument",documentService.findByTypeDocument("Fontend"));
         if (keyword.isPresent()) {
             listDocuments = documentService.findByNameDocument(pageable, keyword);
             modelAndView.addObject("keyword", keyword.map(Object::toString).orElse(null));

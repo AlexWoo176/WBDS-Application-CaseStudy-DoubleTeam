@@ -48,10 +48,10 @@ public class HomeController {
         List<AppDoc> topSixDoc = new ArrayList<>();
         topSixDoc.add(documents.get(0));
         topSixDoc.add(documents.get(1));
-//        topSixDoc.add(documents.get(2));
-//        topSixDoc.add(documents.get(3));
-//        topSixDoc.add(documents.get(4));
-//        topSixDoc.add(documents.get(5));
+        topSixDoc.add(documents.get(2));
+        topSixDoc.add(documents.get(3));
+        topSixDoc.add(documents.get(4));
+        topSixDoc.add(documents.get(5));
 
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("firstLessons", firstLesson);
