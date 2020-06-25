@@ -1,5 +1,8 @@
 package com.codegym.education.model;
 
+import lombok.Data;
+
+@Data
 public class CollectAnswer {
 
     private Long answerId;
@@ -13,20 +16,20 @@ public class CollectAnswer {
         this.answerCorrectId = answerCorrectId;
     }
 
-//    public Long getAnswerId() {
-//        return answerId;
-//    }
-//
-//    public void setAnswerId(Long answerId) {
-//        this.answerId = answerId;
-//    }
-//
-//    public Long getAnswerCorrectId() {
-//        return answerCorrectId;
-//    }
-//
-//    public void setAnswerCorrectId(Long answerCorrectId) {
-//        this.answerCorrectId = answerCorrectId;
-//    }
+    public Long getAnswerId() {
+       return answerId;
+   }
+
+    public void setAnswerId(Long answerId) {
+        this.answerId = answerId;
+   }
+
+   public Long getAnswerCorrectId() {
+        return answerCorrectId;
+    }
+
+   public void setAnswerCorrectId(Long answerCorrectId) {
+       this.answerCorrectId = answerCorrectId;
+    }
 }
 

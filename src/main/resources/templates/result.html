@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result Page</title>
+</head>
+<body>
+    <h2>Kết Quả</h2>
+<span>Bạn Đã: </span>
+<div>
+    <table>
+        <tr th:each="entry, stat : ${finalMap}">
+            <td style="border: 1px solid black;">Câu <span th:text="${stat.count}"></span></td>
+            <td style="border: 1px solid black;">
+                <div style="border-bottom: 1px solid black;">
+                    <p th:text="${questionList.get(stat.index).getContent()}"></p>
+                </div>
+               <!--<input type="hidden" th:name="questionId" th:value="${question.getId()}"/>-->
+                <div th:with="answerList=${questionList.get(stat.index).getAnswers()}">
+                    <div id="container" th:each="answer : ${answerList}">
+                        <!--<input type="radio" th:id="'answer_'+${question.getId()}+'_'+${answer.getId()}"
+                               th:name="'question_'+${question.getId()}" th:value="${answer.getId()}"/>-->
+                        <span th:id="'answer_content_' + ${answer.getId()}" th:text="${answer.getContent()}"></span><br/>
+                    </div>
+                </div>
+                <!--<th:block th:text="${question.key}"/>-->
+                <div th:if="${entry.value != null}">
+                    <span>Bạn đã chọn đáp án: </span>
+                    <span th:text="${entry.value.getAnswerId()}"></span><br/>
+                    <span>Đáp án đúng là: </span>
+                    <span th:text="${entry.value.getAnswerCorrectId()}"></span>
+                    <div th:if="${entry.value.getAnswerId() == entry.value.getAnswerCorrectId()}">
+                        <h1 style="background-color: green">ĐÚNG</h1>
+                    </div>
+                    <div th:if="${entry.value.getAnswerId() != entry.value.getAnswerCorrectId()}">
+                        <h1 style="background-color: red">SAI</h1>
+                    </div>
+                </div>
+                <div th:if="${entry.value == null}">
+                    <span>Bạn chưa chọn đáp án nào, không được tính điểm !</span>
+                </div>
+            </td>
+            <!--<td th:each="item : ${question.value}">
+                <span th:text="${item.answerId}"></span>
+                <span th:text="${item.answerCorrectId}"></span>
+            </td>-->
+        </tr>
+        <!--<tr th:if="${resultList.get(question.getId()) == 1}">
+        <td style="border: 1px solid black;">Câu <span th:text="${stat.count}"></span></td>
+        <td style="border: 1px solid black;">
+            <div style="border-bottom: 1px solid black;">
+                <p th:text="${question.getContent()}"></p>
+            </div>
+            <input type="hidden" th:name="questionId" th:value="${question.getId()}"/>
+            <div th:with="answerList=${question.getAnswers()}">
+                <div id="container" th:each="answer : ${answerList}">
+                    <input type="radio" th:id="'answer_'+${question.getId()}+'_'+${answer.getId()}"
+                           th:name="'question_'+${question.getId()}" th:value="${answer.getId()}"/>
+                    <span th:id="'answer_content_' + ${answer.getId()}" th:text="${answer.getContent()}"></span>
+                </div>
+            </div>
+        </td>
+        </tr>-->
+    </table>
+</div>
+</body>
+</html>

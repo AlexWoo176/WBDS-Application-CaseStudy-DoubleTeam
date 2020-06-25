@@ -1,5 +1,8 @@
 package com.codegym.education.model;
 
+import lombok.Data;
+
+@Data
 public class AnswerForm {
     private int[] choosen;
 

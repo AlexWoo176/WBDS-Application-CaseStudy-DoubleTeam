@@ -35,9 +35,7 @@
                 <input th:if="${move} &gt; 1" id="previousBtn" type="submit" value="previous"
                        th:formaction="@{'/page/'+${move - 1}}"/>
             </td>
-            <td>
-                <input th:if="${move} == ${totalPages}" id="gradeBtn" type="submit" value="Chấm Điểm"/>
-            </td>
+
             <td>
                 <input th:if="${move} &lt; ${totalPages + 1}" id="nextBtn" type="submit" value="next"/>
             </td>
@@ -54,16 +52,13 @@
                            style="background-color: #008000;"/>
                 </div>
                 <div>
-                    <input th:if="!${#lists.contains(radioCheckedList, quesId)}" size="10" maxlength="30"
+                    <input th:if="!${#lists.contains(radioCheckedList, quesId)}" size="30" maxlength="30"
                            th:id="'viewQuest_'+${quesId}"
                            type="submit" th:value="'Question '+${quesId}" th:formaction="@{'/page/'+${quesId}}"/>
                 </div>
             </td>
         </tr>
     </table>
-    <div>
-
-    </div>
     <div>
         Total Question <span th:text="${totalQuestions}"></span> - Total Pages <span
             th:text="${totalPages}"></span>
@@ -75,6 +70,7 @@
         <input id="gradeBtnHidden" type="submit" value="Chấm Điểm"/>
     </form>
 </div>
+
 </body>
 <script th:inline="javascript">
     $(function () {
