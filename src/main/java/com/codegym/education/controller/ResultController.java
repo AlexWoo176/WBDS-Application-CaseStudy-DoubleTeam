@@ -8,6 +8,7 @@ import com.codegym.education.service.IResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import java.util.*;
 @Controller
 public class ResultController {
 
-    private static Map<Long, CollectAnswer> analizeMap = new HashMap<>();
+    private static Map<Long, CollectAnswer> analizeMap = new LinkedHashMap<>();
 
     @Autowired
     private IQuestionService questionService;
@@ -26,24 +27,10 @@ public class ResultController {
 
 
     @GetMapping("/gradequizz")
-    public String gradeQuiz(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("welcome");
+    public String gradeQuiz() {
 
-        Iterable<Question> questionIterable = questionService.findAll();
-        Iterator<Question> questionIterator = questionIterable.iterator();
-        int totalQuestion= 0;
-        while (questionIterator.hasNext()) {
-            totalQuestion++;
-            questionIterator.next();
-        }
-        int score = calculateScore();
-        float average = (float)score / totalQuestion;
-        System.out.println("So diem ban dat duoc la:" + average * 100 + "%");
-        if ((average * 100) >= 50) {
-            System.out.println("Ban da do");
-        } else {
-            System.out.println("Ban da truot");
-        }
+
+
         return "redirect:/analize";
     }
 
@@ -74,7 +61,17 @@ public class ResultController {
     }
 
     @GetMapping("/analize")
-    private ModelAndView analizeResult() {
+    private ModelAndView showResult() {
+
+        Iterable<Question> questionIterable = questionService.findAll();
+        Iterator<Question> questionIterator = questionIterable.iterator();
+        int totalQuestion= 0;
+        while (questionIterator.hasNext()) {
+            totalQuestion++;
+            questionIterator.next();
+        }
+        int score = calculateScore();
+        float average = ((float)score / totalQuestion) * 100;
 
         Map<Long, CollectAnswer> finalMap = new HashMap<>();
         Long questionId = 0L, answerCorrectId = 0L, answerId = 0L;
@@ -101,21 +98,19 @@ public class ResultController {
                     sub = answerId - answerCorrectId;
                 }
 
-                int top = 1;
-                for (int i = 1; i <= 4; i++) {
-                    top = i * 4;
-                    if (top >= mark) {
-                        break;
-                    }
+                int top = 1, count = 1;
+                while (top < mark) {
+                    top = count * 4;
+                    count++;
                 }
 
-                mark = top - mark;
+                mark = 4 - (top - mark);
                 if (answerCorrectId >= answerId) {
                     answerCorrectId = mark;
-                    answerId = answerCorrectId - sub;
+                    answerId = Math.abs(answerCorrectId - sub);
                 } else {
                     answerId = mark;
-                    answerCorrectId = answerId - sub;
+                    answerCorrectId = Math.abs(answerId - sub);
                 }
 
                 if (question.getId().equals(questionId)) {
@@ -126,19 +121,12 @@ public class ResultController {
                     finalMap.put(questionId, collectAnswer);
                     continue process;
                 }
-
-                /*CollectAnswer collectAnswer = new CollectAnswer();
-                collectAnswer.setAnswerCorrectId(answerCorrectId);
-                collectAnswer.setAnswerId(answerId);
-                analizeMap.put(questionId, collectAnswer);*/
             }
+             finalMap.put(question.getId(), null);
+    }
 
-            finalMap.put(question.getId(), null);
-        }
-
-        /*Set<Long> keySet = analizeMap.keySet();
-        List<Long> keyList = new ArrayList<Long>(keySet);*/
-        /*modelAndView.addObject("analizeMap", analizeMap);*/
+        modelAndView.addObject("score", score);
+        modelAndView.addObject("average", average);
         modelAndView.addObject("finalMap", finalMap);
         modelAndView.addObject("questionList", questionList);
 

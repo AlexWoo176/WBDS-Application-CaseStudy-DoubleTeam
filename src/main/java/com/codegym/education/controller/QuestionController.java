@@ -26,7 +26,7 @@ public class QuestionController {
         return radioCheckedList;
     }
 
-    static Map<Long, Long> resultMap = new HashMap<Long, Long>();
+    static Map<Long, Long> resultMap = new LinkedHashMap<>();
 
     private static List<String> radioCheckedList;
 
