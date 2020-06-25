@@ -149,6 +149,18 @@ h6::selection
 {
 	
 }
+
+.text-length {
+	width: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 20px;
+	-webkit-line-clamp: 5;
+	height: 100px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
 .form-control
 {
 	color: #db5246;
@@ -1291,7 +1303,7 @@ section
 .courses_slider_container
 {
 	width: 100%;
-	margin-top: 83px;
+	margin-top: 30px;
 }
 .course_body
 {

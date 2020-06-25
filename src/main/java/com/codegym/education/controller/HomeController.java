@@ -36,6 +36,7 @@ public class HomeController {
         Page<Lesson> listLessons = lessonService.sortByDate(pageable);
         List<Lesson> lessions = listLessons.getContent();
         Lesson firstLesson = lessions.get(0);
+//        firstLesson.setTitleLess(firstLesson.getTitleLess().substring(0, 150));
         List<Lesson> topSixLession = new ArrayList<>();
         topSixLession.add(lessions.get(0));
         topSixLession.add(lessions.get(1));
@@ -71,10 +72,10 @@ public class HomeController {
         return new ModelAndView("contact");
     }
 
-//    @GetMapping("/error")
-//    public ModelAndView error() {
-//        return new ModelAndView("erorr");
-//    }
+    @GetMapping("/error")
+    public ModelAndView error() {
+        return new ModelAndView("erorr");
+    }
 
     @GetMapping("/findAll")
     public ModelAndView findAll(@PageableDefault(size = 9) Pageable pageable,

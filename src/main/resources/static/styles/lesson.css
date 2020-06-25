@@ -1230,6 +1230,18 @@ section
 	background: #98252B;
 	content: '';
 }
+
+.text-length {
+	width: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 20px;
+	-webkit-line-clamp: 5;
+	height: 100px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
 .course_image
 {
 	width: 100%;
@@ -1243,8 +1255,8 @@ section
 	width: 100%;
 	padding-left: 34px;
 	padding-right: 32px;
-	padding-top: 56px;
-	padding-bottom: 51px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	background: #f2f1f8;
 }
 .course_tag
