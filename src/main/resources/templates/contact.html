@@ -84,7 +84,7 @@
                                     <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
                                     <li><a th:href="@{/document/showAllDocument}">document</a></li>
                                     <li  class="active"><a th:href="@{/contact}">contact</a></li>
-                                    <li><a th:href="@{/quiz}">quiz</a></li>
+                                    <li><a th:href="@{/quiz-page}">quiz</a></li>
                                     <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
                                         <img width="25" src="/assets/images/VN.jpg" alt=""></li>
                                 </ul>
@@ -168,7 +168,7 @@
     <div class="home">
         <!-- Background image artist https://unsplash.com/@thepootphotographer -->
         <div class="home_background parallax_background parallax-window" data-parallax="scroll"
-             data-image-src="images/contact.jpg" data-speed="0.8"></div>
+             data-image-src="/assets/images/contact.jpg" data-speed="0.8"></div>
         <div class="home_container">
             <div class="container">
                 <div class="row">
@@ -177,7 +177,7 @@
                             <div class="home_title">Contact</div>
                             <div class="breadcrumbs">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a th:href="@{/}">Home</a></li>
                                     <li>Contact</li>
                                 </ul>
                             </div>
@@ -222,16 +222,16 @@
                                     <div class="contact_info">
                                         <div class="contact_info_item">
                                             <div class="contact_info_title">Address:</div>
-                                            <div class="contact_info_line">1481 Creekside Lane Avila Beach, CA 93424
+                                            <div class="contact_info_line">Số 15, Lô TT04, KĐT Mon City, Mỹ Đình 2, Nam Từ Liêm, Hà Nội.
                                             </div>
                                         </div>
                                         <div class="contact_info_item">
                                             <div class="contact_info_title">Phone:</div>
-                                            <div class="contact_info_line">+53 345 7953 32453</div>
+                                            <div class="contact_info_line">+84 904 366 030</div>
                                         </div>
                                         <div class="contact_info_item">
                                             <div class="contact_info_title">Email:</div>
-                                            <div class="contact_info_line">yourmail@gmail.com</div>
+                                            <div class="contact_info_line">doubleteamc0220h1@gmail.com</div>
                                         </div>
                                     </div>
                                 </div>

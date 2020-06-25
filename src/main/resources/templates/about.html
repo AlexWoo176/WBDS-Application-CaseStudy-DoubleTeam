@@ -82,7 +82,7 @@
                                     <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
                                     <li><a th:href="@{/document/showAllDocument}">document</a></li>
                                     <li><a th:href="@{/contact}">contact</a></li>
-                                    <li><a th:href="@{/quiz}">quiz</a></li>
+                                    <li><a th:href="@{/quiz-page}">quiz</a></li>
                                     <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
                                         <img width="25" src="/assets/images/VN.jpg" alt=""></li>
                                 </ul>
@@ -193,37 +193,32 @@
             <div class="row about_row row-lg-eq-height">
                 <div class="col-lg-6">
                     <div class="about_content">
-                        <div class="about_title">Our Platform's main goal</div>
+                        <div class="about_title">TẦM NHÌN CỦA CODEGYM</div>
                         <div class="about_text">
-                            <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod pellentesque
-                                imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id varius
-                                quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut. Maecenas rutrum
-                                viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Praesent vel
-                                nisl fermentum, gravida augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Integer id convallis libero, sed blandit nibh. Nam ultricies tristique nibh, consequat
-                                ornare nibh. Quisque vitae odio ligula.</p>
+                            <p>Trở thành hệ thống đào tạo lập trình hiện đại hàng đầu khu vực,
+                                là chủ lực cung cấp nhân lực chất lượng cao cho ngành công nghiệp,
+                                góp phần nâng tầm phát triển ngành phần mềm Việt Nam, tiến kịp tiêu chuẩn quốc tế.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="about_image"><img src="/assets/images/about_1.jpg"
+                    <div class="about_image"><img src="https://i2.wp.com/codegym.vn/wp-content/uploads/2020/04/CodeGym-Vision.jpg?resize=1080%2C720&ssl=1"
                                                   alt="https://unsplash.com/@jtylernix"></div>
                 </div>
             </div>
             <div class="row about_row row-lg-eq-height">
                 <div class="col-lg-6 order-lg-1 order-2">
-                    <div class="about_image"><img src="/assets/images/about_1.jpg" alt=""></div>
+                    <div class="about_image"><img src="https://i2.wp.com/codegym.vn/wp-content/uploads/2020/04/CodeGym-Mission.jpg?w=1000&ssl=1" alt=""></div>
                 </div>
                 <div class="col-lg-6 order-lg-2 order-1">
                     <div class="about_content">
-                        <div class="about_title">eLearn's Vision</div>
+                        <div class="about_title">SỨ MỆNH CỦA CODEGYM</div>
                         <div class="about_text">
-                            <p>Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod pellentesque
-                                imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id varius
-                                quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut. Maecenas rutrum
-                                viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Praesent vel
-                                nisl fermentum, gravida augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Integer id convallis libero, sed blandit nibh. Nam ultricies tristique nibh.</p>
+                            <p>Phát triển các giải pháp học tập hiện đại và hiệu quả thông qua các mô hình đào
+                                tạo tiên tiến trên nền tảng công nghệ giáo dục và sự cộng tác sâu rộng giữa các
+                                bên liên quan, đặc biệt là doanh nghiệp. Qua đó, CodeGym giúp người học phát triển
+                                tay nghề vững vàng, sẵn sàng làm việc, và có khả năng tự học suốt đời hiệu quả, thích
+                                ứng với cuộc Cách mạng Công nghiệp 4.0.</p>
                         </div>
                     </div>
                 </div>
@@ -294,10 +289,10 @@
                 <!-- Teacher -->
                 <div class="col-lg-4 col-md-6">
                     <div class="teacher">
-                        <div class="teacher_image"><img src="/assets/images/teacher_1.jpg"
+                        <div class="teacher_image"><img width="360" height="300" src="/assets/images/teacher_1.jpg"
                                                         alt="https://unsplash.com/@nickkarvounis"></div>
                         <div class="teacher_body text-center">
-                            <div class="teacher_title"><a href="#">Thanh Hoàng Dư</a></div>
+                            <div class="teacher_title"><a th:href="@{/error}">Thanh Hoàng Dư</a></div>
                             <div class="teacher_subtitle">Marketing</div>
                             <div class="teacher_social">
                                 <ul>
@@ -314,10 +309,10 @@
                 <!-- Teacher -->
                 <div class="col-lg-4 col-md-6">
                     <div class="teacher">
-                        <div class="teacher_image"><img src="/assets/images/teacher_2.jpg"
+                        <div class="teacher_image"><img width="360" height="300" src="/assets/images/teacher_2.jpg"
                                                         alt="https://unsplash.com/@rawpixel"></div>
                         <div class="teacher_body text-center">
-                            <div class="teacher_title"><a href="#">Huy Hòa Đặng</a></div>
+                            <div class="teacher_title"><a th:href="@{/error}">Huy Hòa Đặng</a></div>
                             <div class="teacher_subtitle">Art & Design</div>
                             <div class="teacher_social">
                                 <ul>
@@ -334,10 +329,10 @@
                 <!-- Teacher -->
                 <div class="col-lg-4 col-md-6">
                     <div class="teacher">
-                        <div class="teacher_image"><img src="/assets/images/teacher_3.jpg"
+                        <div class="teacher_image"><img width="360" height="300" src="/assets/images/teacher_3.jpg"
                                                         alt="https://unsplash.com/@taylor_grote"></div>
                         <div class="teacher_body text-center">
-                            <div class="teacher_title"><a href="#">Trung Kiên Nguyễn</a></div>
+                            <div class="teacher_title"><a th:href="@{/error}">Trung Kiên Nguyễn</a></div>
                             <div class="teacher_subtitle">Marketing</div>
                             <div class="teacher_social">
                                 <ul>
@@ -354,10 +349,10 @@
                 <!-- Teacher -->
                 <div class="col-lg-4 col-md-6">
                     <div class="teacher">
-                        <div class="teacher_image"><img src="/assets/images/teacher_4.jpg"
+                        <div class="teacher_image"><img width="360" height="300" src="/assets/images/teacher_4.jpg"
                                                         alt="https://unsplash.com/@benjaminrobyn"></div>
                         <div class="teacher_body text-center">
-                            <div class="teacher_title"><a href="#">Luân Phan</a></div>
+                            <div class="teacher_title"><a th:href="@{/error}">Luân Phan</a></div>
                             <div class="teacher_subtitle">Marketing</div>
                             <div class="teacher_social">
                                 <ul>
@@ -374,10 +369,10 @@
                 <!-- Teacher -->
                 <div class="col-lg-4 col-md-6">
                     <div class="teacher">
-                        <div class="teacher_image"><img src="/assets/images/teacher_5.jpg"
+                        <div class="teacher_image"><img width="360" height="300" src="/assets/images/teacher_5.jpg"
                                                         alt="https://unsplash.com/@christinhumephoto"></div>
                         <div class="teacher_body text-center">
-                            <div class="teacher_title"><a href="#">Châu Lê</a></div>
+                            <div class="teacher_title"><a th:href="@{/error}">Châu Lê</a></div>
                             <div class="teacher_subtitle">Art & Design</div>
                             <div class="teacher_social">
                                 <ul>
@@ -394,10 +389,10 @@
                 <!-- Teacher -->
                 <div class="col-lg-4 col-md-6">
                     <div class="teacher">
-                        <div class="teacher_image"><img src="/assets/images/teacher_6.jpg"
+                        <div class="teacher_image"><img width="360" height="300"src="/assets/images/teacher_6.jpg"
                                                         alt="https://unsplash.com/@rawpixel"></div>
                         <div class="teacher_body text-center">
-                            <div class="teacher_title"><a href="#">Kiều Anh Vũ</a></div>
+                            <div class="teacher_title"><a th:href="@{/error}">Kiều Anh Vũ</a></div>
                             <div class="teacher_subtitle">Marketing</div>
                             <div class="teacher_social">
                                 <ul>

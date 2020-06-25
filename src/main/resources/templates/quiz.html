@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Quiz</title>
     <link rel="stylesheet" type="text/css" href="/assets/styles/bootstrap4/bootstrap.min.css">
     <link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -80,7 +80,7 @@
                                     <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
                                     <li><a th:href="@{/document/showAllDocument}">document</a></li>
                                     <li><a th:href="@{/contact}">contact</a></li>
-                                    <li  class="active"><a th:href="@{/quiz}">quiz</a></li>
+                                    <li  class="active"><A th:href="@{/quiz}">quiz</a></li>
                                     <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
                                         <img width="25" src="/assets/images/VN.jpg" alt=""></li>
                                 </ul>
@@ -158,11 +158,125 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row" style="margin-top: 200px">
+            <div class="col-md-6">
+                <table>
+                    <tr>
+                        <th style="font-size: 25px">Câu 1</th>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 20px">Thế nào là cơ sở dữ liệu quan hệ?</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 15px; padding-top: 30px">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Cơ sở dữ liệu dùng để tạo lập, cập nhật và khai thác CSDL quan hệ
+                                </label><br>
 
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Cơ sở dữ liệu được xây dựng dựa trên mô hình dữ liệu quan hệ và khai thác CSDL quan hệ
+                                </label>
 
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Cơ sở dữ liệu dùng để tạo lập, cập nhật và khai thác CSDL quan hệ dựa trên mô hình dữ liệu quan hệ
+                                </label>
 
-    //CODE Ở ĐÂY
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Cơ sở dữ liệu được xây dựng dựa trên mô hình dữ liệu quan hệ
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; padding-top: 10px">
+                            <input style="width: 45px; height: 30px; margin-right: 20px" type="submit" value="trước">
+                            <input style="width: 45px; height: 30px" type="submit" value="sau">
+                        </td>
+                    </tr>
+                </table>
 
+            </div>
+            <div class="col-md-6">
+                <table style="width: 300px; height: 300px" class="center-block">
+                    <tr style="text-align: center">
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px " type="submit" value="1">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="2">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="3">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="4">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="5">
+                        </td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="6">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="7">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="8">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="9">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="10">
+                        </td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="11">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="12">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="13">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="14">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="15">
+                        </td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="16">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="17">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="18">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="19">
+                        </td>
+                        <td style="text-align: center; padding: 0px 10px 10px 0px">
+                            <input style="width: 50px; height: 50px" type="submit"  value="20">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
 
     <!-- Footer -->
     <footer th:replace="/layout/fragment-footer::fragment-footer" class="footer"></footer>

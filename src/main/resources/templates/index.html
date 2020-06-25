@@ -129,7 +129,7 @@
                             <div class="col-lg-6 featured_col">
                                 <div class="featured_content" style="height: 300px">
                                     <div class="featured_title"><h3>
-                                        <a href="lesson.html" th:text="${firstLessons.nameLesson}"></a>
+                                        <a th:href="@{/lesson/showlesson/__${firstLessons.id}__}" th:text="${firstLessons.nameLesson}"></a></a>
                                     </h3></div>
                                     <div class="featured_text">
                                         <p style="width: 350px;
@@ -139,7 +139,6 @@
 	                                              -webkit-line-clamp: 5;
                                                   height: 100px;
 	                                              display: -webkit-box;
-	                                              
                                                	  -webkit-box-orient: vertical;"
                                            th:text="${firstLessons.titleLess}"></p>
 <!--                                        <p id="id1" hidden th:text="${firstLessons.id}"></p>-->
@@ -198,7 +197,8 @@
                                 <div class="course">
                                     <div class="course_image" > <img height="270" width="360" th:src="${topsix.imgLesson}"></div>
                                     <div class="course_body">
-                                            <div class="course_title"><h3><a href="lesson.html" th:text="${topsix.nameLesson}"></a>
+                                            <div class="course_title"><h3>
+                                                <a th:href="@{/lesson/showlesson/__${topsix.id}__}" th:text="${topsix.nameLesson}"></a></a>
                                         </h3></div>
                                         <div class="course_text">
                                             <p class="text-length" th:text="${topsix.titleLess}"></p>
@@ -285,7 +285,8 @@
                                     <div class="course">
                                         <div class="course_image" style="height: 270px; width: 360px "> <img  th:src="${topsixDoc.imgDocument}"></div>
                                         <div class="course_body">
-                                            <div class="course_title"><h3><a href="lesson.html" th:text="${topsixDoc.nameDocument}"></a>
+                                            <div class="course_title"><h3>
+                                                <a th:href="@{/document/showDocument/__${topsixDoc.id}__}" th:text="${topsixDoc.nameDocument}"></a>
                                             </h3></div>
                                             <div class="course_text">
                                                 <p class="text-length" th:text="${topsixDoc.titleDocument}"></p>
