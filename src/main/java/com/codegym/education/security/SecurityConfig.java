@@ -69,6 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/index",
                         "/",
+                        "/quiz-page/**",
                         "/register",
                         "/confirm/**",
                         "/forgotPassword",
@@ -78,11 +79,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/login-facebook/**",
                         "/login-google/**").permitAll()
                 .antMatchers(HttpMethod.GET).permitAll()
-                .antMatchers(HttpMethod.POST).access("hasRole('ROLE_ADMIN')")
+                .antMatchers(HttpMethod.POST).permitAll()
+//                .antMatchers(HttpMethod.POST).access("hasRole('ROLE_ADMIN')")
                 .antMatchers(HttpMethod.PUT).access("hasRole('ROLE_ADMIN')")
                 .antMatchers(HttpMethod.DELETE).access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").permitAll()
+                .and().formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/index",true)
+                .failureUrl("/login")
+                .permitAll()
                 .and().csrf().disable();
     }
 }
