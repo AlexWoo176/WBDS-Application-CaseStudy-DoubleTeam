@@ -26,18 +26,23 @@ public class LessonController {
     // vao trang tong bai viet + tim kiem
 
     @GetMapping("/showAllLesson")
-    public ModelAndView showAllLesson(@PageableDefault(size = 9) Pageable pageable,
+    public ModelAndView showAllLesson(@PageableDefault(size = 1) Pageable pageable,
                                       @RequestParam("keyword") Optional<String> keyword) {
+        ModelAndView modelAndView = new ModelAndView("lesson");
+        List<Lesson> listJavaLessons = lessonService.findByTypeLesson("java");
+        List<Lesson> listPhpLessons = lessonService.findByTypeLesson("php");
 
         Page<Lesson> listLesson;
         if (keyword.isPresent()) {
             listLesson = lessonService.findByNameLesson(pageable, keyword);
+            modelAndView.addObject("keyword", keyword.map(Object::toString).orElse(null));
         } else {
             listLesson = lessonService.sortByDate(pageable);
+            modelAndView.addObject("keyword", "");
         }
-        ModelAndView modelAndView = new ModelAndView("lesson");
-        modelAndView.addObject("listJavaLessons",lessonService.findByTypeLesson(pageable,"java"));
-        modelAndView.addObject("listPhpLessons",lessonService.findByTypeLesson(pageable,"php"));
+
+        modelAndView.addObject("listJavaLessons",listJavaLessons);
+        modelAndView.addObject("listPhpLessons",listPhpLessons);
         modelAndView.addObject("listLessons", listLesson);
         return modelAndView;
     }

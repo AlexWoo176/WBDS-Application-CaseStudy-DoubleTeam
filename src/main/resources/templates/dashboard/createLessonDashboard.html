@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Create Leson</title>
+</head>
+<body>
+<h1>Create Leson</h1>
+<p>
+    <a th:href="@{/admin/showAllLesson}">
+        Back to Lesson list
+    </a>
+</p>
+
+<form th:action="@{/admin/lesson/savelesson}" th:object="${lesson}" method="post">
+<table>
+    <tr>
+        <td>Name Lesson:</td>
+        <td><input type="text" th:field="*{nameLesson}"/></td>
+    </tr>
+    <tr>
+        <td>Title Lesson:</td>
+        <td><input type="text" th:field="*{titleLess}"/></td>
+    </tr>
+    <tr>
+        <td>Content Lesson:</td>
+        <td><textarea type="text" th:field="*{contentLesson}"></textarea></td>
+    </tr>
+    <tr>
+        <td>Img Lesson:</td>
+        <td><input type="text" th:field="*{imgLesson}"/></td>
+    </tr>
+    <tr>
+        <td>Video Lesson:</td>
+        <td><input type="text" th:field="*{videoLesson}"/></td>
+    </tr>
+    <tr>
+        <td>Type Lesson:</td>
+        <td><input type="text" th:field="*{typeLesson}"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Create Lesson"></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
