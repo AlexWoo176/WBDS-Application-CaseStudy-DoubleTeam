@@ -75,32 +75,26 @@ public class PasswordController {
             modelAndView.addObject("errorMessage", "Oops!  This is an invalid password reset link.");
         }
 
-        modelAndView.setViewName("resetPassword");
+//        modelAndView.setViewName("resetPassword");
+        modelAndView.setViewName("confirm");
         return modelAndView;
     }
 
     @RequestMapping(value = "/reset", method = RequestMethod.POST)
     public ModelAndView setNewPassword(ModelAndView modelAndView, @RequestParam Map<String, String> requestParams, RedirectAttributes redir) {
 
-        // Find the user associated with the reset token
         Optional<Participant> participant = userService.findUserByResetToken(requestParams.get("token"));
 
-        // This should always be non-null but we check just in case
         if (participant.isPresent()) {
 
             Participant resetParticipant = participant.get();
 
-            // Set new password
             resetParticipant.setPassword(bCryptPasswordEncoder.encode(requestParams.get("password")));
 
-            // Set the reset token to null so it cannot be used again
             resetParticipant.setResetToken(null);
 
-            // Save user
             userService.save(resetParticipant);
 
-            // In order to set a model attribute on a redirect, we must use
-            // RedirectAttributes
             redir.addFlashAttribute("successMessage", "You have successfully reset your password.  You may now login.");
 
             modelAndView.setViewName("redirect:login");
@@ -108,13 +102,13 @@ public class PasswordController {
 
         } else {
             modelAndView.addObject("errorMessage", "Oops!  This is an invalid password reset link.");
-            modelAndView.setViewName("resetPassword");
+//            modelAndView.setViewName("resetPassword");
+            modelAndView.setViewName("confirm");
         }
 
         return modelAndView;
     }
 
-    // Going to reset page without a token redirects to login page
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ModelAndView handleMissingParams(MissingServletRequestParameterException ex) {
         return new ModelAndView("redirect:login");
