@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public void save(Participant user) {
         userRepository.save(user);
@@ -34,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Participant findByUsername(String username) {
-        return userRepository.findByUserName(username);
+        return userRepository.findByUsername(username);
     }
 
     @Override
@@ -42,8 +46,8 @@ public class UserServiceImpl implements UserService {
         Iterable<Participant> users = this.findAll();
         boolean isCorrectUser = false;
         for (Participant currentUser : users) {
-            if (currentUser.getUserName().equals(user.getUserName()) &&
-                    user.getPassword().equals(currentUser.getPassword()) && currentUser.isEnabled()) {
+            if (currentUser.getUsername().equals(user.getUsername()) &&
+                    passwordEncoder.matches(user.getPassword(), currentUser.getPassword()) && currentUser.isEnabled()) {
                 isCorrectUser = true;
                 break;
             }
@@ -56,7 +60,7 @@ public class UserServiceImpl implements UserService {
         boolean isRegister = false;
         Iterable<Participant> users = this.findAll();
         for (Participant currentUser : users) {
-            if (user.getUserName().equals(currentUser.getUserName()) ||
+            if (user.getUsername().equals(currentUser.getUsername()) ||
                     user.getEmail().equals(currentUser.getEmail())) {
                 isRegister = true;
                 break;
@@ -103,11 +107,12 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Participant user = userRepository.findByUserName(username);
+        Participant user = userRepository.findByUsername(username);
+        System.out.println(user);
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(user.getRole());
 
-        UserDetails userDetails = new User(user.getUserName(), user.getPassword(), authorities);
+        UserDetails userDetails = new User(user.getUsername(), user.getPassword(), authorities);
         return userDetails;
     }
 }

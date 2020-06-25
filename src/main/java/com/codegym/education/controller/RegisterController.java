@@ -49,8 +49,9 @@ public class RegisterController {
     }
 
     @PostMapping("/login")
-    public ModelAndView login(Participant participant) {
+    public ModelAndView login(@ModelAttribute("participant") Participant participant) {
         ModelAndView modelAndView;
+        /**/
         if (userService.checkLogin(participant)) {
             modelAndView = new ModelAndView("index");
             modelAndView.addObject("participant", participant);

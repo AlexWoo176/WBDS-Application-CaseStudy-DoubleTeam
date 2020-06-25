@@ -1,118 +1,78 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="/assets/images/icons/favicon.ico"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/assets/css/util.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-    <!--===============================================================================================-->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/mainlogin.css}"/>
+
+    <title>Registration</title>
 </head>
 <body>
-
-<div class="limiter">
-    <div class="container-login100" style="background-image: url('/assets/images/bg-01.jpg');">
-        <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-            <form class="login100-form validate-form flex-sb flex-w" th:action="@{/login}" method="post">
-					<span class="login100-form-title p-b-53">
-						Sign In With
-					</span>
-
-                <a href="https://www.facebook.com/dialog/oauth?client_id=685045062065915&
-        redirect_uri=https://localhost:8080/login-facebook" class="btn-face m-b-20">
-                    <i class="fa fa-facebook-official"></i>
-                    Facebook
-                </a>
-
-                <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
-		&client_id=1001560005850-oa2glskbk5cs5af07apcad8lsfjjqtfn.apps.googleusercontent.com&approval_prompt=force"
-                   class="btn-google m-b-20">
-                    <img src="/assets/images/icons/icon-google.png" alt="GOOGLE">
-                    Google
-                </a>
-
-                <div class="p-t-31 p-b-9">
-						<span class="txt1">
-							Username
-						</span>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Login Page</h1>
+            <form th:action="@{/login}" method="post">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">
+                        Invalid username or password.
+                    </div>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate="Username is required">
-                    <input class="input100" type="text" name="username">
-                    <span class="focus-input100"></span>
+                <div th:if="${param.logout}">
+                    <div class="alert alert-info">
+                        You have been logged out.
+                    </div>
                 </div>
-
-                <div class="p-t-13 p-b-9">
-						<span class="txt1">
-							Password
-						</span>
-
-                    <a href="/forgotPassword" class="txt2 bo1 m-l-5">
-                        Forgot?
-                    </a>
+                <div class="form-group">
+                    <label for="username">User Name</label>:
+                    <input type="text"
+                           id="username"
+                           name="username"
+                           class="form-control"
+                           autofocus="autofocus"
+                           placeholder="Email"/>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass">
-                    <span class="focus-input100"></span>
+                <div class="form-group">
+                    <label for="password">Password</label>:
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           class="form-control"
+                           placeholder="Password"/>
                 </div>
-
-                <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn">
-                        Sign In
-                    </button>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit"
+                                   name="login-submit"
+                                   id="login-submit"
+                                   class="form-control btn btn-info"
+                                   value="Log In"/>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="w-full text-center p-t-55">
-						<span class="txt2">
-							Not a member?
-						</span>
-
-                    <a href="/register" class="txt2 bo1">
-                        Sign up now
-                    </a>
+                <div class="form-group">
+                    <span>Login with Facebook? <a href="https://www.facebook.com/dialog/oauth?client_id=685045062065915&
+        redirect_uri=https://localhost:8080/login-facebook">Login with facebook</a></span>
+                </div>
+                <div class="form-group">
+                    <span>Login with Gmail? <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code
+		&client_id=1001560005850-oa2glskbk5cs5af07apcad8lsfjjqtfn.apps.googleusercontent.com&approval_prompt=force">Login with google</a></span>
+                </div>
+                <div class="form-group">
+                    <span>New user? <a href="/" th:href="@{/register}">Register Here</a></span>
+                </div>
+                <div class="form-group">
+                    <span>Forgot Password? <a href="/" th:href="@{/forgot-password}">Forgot Password</a></span>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-
-<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
-<script src="/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="/assets/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="/assets/vendor/bootstrap/js/popper.js"></script>
-<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="/assets/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="/assets/vendor/daterangepicker/moment.min.js"></script>
-<script src="/assets/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="/assets/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-<script src="/assets/js/main.js"></script>
-
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 </body>
 </html>

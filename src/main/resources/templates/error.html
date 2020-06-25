@@ -39,23 +39,23 @@
                                         <div>doubleteamc0220h1@gmail.com</div>
                                     </li>
                                 </ul>
-                                <div class="top_bar_login ml-auto">
-                                    <div th:if="${participant}">
-                                        <div sec:authorize="isAuthenticated()">
-                                            <span><a th:href="@{/view/__${participant.id}__}"
-                                                     th:text="${participant.username}"></a></span>|<a
-                                                th:href="@{/logout}">Logout</a>
-                                        </div>
-                                    </div>
-                                    <div th:if="${participant==null}">
-                                        <div sec:authorize="isAnonymous()">
-                                            <ul>
-                                                <li><a href="/register">Register</a></li>
-                                                <li><a href="/login">Login</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+<!--                                <div class="top_bar_login ml-auto">-->
+<!--                                    <div th:if="${participant}">-->
+<!--                                        <div sec:authorize="isAuthenticated()">-->
+<!--                                            <span><a th:href="@{/view/__${participant.id}__}"-->
+<!--                                                     th:text="${participant.username}"></a></span>|<a-->
+<!--                                                th:href="@{/logout}">Logout</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div th:if="${participant==null}">-->
+<!--                                        <div sec:authorize="isAnonymous()">-->
+<!--                                            <ul>-->
+<!--                                                <li><a href="/register">Register</a></li>-->
+<!--                                                <li><a href="/login">Login</a></li>-->
+<!--                                            </ul>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </div>

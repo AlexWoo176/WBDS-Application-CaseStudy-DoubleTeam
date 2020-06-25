@@ -40,8 +40,8 @@
 
             </div>
 
-            <div th:if="${#fields.hasErrors('userName')}"
-                 th:errors="*{userName}"
+            <div th:if="${#fields.hasErrors('username')}"
+                 th:errors="*{username}"
                  class="validation-message alert alert-danger" role="alert">
 
             </div>
@@ -72,7 +72,7 @@
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-user"></span>
           </span>
-                <input type="text" th:field="*{userName}"
+                <input type="text" th:field="*{username}"
                        placeholder="User Name" class="form-control" required/>
                 <span class="glyphicon form-control-feedback"
                       aria-hidden="true"></span>

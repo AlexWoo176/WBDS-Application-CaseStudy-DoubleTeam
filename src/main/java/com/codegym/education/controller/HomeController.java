@@ -46,8 +46,11 @@ public class HomeController {
         Page<AppDoc> listDocuments = documentService.sortByDate(pageable);
         List<AppDoc> documents = listDocuments.getContent();
         List<AppDoc> topSixDoc = new ArrayList<>();
-        topSixDoc.add(documents.get(0));
-        topSixDoc.add(documents.get(1));
+        if(!topSixDoc.isEmpty()){
+            topSixDoc.add(documents.get(0));
+            topSixDoc.add(documents.get(1));
+        }
+
 //        topSixDoc.add(documents.get(2));
 //        topSixDoc.add(documents.get(3));
 //        topSixDoc.add(documents.get(4));

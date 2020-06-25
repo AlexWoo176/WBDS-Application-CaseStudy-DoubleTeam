@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,7 +6,12 @@
     <title>Title</title>
 </head>
 <body>
-<h1 th:text="${lesson.nameLesson}"></h1>
+<form action="/login" method="post">
+    username <input th:field="${login.userName}">
+    pass <input th:field = "${login.password}">
+    <button type="submit" value="submit"></button>
+</form>
+
 
 </body>
-</html>
+</html>-->

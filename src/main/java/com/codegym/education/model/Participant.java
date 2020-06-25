@@ -26,7 +26,7 @@ public class Participant {
 
     @Column(name = "user_name", nullable = false, unique = true)
     @NotEmpty(message = "Please provide your user name")
-    private String userName;
+    private String username;
 
     @Column(name = "email", nullable = false, unique = true)
     @Email(message = "Please provide a valid e-mail")
