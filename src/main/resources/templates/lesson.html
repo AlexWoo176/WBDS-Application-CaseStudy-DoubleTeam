@@ -85,7 +85,7 @@
 									<li  class="active"><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
 									<li><a th:href="@{/document/showAllDocument}">document</a></li>
 									<li><a th:href="@{/contact}">contact</a></li>
-									<li><a th:href="@{/quiz}">quiz</a></li>
+									<li><a th:href="@{/quiz-page}">quiz</a></li>
 									<li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
 										<img width="25" src="/assets/images/VN.jpg" alt=""></li>
 								</ul>
@@ -235,7 +235,15 @@
 								<div class="course">
 									<div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img height="270" width="360" th:src="${lessons.imgLesson}" alt=""></a></div>
 									<div class="course_body">
-										<div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
+										<div class="course_title"><h3 style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 2;
+                                                  height: 60px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;">
+											<a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
 										<div class="course_text">
 											<p class="text-length" th:text="${lessons.titleLess}"></p>
 										</div>
@@ -264,7 +272,15 @@
 									<div class="course">
 										<div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img height="270" width="360" th:src="${lessons.imgLesson}" alt=""></a></div>
 										<div class="course_body">
-											<div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
+											<div class="course_title"><h3 style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 2;
+                                                  height: 60px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;">
+												<a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
 											<div class="course_text">
 												<p class="text-length" th:text="${lessons.titleLess}"></p>
 											</div>
@@ -281,7 +297,15 @@
 									<div class="course">
 										<div class="course_image"><a th:href="@{/lesson/showlesson/__${lessons.id}__}"><img height="270" width="360" th:src="${lessons.imgLesson}" alt=""></a></div>
 										<div class="course_body">
-											<div class="course_title"><h3><a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
+											<div class="course_title"><h3 style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 2;
+                                                  height: 60px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;">
+												<a th:href="@{/lesson/showlesson/__${lessons.id}__}" th:text="${lessons.nameLesson}"></a></h3></div>
 											<div class="course_text">
 												<p class="text-length" th:text="${lessons.titleLess}"></p>
 											</div>

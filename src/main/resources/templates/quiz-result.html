@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detail Document</title>
+    <title>Quiz</title>
     <link rel="stylesheet" type="text/css" href="/assets/styles/bootstrap4/bootstrap.min.css">
     <link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -14,10 +13,8 @@
     <link rel="stylesheet" type="text/css" href="/assets/styles/responsive.css">
 </head>
 <body>
-
 <div class="super_container">
     <!-- Header -->
-
     <header class="header">
 
         <!-- Top Bar -->
@@ -83,7 +80,7 @@
                                     <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
                                     <li><a th:href="@{/document/showAllDocument}">document</a></li>
                                     <li><a th:href="@{/contact}">contact</a></li>
-                                    <li><a th:href="@{/quiz-page}">quiz</a></li>
+                                    <li><A th:href="@{/quiz}">quiz</a></li>
                                     <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
                                         <img width="25" src="/assets/images/VN.jpg" alt=""></li>
                                 </ul>
@@ -122,7 +119,6 @@
     </header>
 
     <!-- Menu -->
-
     <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
         <div class="menu_close_container">
             <div class="menu_close">
@@ -163,17 +159,43 @@
     </div>
 
     <div class="container">
-        <div style=" margin-top: 200px" th:object="${documents}">
-            <h3 style="text-align: center; font-weight: bold" th:text="*{nameDocument}"></h3>
-            <p style="text-align: justify; font-size: 15px; font-weight: bold" th:text="*{titleDocument}"></p>
-            <img class="img-rounded center-block " th:src="*{imgDocument}">
-            <p style="text-align: justify; font-size: 15px" th:text="*{contentDocument}"></p>
+        <div style=" margin-top: 200px">
+            <h2 style="color: red">Kết Quả: trượt</h2>
+            <h2>Bạn đạt được: 5%</h2>
+            <h2>Trả lời đúng: 1/20</h2>
+            <div style="padding-top: 10px">
+                <input style="width: 150px; height: 30px" type="submit" value="Hiện kết quả">
+            </div>
+            <table style="padding-top: 10px">
+                <tr>
+                    <th style="font-size: 25px">Câu 1</th>
+                </tr>
+                <tr>
+                    <td style="font-size: 20px">Thế nào là cơ sở dữ liệu quan hệ?</td>
+                </tr>
+                <tr>
+                    <td style="font-size: 15px; padding-top: 10px">
+                        <p>1. Cơ sở dữ liệu dùng để tạo lập, cập nhật và khai thác CSDL quan hệ</p>
+                        <p>2. Cơ sở dữ liệu được xây dựng dựa trên mô hình dữ liệu quan hệ và khai thác CSDL quan hệ</p>
+                        <p>3. Cơ sở dữ liệu dùng để tạo lập, cập nhật và khai thác CSDL quan hệ dựa trên mô hình dữ liệu
+                            quan hệ</p>
+                        <p>4. Cơ sở dữ liệu được xây dựng dựa trên mô hình dữ liệu quan hệ</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 10px">
+                        <p style="font-weight: bold">Bạn đã chọn đáp án: 1</p>
+                        <p style="font-weight: bold">Đáp án đúng là: 1</p>
+                        <h2 style="color: green; font-weight: bold">Đúng</h2>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
+
     <!-- Footer -->
     <footer th:replace="/layout/fragment-footer::fragment-footer" class="footer"></footer>
 </div>
-
 <script src="/assets/js/jquery-3.2.1.min.js"></script>
 <script src="/assets/styles/bootstrap4/popper.js"></script>
 <script src="/assets/styles/bootstrap4/bootstrap.min.js"></script>

@@ -77,6 +77,16 @@ public class HomeController {
         return new ModelAndView("contact");
     }
 
+    @GetMapping("/quiz")
+    public ModelAndView quiz() {
+        return new ModelAndView("quiz");
+    }
+
+    @GetMapping("/quiz-result")
+    public ModelAndView quizResult() {
+        return new ModelAndView("quiz-result");
+    }
+
 
     @GetMapping("/findAll")
     public ModelAndView findAll(@PageableDefault(size = 9) Pageable pageable,
