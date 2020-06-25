@@ -11,12 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.*;
 
@@ -48,13 +50,18 @@ public class RegisterController {
         return new ModelAndView("login");
     }
 
-    @PostMapping("/login")
-    public ModelAndView login(@ModelAttribute("participant") Participant participant) {
+    @PostMapping("/login-form")
+    public ModelAndView login(@ModelAttribute("participant") Participant participant, HttpServletRequest request) {
+
         ModelAndView modelAndView;
         /**/
         if (userService.checkLogin(participant)) {
-            modelAndView = new ModelAndView("index");
-            modelAndView.addObject("participant", participant);
+            modelAndView = new ModelAndView("redirect:/");
+            HttpSession session = request.getSession();
+            session.setAttribute("participant", participant);
+            modelAndView.addObject("session", session);
+
+            //modelAndView.addObject("participant", participant);
             return modelAndView;
         }
         modelAndView = new ModelAndView("login");
@@ -72,7 +79,6 @@ public class RegisterController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid Participant participant, BindingResult bindingResult, HttpServletRequest request) {
         Optional<Participant> userExists = userService.findUserByEmail(participant.getEmail());
-//        Participant userExists = userService.findByUsername(user.getUserName());
         boolean isRegistered = false;
         System.out.println(userExists);
 
@@ -89,7 +95,6 @@ public class RegisterController {
             isRegistered = true;
             participant.setConfirmationToken(UUID.randomUUID().toString());
 
-            /*Set Role*/
             Role role = roleService.findRoleByName(DEFAULT_ROLE);
             participant.setRole(role);
 
@@ -152,7 +157,6 @@ public class RegisterController {
         participant.setEnabled(true);
         userService.save(participant);
         modelAndView.addObject("successMessage", "Your password has been set!");
-//        return modelAndView;
         modelAndView.setViewName("redirect:login");
         return modelAndView;
     }

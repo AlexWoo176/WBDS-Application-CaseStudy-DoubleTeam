@@ -4,6 +4,43 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--=======-->
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/assets/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <!--===============================================================================================-->
+    <!--</head>-->
+    <!--<body>-->
+
+    <!--<div class="limiter">-->
+    <!--    <div class="container-login100" style="background-image: url('/assets/images/bg-01.jpg');">-->
+    <!--        <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">-->
+    <!--            <form class="login100-form validate-form flex-sb flex-w" name='f' action="/login" method='POST'>-->
+    <!--					<span class="login100-form-title p-b-53">-->
+    <!--						Sign In With-->
+    <!--					</span>-->
+    <!--&gt;>>>>>> dbaff878edcfc63dab93809ec95a40498b2e1d5d-->
 
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/mainlogin.css}"/>
@@ -15,7 +52,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h1>Login Page</h1>
-            <form th:action="@{/login}" method="post">
+            <form th:action="@{/login-form}" method="post">
                 <div th:if="${param.error}">
                     <div class="alert alert-danger">
                         Invalid username or password.
@@ -33,7 +70,7 @@
                            name="username"
                            class="form-control"
                            autofocus="autofocus"
-                           placeholder="Email"/>
+                           placeholder="User Name"/>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>:

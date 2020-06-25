@@ -2,6 +2,7 @@ package com.codegym.education.controller;
 
 import com.codegym.education.model.AppDoc;
 import com.codegym.education.model.Lesson;
+import com.codegym.education.model.Participant;
 import com.codegym.education.service.UserService;
 import com.codegym.education.service.document.DocumentService;
 import com.codegym.education.service.lesson.LessonService;
@@ -12,9 +13,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,35 +35,35 @@ public class HomeController {
     private UserService userService;
 
     @GetMapping("/")
-    public ModelAndView home(@PageableDefault(size = 6) Pageable pageable) {
+    public ModelAndView home(@PageableDefault(size = 6) Pageable pageable, HttpSession session
+                            ) {
         Page<Lesson> listLessons = lessonService.sortByDate(pageable);
         List<Lesson> lessions = listLessons.getContent();
         Lesson firstLesson = lessions.get(0);
         List<Lesson> topSixLession = new ArrayList<>();
-        topSixLession.add(lessions.get(0));
-        topSixLession.add(lessions.get(1));
-        topSixLession.add(lessions.get(2));
-        topSixLession.add(lessions.get(3));
-        topSixLession.add(lessions.get(4));
-        topSixLession.add(lessions.get(5));
+            topSixLession.add(lessions.get(0));
+            topSixLession.add(lessions.get(1));
+            topSixLession.add(lessions.get(2));
+            topSixLession.add(lessions.get(3));
+            topSixLession.add(lessions.get(4));
+            topSixLession.add(lessions.get(5));
         Page<AppDoc> listDocuments = documentService.sortByDate(pageable);
         List<AppDoc> documents = listDocuments.getContent();
         List<AppDoc> topSixDoc = new ArrayList<>();
-        if(!topSixDoc.isEmpty()){
             topSixDoc.add(documents.get(0));
             topSixDoc.add(documents.get(1));
-        }
-
-//        topSixDoc.add(documents.get(2));
-//        topSixDoc.add(documents.get(3));
-//        topSixDoc.add(documents.get(4));
-//        topSixDoc.add(documents.get(5));
+            topSixDoc.add(documents.get(2));
+            topSixDoc.add(documents.get(3));
+            topSixDoc.add(documents.get(4));
+            topSixDoc.add(documents.get(5));
 
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("firstLessons", firstLesson);
         modelAndView.addObject("participant", userService.getCurrentUser());
         modelAndView.addObject("topSixLession", topSixLession);
         modelAndView.addObject("topSixDocs", topSixDoc);
+        Participant participant = (Participant)session.getAttribute("participant");
+        modelAndView.addObject("participant", participant);
         return modelAndView;
     }
 
@@ -74,10 +77,6 @@ public class HomeController {
         return new ModelAndView("contact");
     }
 
-//    @GetMapping("/error")
-//    public ModelAndView error() {
-//        return new ModelAndView("erorr");
-//    }
 
     @GetMapping("/findAll")
     public ModelAndView findAll(@PageableDefault(size = 9) Pageable pageable,

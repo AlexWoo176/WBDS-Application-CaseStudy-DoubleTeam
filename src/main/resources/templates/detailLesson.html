@@ -79,7 +79,7 @@
                             </div>
                             <nav class="main_nav_contaner ml-auto">
                                 <ul class="main_nav">
-                                    <li class="active"><a th:href="@{/}">home</a></li>
+                                    <li><a th:href="@{/}">home</a></li>
                                     <li><a th:href="@{/about}">about us</a></li>
                                     <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
                                     <li><a th:href="@{/document/showAllDocument}">document</a></li>
@@ -165,7 +165,7 @@
 
 <div class="container">
     <div style=" margin-top: 200px" th:object="${lesson}">
-    <h3 style="text-align: center" th:text="*{nameLesson}"></h3>
+    <h3 style="text-align: center; font-weight: bold" th:text="*{nameLesson}"></h3>
     <p style="text-align: justify; font-size: 15px; font-weight: bold" th:text="*{titleLess}"></p>
     <p style="text-align: justify; font-size: 15px" th:text="*{contentLesson}"></p>
 

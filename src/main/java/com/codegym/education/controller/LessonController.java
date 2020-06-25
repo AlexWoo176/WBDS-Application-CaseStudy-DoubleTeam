@@ -26,7 +26,7 @@ public class LessonController {
     // vao trang tong bai viet + tim kiem
 
     @GetMapping("/showAllLesson")
-    public ModelAndView showAllLesson(@PageableDefault(size = 1) Pageable pageable,
+    public ModelAndView showAllLesson(@PageableDefault(size = 9) Pageable pageable,
                                       @RequestParam("keyword") Optional<String> keyword) {
         ModelAndView modelAndView = new ModelAndView("lesson");
         List<Lesson> listJavaLessons = lessonService.findByTypeLesson("java");
