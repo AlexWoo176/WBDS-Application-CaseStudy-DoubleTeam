@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Detail Document</title>
     <link rel="stylesheet" type="text/css" href="/assets/styles/bootstrap4/bootstrap.min.css">
     <link href="/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -13,8 +14,10 @@
     <link rel="stylesheet" type="text/css" href="/assets/styles/responsive.css">
 </head>
 <body>
+
 <div class="super_container">
     <!-- Header -->
+
     <header class="header">
 
         <!-- Top Bar -->
@@ -80,7 +83,7 @@
                                     <li><a th:href="@{/lesson/showAllLesson}">lesson</a></li>
                                     <li><a th:href="@{/document/showAllDocument}">document</a></li>
                                     <li><a th:href="@{/contact}">contact</a></li>
-                                    <li  class="active"><a th:href="@{/quiz}">quiz</a></li>
+                                    <li><a th:href="@{/quiz}">quiz</a></li>
                                     <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |
                                         <img width="25" src="/assets/images/VN.jpg" alt=""></li>
                                 </ul>
@@ -119,6 +122,7 @@
     </header>
 
     <!-- Menu -->
+
     <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
         <div class="menu_close_container">
             <div class="menu_close">
@@ -158,15 +162,18 @@
         </div>
     </div>
 
-
-
-
-    //CODE Ở ĐÂY
-
-
+    <div class="container">
+        <div style=" margin-top: 200px" th:object="${documents}">
+            <h3 style="text-align: center; font-weight: bold" th:text="*{nameDocument}"></h3>
+            <p style="text-align: justify; font-size: 15px; font-weight: bold" th:text="*{titleDocument}"></p>
+            <img class="img-rounded center-block " th:src="*{imgDocument}">
+            <p style="text-align: justify; font-size: 15px" th:text="*{contentDocument}"></p>
+        </div>
+    </div>
     <!-- Footer -->
     <footer th:replace="/layout/fragment-footer::fragment-footer" class="footer"></footer>
 </div>
+
 <script src="/assets/js/jquery-3.2.1.min.js"></script>
 <script src="/assets/styles/bootstrap4/popper.js"></script>
 <script src="/assets/styles/bootstrap4/bootstrap.min.js"></script>

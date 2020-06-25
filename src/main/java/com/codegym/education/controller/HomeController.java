@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -38,10 +39,10 @@ public class HomeController {
         List<Lesson> topSixLession = new ArrayList<>();
         topSixLession.add(lessions.get(0));
         topSixLession.add(lessions.get(1));
-//        topSixLession.add(lessions.get(2));
-//        topSixLession.add(lessions.get(3));
-//        topSixLession.add(lessions.get(4));
-//        topSixLession.add(lessions.get(5));
+        topSixLession.add(lessions.get(2));
+        topSixLession.add(lessions.get(3));
+        topSixLession.add(lessions.get(4));
+        topSixLession.add(lessions.get(5));
         Page<AppDoc> listDocuments = documentService.sortByDate(pageable);
         List<AppDoc> documents = listDocuments.getContent();
         List<AppDoc> topSixDoc = new ArrayList<>();
@@ -70,16 +71,22 @@ public class HomeController {
         return new ModelAndView("contact");
     }
 
-//
-//    @GetMapping("/findAll")
-//    public ModelAndView findAll(@PageableDefault(size = 9) Pageable pageable,
-//                                @RequestParam("keyword") Optional<String> keyword){
-//        Page<Lesson> listLessons = lessonService.findByNameLesson(pageable,keyword);
-//        Page<AppDoc> listDocuments = documentService.findByNameDocument(pageable,keyword);
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("listLessons",listLessons);
-//        modelAndView.addObject("listDocuments",listDocuments);
-//        return modelAndView;
+//    @GetMapping("/error")
+//    public ModelAndView error() {
+//        return new ModelAndView("erorr");
 //    }
+
+    @GetMapping("/findAll")
+    public ModelAndView findAll(@PageableDefault(size = 9) Pageable pageable,
+                                @RequestParam("keyword") Optional<String> keyword){
+        Page<Lesson> listLessons = lessonService.findByNameLesson(pageable,keyword);
+        Page<AppDoc> listDocuments = documentService.findByNameDocument(pageable,keyword);
+        ModelAndView modelAndView = new ModelAndView("searchLesson");
+        modelAndView.addObject("listLessons",listLessons.getContent());
+        modelAndView.addObject("listDocuments",listDocuments.getContent());
+        return modelAndView;
+    }
+
 }
+
 

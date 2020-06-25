@@ -27,7 +27,7 @@ public class Lesson {
     private String videoLesson;
     @Column(nullable = false, columnDefinition = "long")
     private String typeLesson;
-    @DateTimeFormat
+    @Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime date;
 
     public Lesson() {

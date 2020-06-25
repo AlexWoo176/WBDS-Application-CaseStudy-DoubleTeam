@@ -4,9 +4,8 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
 @Data
@@ -24,7 +23,7 @@ public class AppDoc {
     private String contentDocument;
     @Column(nullable = false, columnDefinition = "long")
     private String typeDocument;
-    @DateTimeFormat
+    @Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime date;
 
 
