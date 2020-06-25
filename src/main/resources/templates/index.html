@@ -15,6 +15,7 @@
     <link href="/assets/plugins/video-js/video-js.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/assets/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="/assets/styles/responsive.css">
+    <script src="../static/js/text-length.js"></script>
 </head>
 <body>
 
@@ -44,11 +45,11 @@
                                     <div class="home_content text-center">
                                         <div class="home_logo"><img src="/assets/images/logoDBT.png" alt=""></div>
                                         <div class="home_text">
-                                            <div class="home_title">Complete Online Courses</div>
-                                            <div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum.
-                                                Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl
-                                                fermentum, gravida augue ut, fermentum ipsum.
-                                            </div>
+<!--                                            <div class="home_title">Complete Online Courses</div>-->
+<!--                                            <div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum.-->
+<!--                                                Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl-->
+<!--                                                fermentum, gravida augue ut, fermentum ipsum.-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -68,11 +69,11 @@
                                         <!--										 sửa link logo-->
                                         <div class="home_logo"><img src="/assets/images/logoDBT.png" alt=""></div>
                                         <div class="home_text">
-                                            <div class="home_title">Complete Online Courses</div>
-                                            <div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum.
-                                                Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl
-                                                fermentum, gravida augue ut, fermentum ipsum.
-                                            </div>
+<!--                                            <div class="home_title">Complete Online Courses</div>-->
+<!--                                            <div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum.-->
+<!--                                                Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl-->
+<!--                                                fermentum, gravida augue ut, fermentum ipsum.-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -91,11 +92,11 @@
                                     <div class="home_content text-center">
                                         <div class="home_logo"><img src="/assets/images/logoDBT.png" alt=""></div>
                                         <div class="home_text">
-                                            <div class="home_title">Complete Online Courses</div>
-                                            <div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum.
-                                                Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl
-                                                fermentum, gravida augue ut, fermentum ipsum.
-                                            </div>
+<!--                                            <div class="home_title">Complete Online Courses</div>-->
+<!--                                            <div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum.-->
+<!--                                                Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl-->
+<!--                                                fermentum, gravida augue ut, fermentum ipsum.-->
+<!--                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -125,12 +126,21 @@
                     <div class="featured_container">
                         <div class="row">
                             <div class="col-lg-6 featured_col">
-                                <div class="featured_content">
+                                <div class="featured_content" style="height: 300px">
                                     <div class="featured_title"><h3>
                                         <a href="lesson.html" th:text="${firstLessons.nameLesson}"></a>
                                     </h3></div>
                                     <div class="featured_text">
-                                        <p th:text="${firstLessons.titleLess}"></p>
+                                        <p style="width: 350px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 20px;
+	                                              -webkit-line-clamp: 5;
+                                                  height: 100px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;"
+                                           th:text="${firstLessons.titleLess}"></p>
+<!--                                        <p id="id1" hidden th:text="${firstLessons.id}"></p>-->
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +148,7 @@
                                 <!--                                <div class="featured_background"-->
                                 <!--                                     style="background-image:url(/assets/images/featured.jpg)"></div>-->
                                 <div class="featured_background">
-                                    <img height="293" th:src="${firstLessons.imgLesson}">
+                                    <img height="300" th:src="${firstLessons.imgLesson}">
                                 </div>
                             </div>
                         </div>
@@ -152,28 +162,28 @@
 
     <div class="courses">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="section_title text-center"><h2>Choose your course</h2></div>
-                    <div class="section_subtitle">Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
-                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id
-                        varius quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="course_search">
-                        <form action="#"
-                              class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
-                            <div><input type="text" class="course_input" placeholder="Course" required="required"></div>
-                            <div><input type="text" class="course_input" placeholder="Level" required="required"></div>
-                            <button class="course_button"><span>search course</span><span class="button_arrow"><i
-                                    class="fa fa-angle-right" aria-hidden="true"></i></span></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="row">-->
+<!--                <div class="col-lg-10 offset-lg-1">-->
+<!--                    <div class="section_title text-center"><h2>Choose your course</h2></div>-->
+<!--                    <div class="section_subtitle">Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod-->
+<!--                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id-->
+<!--                        varius quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="course_search">-->
+<!--                        <form action="#"-->
+<!--                              class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">-->
+<!--                            <div><input type="text" class="course_input" placeholder="Course" required="required"></div>-->
+<!--                            <div><input type="text" class="course_input" placeholder="Level" required="required"></div>-->
+<!--                            <button class="course_button"><span>search course</span><span class="button_arrow"><i-->
+<!--                                    class="fa fa-angle-right" aria-hidden="true"></i></span></button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="row">
                 <div class="col">
 <!--                        lấy dữ liệu từ database-->
@@ -184,12 +194,12 @@
                             <!-- Slider Item -->
                             <div class="owl-item">
                                 <div class="course">
-                                    <div class="course_image"> <img th:src="${topsix.imgLesson}"></div>
+                                    <div class="course_image" > <img height="270" width="360" th:src="${topsix.imgLesson}"></div>
                                     <div class="course_body">
                                             <div class="course_title"><h3><a href="lesson.html" th:text="${topsix.nameLesson}"></a>
                                         </h3></div>
                                         <div class="course_text">
-                                            <p th:text="${topsix.titleLess}"></p>
+                                            <p class="text-length" th:text="${topsix.titleLess}"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -271,12 +281,12 @@
                                 <!-- Slider Item -->
                                 <div class="owl-item">
                                     <div class="course">
-                                        <div class="course_image"> <img th:src="${topsixDoc.imgDocument}"></div>
+                                        <div class="course_image" style="height: 270px; width: 360px "> <img  th:src="${topsixDoc.imgDocument}"></div>
                                         <div class="course_body">
                                             <div class="course_title"><h3><a href="lesson.html" th:text="${topsixDoc.nameDocument}"></a>
                                             </h3></div>
                                             <div class="course_text">
-                                                <p th:text="${topsixDoc.titleDocument}"></p>
+                                                <p class="text-length" th:text="${topsixDoc.titleDocument}"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -337,7 +347,8 @@
 
     <footer th:replace="/layout/fragment-footer::fragment-footer" class="footer"></footer>
 </div>
-
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="/assets/js/text-length.js"></script>
 <script src="/assets/js/jquery-3.2.1.min.js"></script>
 <script src="/assets/styles/bootstrap4/popper.js"></script>
 <script src="/assets/styles/bootstrap4/bootstrap.min.js"></script>

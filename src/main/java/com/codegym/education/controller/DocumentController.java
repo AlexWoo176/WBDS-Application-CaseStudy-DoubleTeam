@@ -31,7 +31,7 @@ public class DocumentController {
     }
 
     @GetMapping("/showAllDocument")
-    public ModelAndView showAllDocument(@PageableDefault(size = 1) Pageable pageable,
+    public ModelAndView showAllDocument(@PageableDefault(size = 6) Pageable pageable,
                                         @RequestParam("keyword") Optional<String> keyword) {
         Page<AppDoc> listDocuments;
         ModelAndView modelAndView = new ModelAndView("document");

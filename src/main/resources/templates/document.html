@@ -110,8 +110,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="header_search_content d-flex flex-row align-items-center justify-content-end">
-                            <form action="#" class="header_search_form">
-                                <input type="search" class="search_input" placeholder="Search" required="required">
+                            <form th:action="@{/findAll}" class="header_search_form">
+                                <input type="search" name="keyword" class="search_input" placeholder="Search" required="required">
                                 <button class="header_search_button d-flex flex-column align-items-center justify-content-center">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
@@ -168,17 +168,18 @@
 
     <div class="home">
         <!-- Background image artist https://unsplash.com/@thepootphotographer -->
-        <div class="home_background parallax_background parallax-window" data-parallax="scroll" data-image-src="/assets/images/courses.jpg" data-speed="0.8"></div>
+        <div class="home_background parallax_background parallax-window" data-parallax="scroll"
+             data-image-src="/assets/images/courses.jpg" data-speed="0.8"></div>
         <div class="home_container">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="home_content text-center">
-                            <div class="home_title">About us</div>
+                            <div class="home_title">Document</div>
                             <div class="breadcrumbs">
                                 <ul>
                                     <li><a th:href="@{/}">Home</a></li>
-                                    <li>About us</li>
+                                    <li>Document</li>
                                 </ul>
                             </div>
                         </div>
@@ -232,11 +233,18 @@
                         <th:block th:each="listDocuments : ${listDocuments}">
                             <div class="col-lg-4 col-md-6">
                                 <div class="course">
-                                    <div class="course_image"><a th:href="@{/document/showDocument/__${listDocuments.id}__}"><img th:src="${listDocuments.imgDocument}" alt=""></a></div>
+                                    <div class="course_image"><a th:href="@{/document/showDocument/__${listDocuments.id}__}"><img height="270" width="360" th:src="${listDocuments.imgDocument}" alt=""></a></div>
                                     <div class="course_body">
-                                        <div class="course_title"><h3><a th:href="@{/document/showDocument/__${listDocuments.id}__}" th:text="${listDocuments.nameDocument}"></a></h3></div>
+                                        <div class="course_title"><h3 style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 2;
+                                                  height: 60px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;"><a th:href="@{/document/showDocument/__${listDocuments.id}__}" th:text="${listDocuments.nameDocument}"></a></h3></div>
                                         <div class="course_text">
-                                            <p th:text="${listDocuments.titleDocument}"></p>
+                                            <p class="text-length" th:text="${listDocuments.titleDocument}"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -261,11 +269,18 @@
                         <th:block th:each="listDocuments : ${listJavaDocument}">
                             <div class="col-lg-4 col-md-6">
                                 <div class="course">
-                                    <div class="course_image"><a th:href="@{/document/showDocument/__${listDocuments.id}__}"><img th:src="${listDocuments.imgDocument}" alt=""></a></div>
+                                    <div class="course_image"><a th:href="@{/document/showDocument/__${listDocuments.id}__}"><img height="270" width="360" th:src="${listDocuments.imgDocument}" alt=""></a></div>
                                     <div class="course_body">
-                                        <div class="course_title"><h3><a th:href="@{/document/showDocument/__${listDocuments.id}__}" th:text="${listDocuments.nameDocument}"></a></h3></div>
+                                        <div class="course_title"><h3 style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 2;
+                                                  height: 60px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;"><a th:href="@{/document/showDocument/__${listDocuments.id}__}" th:text="${listDocuments.nameDocument}"></a></h3></div>
                                         <div class="course_text">
-                                            <p th:text="${listDocuments.titleDocument}"></p>
+                                            <p class="text-length" th:text="${listDocuments.titleDocument}"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -278,11 +293,18 @@
                         <th:block th:each="listDocuments : ${listPhpDocument}">
                             <div class="col-lg-4 col-md-6">
                                 <div class="course">
-                                    <div class="course_image"><a th:href="@{/document/showDocument/__${listDocuments.id}__}"><img th:src="${listDocuments.imgDocument}" alt=""></a></div>
+                                    <div class="course_image"><a th:href="@{/document/showDocument/__${listDocuments.id}__}"><img height="270" width="360" th:src="${listDocuments.imgDocument}" alt=""></a></div>
                                     <div class="course_body">
-                                        <div class="course_title"><h3><a th:href="@{/document/showDocument/__${listDocuments.id}__}" th:text="${listDocuments.nameDocument}"></a></h3></div>
+                                        <div class="course_title"><h3 style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 2;
+                                                  height: 60px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;"><a th:href="@{/document/showDocument/__${listDocuments.id}__}" th:text="${listDocuments.nameDocument}"></a></h3></div>
                                         <div class="course_text">
-                                            <p th:text="${listDocuments.titleDocument}"></p>
+                                            <p class="text-length" th:text="${listDocuments.titleDocument}"></p>
                                         </div>
                                     </div>
                                 </div>
