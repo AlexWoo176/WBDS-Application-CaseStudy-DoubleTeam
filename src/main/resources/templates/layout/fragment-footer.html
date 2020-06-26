@@ -57,13 +57,13 @@
 
                         <div class="col-lg-3 footer_col">
                             <div class="footer_links">
-                                <div class="footer_title">Quick menu</div>
+                                <div class="footer_title" th:text="#{footer.menu}"></div>
                                 <ul class="footer_list">
-                                    <li><a th:href="@{/}">Home</a></li>
-                                    <li><a th:href="@{/about}">About us</a></li>
+                                    <li><a th:href="@{/}" th:text="#{footer.home}"></a></li>
+                                    <li><a th:href="@{/about}" th:text="#{footer.about-us}"></a></li>
+                                    <li><a th:href="@{/contact}" th:text="#{footer.contact}"></a></li>
                                     <li><a th:href="@{/error}">Testimonials</a></li>
                                     <li><a th:href="@{/error}">Services</a></li>
-                                    <li><a th:href="@{/contact}">Contact</a></li>
                                     <li><a th:href="@{/error}">Facts</a></li>
                                 </ul>
                             </div>
@@ -71,11 +71,11 @@
 
                         <div class="col-lg-3 footer_col">
                             <div class="footer_links">
-                                <div class="footer_title">Useful Links</div>
+                                <div class="footer_title" th:text="#{footer.useful-link}"></div>
                                 <ul class="footer_list">
-                                    <li><a th:href="@{/lesson/showAllLesson}">Lesson</a></li>
-                                    <li><a th:href="@{/error}">Events</a></li>
-                                    <li><a th:href="@{/document/showAllDocument}">Document</a></li>
+                                    <li><a th:href="@{/lesson/showAllLesson}" th:text="#{footer.lesson}"></a></li>
+                                    <li><a th:href="@{/error}" th:text="#{footer.Events}"></a></li>
+                                    <li><a th:href="@{/document/showAllDocument}" th:text="#{footer.document}"></a></li>
                                     <li><a th:href="@{/error}">Teachers</a></li>
                                     <li><a th:href="@{/error}">Links</a></li>
                                     <li><a th:href="@{/error}">FAQ</a></li>
@@ -85,20 +85,20 @@
 
                         <div class="col-lg-3 footer_col">
                             <div class="footer_contact">
-                                <div class="footer_title">Contact Us</div>
+                                <div class="footer_title" th:text="#{footer.Contact-Us}"></div>
                                 <div class="footer_contact_info">
                                     <div class="footer_contact_item">
-                                        <div class="footer_contact_title">Address:</div>
+                                        <div class="footer_contact_title" th:text="#{footer.Address}"></div>
                                         <div class="footer_contact_line">Số 15, Lô TT04, KĐT Mon City, Mỹ Đình 2, Nam Từ Liêm,
                                             Hà Nội.
                                         </div>
                                     </div>
                                     <div class="footer_contact_item">
-                                        <div class="footer_contact_title">Phone:</div>
+                                        <div class="footer_contact_title" th:text="#{footer.Phone}"></div>
                                         <div class="footer_contact_line">+84 904 366 030</div>
                                     </div>
                                     <div class="footer_contact_item">
-                                        <div class="footer_contact_title">Email:</div>
+                                        <div class="footer_contact_title" th:text="#{footer.Email}"></div>
                                         <div class="footer_contact_line">doubleteamc0220h1@gmail.com</div>
                                     </div>
                                 </div>

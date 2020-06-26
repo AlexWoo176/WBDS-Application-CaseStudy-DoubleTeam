@@ -29,7 +29,7 @@
                             <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
                                 <ul class="top_bar_contact_list">
                                     <li>
-                                        <div class="question" th:text="#{menu.question}">Have any questions?</div>
+                                        <div class="question" th:text="#{menu.question}"></div>
                                     </li>
                                     <li>
                                         <div th:text="#{menu.mobie}"></div>
@@ -84,9 +84,6 @@
                                     <li><a th:href="@{/document/showAllDocument}" th:text="#{menu.document}"></a></li>
                                     <li><a th:href="@{/contact}" th:text="#{menu.contact}"></a></li>
                                     <li><a th:href="@{/quiz}" th:text="#{menu.quiz}"></a></li>
-<!--                                    <li style="margin-left: 60px">
-                                            <img width="25" src="/assets/images/EN.jpg" alt=""> |-->
-<!--                                        <img width="25" src="/assets/images/VN.jpg" alt=""></li>-->
                                     <li class="nav-item">
                                         <div>
                                         <a class="nav-link" href="?lang=en" style="padding: 10px 5px 0px 0px; float: left">
@@ -102,8 +99,6 @@
                                     </li>
                                 </ul>
                                 <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
-
-                                <!-- Hamburger -->
 
                                 <div class="hamburger menu_mm">
                                     <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
