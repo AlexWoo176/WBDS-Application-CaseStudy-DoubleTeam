@@ -22,12 +22,13 @@
     <div class="container">
         <div class="row" style="margin-top: 200px">
             <div class="col-md-6">
-                <table>
+                <form id="myForm" th:with="move=${currentPage}" th:action="@{'/page/' + ${move + 1}}" method="post">
+                <table th:each="question, stat : ${questionList}">
                     <tr>
                         <th style="font-size: 25px">Câu 1</th>
                     </tr>
                     <tr>
-                        <td style="font-size: 20px">Thế nào là cơ sở dữ liệu quan hệ?</td>
+                        <td style="font-size: 20px" th:text="${question.getContent()}">Thế nào là cơ sở dữ liệu quan hệ?</td>
                     </tr>
                     <tr>
                         <td style="font-size: 15px; padding-top: 30px">
@@ -37,20 +38,7 @@
                                     Cơ sở dữ liệu dùng để tạo lập, cập nhật và khai thác CSDL quan hệ
                                 </label><br>
 
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Cơ sở dữ liệu được xây dựng dựa trên mô hình dữ liệu quan hệ và khai thác CSDL quan hệ
-                                </label>
 
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Cơ sở dữ liệu dùng để tạo lập, cập nhật và khai thác CSDL quan hệ dựa trên mô hình dữ liệu quan hệ
-                                </label>
-
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Cơ sở dữ liệu được xây dựng dựa trên mô hình dữ liệu quan hệ
-                                </label>
                             </div>
                         </td>
                     </tr>
@@ -59,9 +47,9 @@
                             <input style="width: 45px; height: 30px; margin-right: 20px" type="submit" value="trước">
                             <input style="width: 45px; height: 30px" type="submit" value="sau">
                         </td>
-                    </tr>
+                    </tr>;
                 </table>
-
+                </form>
             </div>
             <div class="col-md-6">
                 <table style="width: 300px; height: 300px" class="center-block">

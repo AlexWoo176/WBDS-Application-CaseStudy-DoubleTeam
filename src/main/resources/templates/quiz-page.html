@@ -13,6 +13,43 @@
     <link rel="stylesheet" type="text/css" href="/assets/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="/assets/styles/responsive.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var hoursleft = 0;
+        var minutesleft = 10;
+        var secondsleft = 0;
+        var finishedtext = "Countdown finished!";
+        var end;
+        if(sessionStorage.getItem("end")) {
+            end = new Date(sessionStorage.getItem("end"));
+        } else {
+            end = new Date();
+            end.setMinutes(end.getMinutes()+minutesleft);
+            end.setSeconds(end.getSeconds()+secondsleft);
+        }
+        var counter = function () {
+            var now = new Date();
+            var diff = end - now;
+            diff = new Date(diff);
+            var sec = diff.getSeconds();
+            var min = diff.getMinutes();
+            if (min < 10) {
+                min = "0" + min;
+            }
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+            if(now >= end) {
+                clearTimeout(interval);
+                sessionStorage.setItem("end", null)
+                window.location.href="http://www.google.com";
+            } else {
+                var value = "Thời gian còn lại " + min + ":" + sec + " phút";
+                sessionStorage.setItem("end", end);
+                document.getElementById('divCounter').innerHTML = value;
+            }
+        }
+        var interval = setInterval(counter, 20);
+    </script>
 </head>
 <body>
 
@@ -164,22 +201,8 @@
     <div style=" margin-top: 200px">
 
         <h1>Quiz Page</h1>
-        <h2>Tài Khoản: <span th:text="${user}"></span></h2>
-        <div sec:authorize="isAuthenticated()">
-            <a th:href="@{/}">Quay Về Trang Chủ</a> | <a th:href="@{/logout}">Logout</a>
-        </div>
         <form id="myForm" th:with="move=${currentPage}" th:action="@{'/page/' + ${move + 1}}" method="post">
 
-            <div>
-                Time Left ::
-                <input id="minutes" type="text" style="width: 10px;
-             border: none; font-size: 16px;
-            font-weight: bold; color: black;"><font size="5"> :
-            </font>
-                <input id="seconds" type="text" style="width: 20px;
-                        border: none; font-size: 16px;
-                        font-weight: bold; color: black;">
-            </div>
 
             <table th:each="question, stat : ${questionList}">
                 <tr>
@@ -242,6 +265,7 @@
         </div>
     </div>
     </div>
+    <div id="divCounter"></div>
 
     <!-- Footer -->
     <footer th:replace="/layout/fragment-footer::fragment-footer" class="footer"></footer>
