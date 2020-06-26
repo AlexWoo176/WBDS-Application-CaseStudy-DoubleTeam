@@ -14,9 +14,16 @@
     <title>Dashboard</title>
 </head>
 <body>
+<div class="super_container">
 
-<div class="container">
-    <div class="row" style="margin-bottom: 30px">
+    <!-- Header -->
+    <header th:replace="/layout/fragment-navibar::header-navibar" class="header"></header>
+    <!-- Menu -->
+    <div th:replace="/layout/fragment-menu-responsive::menu-responsive" class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400"></div>
+
+
+    <div class="container">
+    <div class="row" style="margin-bottom: 30px; margin-top: 200px">
         <div class="col">
             <div class="course_search">
                 <form class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-between">
@@ -55,10 +62,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="lesson,count : ${listLessons}">
+        <tr th:each="lesson,count : ${listLessons}" >
             <th scope="row" th:text="${count.count}"></th>
             <td th:text="*{lesson.nameLesson}"></td>
-            <td th:text="*{lesson.titleLess}"></td>
+            <td style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 5;
+                                                  height: 160px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical; margin-bottom: 10px" th:text="*{lesson.titleLess}"></td>
             <td th:text="*{lesson.imgLesson}"></td>
             <td style="text-align: center" th:text="*{lesson.videoLesson}"></td>
             <td style="text-align: center" th:text="*{lesson.typeLesson}"></td>
@@ -82,6 +96,10 @@
 
 </div>
 
+    <!-- Footer -->
+
+    <footer th:replace="/layout/fragment-footer::fragment-footer" class="footer"></footer>
+</div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

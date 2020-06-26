@@ -78,23 +78,27 @@
                             </div>
                             <nav class="main_nav_contaner ml-auto">
                                 <ul class="main_nav">
-                                    <li class="active"><a th:href="@{/}" th:text="#{menu.home}"></a></li>
+                                    <li><a th:href="@{/}" th:text="#{menu.home}"></a></li>
                                     <li><a th:href="@{/about}" th:text="#{menu.about-us}"></a></li>
                                     <li><a th:href="@{/lesson/showAllLesson}" th:text="#{menu.lesson}"></a></li>
                                     <li><a th:href="@{/document/showAllDocument}" th:text="#{menu.document}"></a></li>
                                     <li><a th:href="@{/contact}" th:text="#{menu.contact}"></a></li>
                                     <li><a th:href="@{/quiz}" th:text="#{menu.quiz}"></a></li>
-<!--                                    <li style="margin-left: 60px"><img width="25" src="/assets/images/EN.jpg" alt=""> |-->
+<!--                                    <li style="margin-left: 60px">
+                                            <img width="25" src="/assets/images/EN.jpg" alt=""> |-->
 <!--                                        <img width="25" src="/assets/images/VN.jpg" alt=""></li>-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="?lang=en">
-                                            <img src="/assets/images/EN.jpg" width="25" /> EN
+                                        <div>
+                                        <a class="nav-link" href="?lang=en" style="padding: 10px 5px 0px 0px; float: left">
+                                            <img src="/assets/images/EN.jpg" width="25" />
                                         </a>
+                                        <a class="nav-link" href="?lang=vi" style="padding: 10px 0px 0px 5px; float: left">
+                                            <img src="/assets/images/VN.jpg" width="25" />
+                                        </a>
+                                        </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="?lang=vi">
-                                            <img src="/assets/images/VN.jpg" width="25" /> VN
-                                        </a>
+
                                     </li>
                                 </ul>
                                 <div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
@@ -112,7 +116,6 @@
             </div>
         </div>
 
-        <!-- Header Search Panel -->
         <div class="header_search_container">
             <div class="container">
                 <div class="row">

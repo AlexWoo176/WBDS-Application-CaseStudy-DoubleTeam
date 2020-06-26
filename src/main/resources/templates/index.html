@@ -22,9 +22,7 @@
 <div class="super_container">
 
     <!-- Header -->
-
         <header th:replace="/layout/fragment-navibar::header-navibar" class="header"></header>
-
     <!-- Menu -->
     <div th:replace="/layout/fragment-menu-responsive::menu-responsive" class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400"></div>
 
@@ -128,7 +126,7 @@
                         <div class="row">
                             <div class="col-lg-6 featured_col">
                                 <div class="featured_content" style="height: 300px">
-                                    <div class="featured_title"><h3>
+                                    <div class="featured_title"><h3 >
                                         <a th:href="@{/lesson/showlesson/__${firstLessons.id}__}" th:text="${firstLessons.nameLesson}"></a></a>
                                     </h3></div>
                                     <div class="featured_text">
@@ -197,7 +195,14 @@
                                 <div class="course">
                                     <div class="course_image" > <img height="270" width="360" th:src="${topsix.imgLesson}"></div>
                                     <div class="course_body">
-                                            <div class="course_title"><h3>
+                                            <div class="course_title"><h3 style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 2;
+                                                  height: 60px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;">
                                                 <a th:href="@{/lesson/showlesson/__${topsix.id}__}" th:text="${topsix.nameLesson}"></a></a>
                                         </h3></div>
                                         <div class="course_text">
@@ -285,7 +290,14 @@
                                     <div class="course">
                                         <div class="course_image" style="height: 270px; width: 360px "> <img  th:src="${topsixDoc.imgDocument}"></div>
                                         <div class="course_body">
-                                            <div class="course_title"><h3>
+                                            <div class="course_title"><h3 style="width: 300px;
+	                                              overflow: hidden;
+	                                              text-overflow: ellipsis;
+	                                              line-height: 30px;
+	                                              -webkit-line-clamp: 2;
+                                                  height: 60px;
+	                                              display: -webkit-box;
+                                               	  -webkit-box-orient: vertical;">
                                                 <a th:href="@{/document/showDocument/__${topsixDoc.id}__}" th:text="${topsixDoc.nameDocument}"></a>
                                             </h3></div>
                                             <div class="course_text">
