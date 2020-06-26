@@ -1,1 +1,1 @@
-web: java -jar build/libs/Quiz-0.0.1-SNAPSHOT.jar
+web: java -jar build/libs/education-0.0.1-SNAPSHOT.jar
