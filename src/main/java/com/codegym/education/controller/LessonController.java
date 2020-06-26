@@ -1,6 +1,7 @@
 package com.codegym.education.controller;
 
 import com.codegym.education.model.Lesson;
+import com.codegym.education.model.Participant;
 import com.codegym.education.service.lesson.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +29,7 @@ public class LessonController {
 
     @GetMapping("/showAllLesson")
     public ModelAndView showAllLesson(@PageableDefault(size = 9) Pageable pageable,
-                                      @RequestParam("keyword") Optional<String> keyword) {
+                                      @RequestParam("keyword") Optional<String> keyword, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("lesson");
         List<Lesson> listJavaLessons = lessonService.findByTypeLesson("java");
         List<Lesson> listPhpLessons = lessonService.findByTypeLesson("php");
@@ -40,7 +42,8 @@ public class LessonController {
             listLesson = lessonService.sortByDate(pageable);
             modelAndView.addObject("keyword", "");
         }
-
+        Participant participant = (Participant)session.getAttribute("participant");
+        modelAndView.addObject("participant", participant);
         modelAndView.addObject("listJavaLessons",listJavaLessons);
         modelAndView.addObject("listPhpLessons",listPhpLessons);
         modelAndView.addObject("listLessons", listLesson);
@@ -49,10 +52,12 @@ public class LessonController {
 
     //xem chi tiet 1 phan
     @GetMapping("/showlesson/{id}")
-    public ModelAndView showLesson(@PathVariable("id") Long id) {
+    public ModelAndView showLesson(@PathVariable("id") Long id, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("detailLesson");
         Optional<Lesson> lessonOptional = lessonService.findById(id);
         Lesson lesion = lessonOptional.get();
+        Participant participant = (Participant)session.getAttribute("participant");
+        modelAndView.addObject("participant", participant);
         modelAndView.addObject("lesson", lesion);
         return modelAndView;
     }

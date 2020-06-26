@@ -2,6 +2,7 @@ package com.codegym.education.controller;
 
 import com.codegym.education.model.AppDoc;
 import com.codegym.education.model.Lesson;
+import com.codegym.education.model.Participant;
 import com.codegym.education.service.UserService;
 import com.codegym.education.service.document.DocumentService;
 import com.codegym.education.service.lesson.LessonService;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @Controller
@@ -32,7 +34,7 @@ public class AdminController {
     //lesson
     @GetMapping("/showAllLesson")
     public ModelAndView showAllLesson(@PageableDefault(size = 10) Pageable pageable,
-                                      @RequestParam("keyword") Optional<String> keyword) {
+                                      @RequestParam("keyword") Optional<String> keyword, HttpSession session) {
         Page<Lesson> listLesson;
         ModelAndView modelAndView = new ModelAndView("dashboard/LessonDashboard");
         if (keyword.isPresent()) {
@@ -42,6 +44,8 @@ public class AdminController {
             listLesson = lessonService.sortByDate(pageable);
             modelAndView.addObject("keyword", "");
         }
+        Participant participant = (Participant)session.getAttribute("participant");
+        modelAndView.addObject("participant", participant);
         modelAndView.addObject("listLessons", listLesson);
         return modelAndView;
     }
@@ -50,7 +54,7 @@ public class AdminController {
     //Document
     @GetMapping("/showAllDocument")
     public ModelAndView showAllDocument(@PageableDefault(size = 10) Pageable pageable,
-                                        @RequestParam("keyword") Optional<String> keyword) {
+                                        @RequestParam("keyword") Optional<String> keyword, HttpSession session) {
         Page<AppDoc> listDocuments;
         ModelAndView modelAndView = new ModelAndView("dashboard/documentDashboard");
         if (keyword.isPresent()) {
@@ -61,6 +65,8 @@ public class AdminController {
             modelAndView.addObject("keyword", "");
 
         }
+        Participant participant = (Participant)session.getAttribute("participant");
+        modelAndView.addObject("participant", participant);
         modelAndView.addObject("listDocuments", listDocuments);
         return modelAndView;
     }

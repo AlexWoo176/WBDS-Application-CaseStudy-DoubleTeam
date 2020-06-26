@@ -68,24 +68,30 @@ public class HomeController {
     }
 
     @GetMapping("/about")
-    public ModelAndView about() {
-        return new ModelAndView("about");
+    public ModelAndView about(HttpSession session) {
+        Participant participant = (Participant)session.getAttribute("participant");
+        ModelAndView modelAndView = new ModelAndView("about");
+        modelAndView.addObject("participant", participant);
+        return modelAndView;
     }
 
     @GetMapping("/contact")
-    public ModelAndView contact() {
-        return new ModelAndView("contact");
+    public ModelAndView contact(HttpSession session) {
+            Participant participant = (Participant)session.getAttribute("participant");
+            ModelAndView modelAndView = new ModelAndView("contact");
+            modelAndView.addObject("participant", participant);
+            return modelAndView;
     }
 
-    @GetMapping("/quiz")
-    public ModelAndView quiz() {
-        return new ModelAndView("quiz");
-    }
+//    @GetMapping("/quiz")
+//    public ModelAndView quiz() {
+//        return new ModelAndView("quiz");
+//    }
 
-    @GetMapping("/quiz-result")
-    public ModelAndView quizResult() {
-        return new ModelAndView("quiz-result");
-    }
+//    @GetMapping("/quiz-result")
+//    public ModelAndView quizResult() {
+//        return new ModelAndView("quiz-result");
+//    }
 
 
     @GetMapping("/findAll")
