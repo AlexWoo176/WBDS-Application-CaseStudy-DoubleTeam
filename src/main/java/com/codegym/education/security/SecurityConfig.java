@@ -79,10 +79,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/login-facebook/**",
                         "/login-google/**").permitAll()
                 .antMatchers(HttpMethod.GET).permitAll()
-                .antMatchers(HttpMethod.POST).permitAll()
-//                .antMatchers(HttpMethod.POST).access("hasRole('ROLE_ADMIN')")
+                .antMatchers(HttpMethod.POST).access("hasRole('ROLE_ADMIN')")
                 .antMatchers(HttpMethod.PUT).access("hasRole('ROLE_ADMIN')")
                 .antMatchers(HttpMethod.DELETE).access("hasRole('ROLE_ADMIN')")
+//                .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .anyRequest().authenticated()
                 .and().formLogin()
                 .loginPage("/login")
