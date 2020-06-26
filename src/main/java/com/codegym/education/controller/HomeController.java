@@ -83,10 +83,10 @@ public class HomeController {
             return modelAndView;
     }
 
-//    @GetMapping("/quiz")
-//    public ModelAndView quiz() {
-//        return new ModelAndView("quiz");
-//    }
+    @GetMapping("/quiz")
+    public ModelAndView quiz() {
+        return new ModelAndView("quiz");
+    }
 
 //    @GetMapping("/quiz-result")
 //    public ModelAndView quizResult() {
